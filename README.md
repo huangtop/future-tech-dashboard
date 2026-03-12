@@ -1,3 +1,7 @@
+# CI: auto update research_report
+
+This repository contains a GitHub Actions workflow that runs daily (05:30 UTC) to execute the yfinance script and update `research_report.json` if data changed. The workflow file is `.github/workflows/update-research-report.yml`.
+
 <<<<<<< HEAD
 # future-tech-dashboard
 Daily Update Stock Data to json file
