@@ -1,0 +1,204 @@
+{
+    "version": "2026.1.0",
+    "lab_name": "AI & Frontier Tech Investment Lab",
+    "themes": {
+        "AI_TECH": {
+            "display_name": "人工智慧與核心科技",
+            "clusters": {
+                "compute_core": {
+                    "name": "AI 算力核心",
+                    "subtitle": "Growth / PEG 驅動",
+                    "logic_type": "peg_growth",
+                    "default_params": {
+                        "g": 25,
+                        "target_pe": 40
+                    },
+                    "symbols": [
+                        "NVDA",
+                        "AMD",
+                        "TSM"
+                    ],
+                    "insight_link": "/ai-compute-master-report",
+                    "map_id": "aws_supply_chain_2026",
+                    "tag": "blue"
+                },
+                "ai_memory_cycle": {
+                    "name": "AI 記憶體週期",
+                    "subtitle": "ASP / P/S 驅動",
+                    "logic_type": "ps_cycle",
+                    "default_params": {
+                        "target_ps": 4,
+                        "cycle_stage": "Mid"
+                    },
+                    "symbols": [
+                        "MU",
+                        "SNDK"
+                    ],
+                    "insight_link": "/hbm-market-analysis",
+                    "tag": "orange"
+                },
+                "infrastructure": {
+                    "name": "AI 基礎設施 (CSP/Server)",
+                    "subtitle": "CAPEX / P/E 驅動",
+                    "logic_type": "pe_slider",
+                    "default_params": {
+                        "target_pe": 25
+                    },
+                    "symbols": [
+                        "GOOGL",
+                        "META",
+                        "AMZN",
+                        "MSFT",
+                        "ORCL",
+                        "SMCI",
+                        "VRT",
+                        "DELL",
+                        "HPE"
+                    ],
+                    "insight_link": "/csp-capex-tracker",
+                    "tag": "purple"
+                },
+                "photonics_cpo": {
+                    "name": "高速傳輸與矽光子",
+                    "subtitle": "Efficiency / PEG 驅動",
+                    "logic_type": "peg_growth",
+                    "default_params": {
+                        "g": 20,
+                        "target_pe": 35
+                    },
+                    "symbols": [
+                        "AVGO",
+                        "MRVL",
+                        "COHR",
+                        "LITE",
+                        "ALAB",
+                        "AAOI",
+                        "AXTI",
+                        "CIEN",
+                        "FN",
+                        "CRDO",
+                        "APH"
+                    ],
+                    "insight_link": "/cpo-silicon-photonics",
+                    "tag": "orange"
+                },
+                "consumer_apps": {
+                    "name": "終端應用（手機/軟體）",
+                    "subtitle": "SaaS & Device / PEG 驅動",
+                    "logic_type": "peg",
+                    "default_params": {
+                        "g": 15
+                    },
+                    "symbols": [
+                        "QCOM",
+                        "AAPL",
+                        "NFLX",
+                        "ADBE",
+                        "CRM",
+                        "INTC"
+                    ],
+                    "insight_link": "/ai-consumer-monetization",
+                    "tag": "purple"
+                }
+            }
+        },
+        "FRONTIER_TECH": {
+            "display_name": "前沿與突破性科技",
+            "clusters": {
+                "quantum_lab": {
+                    "name": "量子計算實驗室",
+                    "subtitle": "Milestone 驅動",
+                    "logic_type": "milestone",
+                    "default_params": {
+                        "success_prob": 0.2
+                    },
+                    "symbols": [
+                        "IONQ",
+                        "RGTI",
+                        "QBTS"
+                    ],
+                    "insight_link": "/quantum-computing-roadmap",
+                    "tag": "purple"
+                },
+                "space_economy": {
+                    "name": "太空經濟與衛星",
+                    "subtitle": "P/S / Milestone 驅動",
+                    "logic_type": "milestone",
+                    "symbols": [
+                        "RKLB",
+                        "ASTS",
+                        "IRDM",
+                        "GSAT",
+                        "SATS",
+                        "LUNR",
+                        "PL",
+                        "RDW"
+                    ],
+                    "insight_link": "/space-x-competitors",
+                    "tag": "blue"
+                },
+                "perovskite_solar": {
+                    "name": "鈣鈦礦太陽能革命",
+                    "subtitle": "Efficiency / Milestone 驅動",
+                    "logic_type": "milestone",
+                    "default_params": {
+                        "success_prob": 0.25
+                    },
+                    "symbols": [
+                        "FSLR",
+                        "JKS"
+                    ],
+                    "insight_link": "/perovskite-solar-2026",
+                    "tag": "green"
+                },
+                "bio_revolution": {
+                    "name": "生物革命 (CRISPR)",
+                    "subtitle": "Clinical Trial / Milestone 驅動",
+                    "logic_type": "milestone",
+                    "symbols": [
+                        "CRSP",
+                        "BEAM",
+                        "NTLA",
+                        "ARKG"
+                    ],
+                    "insight_link": "/gene-editing-future",
+                    "tag": "purple"
+                }
+            }
+        },
+        "ENERGY_EV": {
+            "display_name": "新能源與自動駕駛",
+            "clusters": {
+                "next_gen_nuclear": {
+                    "name": "次世代核能 (SMR)",
+                    "subtitle": "Policy / Milestone 驅動",
+                    "logic_type": "milestone",
+                    "symbols": [
+                        "OKLO",
+                        "SMR",
+                        "NNE",
+                        "CEG",
+                        "VST"
+                    ],
+                    "insight_link": "/nuclear-energy-renaissance",
+                    "tag": "orange"
+                },
+                "autonomy_robotics": {
+                    "name": "自動駕駛與機器人",
+                    "subtitle": "AI Vision / PEG 驅動",
+                    "logic_type": "peg",
+                    "symbols": [
+                        "TSLA",
+                        "UBER",
+                        "ISRG",
+                        "PATH",
+                        "BOTZ",
+                        "AMBA"
+                    ],
+                    "insight_link": "/robotaxi-economics",
+                    "tag": "purple"
+                }
+            }
+        }
+    }
+}
