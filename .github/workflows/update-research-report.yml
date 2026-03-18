@@ -17,6 +17,8 @@ on:
 jobs:
   update-report:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     name: Run yfinance script and commit report
     steps:
       - name: Checkout repo
