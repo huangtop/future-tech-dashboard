@@ -50,5 +50,6 @@ jobs:
             echo "No changes to research_report.json"
           else
             git commit -m "chore: update research_report.json [ci skip]"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi
