@@ -138,6 +138,7 @@ def get_default_fields(symbol, theme, sector_id, cfg):
         'calc_growth': None,
         'growth_estimate': None,
         'revenue_estimate': None,
+        'future_revenue_per_share': None,
         'shares_outstanding': None,
         'current_price': None,
         'ps': None,
@@ -286,6 +287,17 @@ for theme, theme_info in themes_config.items():
                         so = None
             shares_outstanding = so
 
+            # compute future_revenue_per_share if we have forward estimate and shares (or use revenue_per_share from info if exists)
+            future_rev_ps = None
+            try:
+                # Some API returns revenuePerShare, check if available
+                if info.get('revenuePerShare'):
+                    future_rev_ps = clean_val(info.get('revenuePerShare'))
+                elif revenue_estimate and shares_outstanding and shares_outstanding > 0:
+                    future_rev_ps = round(float(revenue_estimate) / float(shares_outstanding), 4)
+            except Exception:
+                future_rev_ps = None
+
             # current price
             current_price = clean_val(market.get('price') or info.get('currentPrice') or info.get('regularMarketPrice'))
 
@@ -324,6 +336,7 @@ for theme, theme_info in themes_config.items():
                 'calc_growth': secure_round(growth, 4) if growth is not None else None,
                 'growth_estimate': secure_round(growth_estimate, 4) if growth_estimate is not None else None,
                 'revenue_estimate': revenue_estimate,
+                'future_revenue_per_share': secure_round(future_rev_ps, 4),
                 'shares_outstanding': shares_outstanding,
                 'current_price': current_price,
                 'ps': ps_val,
