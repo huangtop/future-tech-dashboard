@@ -271,9 +271,7 @@ for theme, theme_info in themes_config.items():
                 except Exception:
                     growth_estimate = None
 
-            # revenue estimate and shares
-            revenue_estimate = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
-            # compute shares_outstanding defensively
+            # compute shares_outstanding defensively FIRST so it's available for fallback calculations
             so = None
             if info.get('sharesOutstanding'):
                 so = clean_val(info.get('sharesOutstanding'))
@@ -287,16 +285,51 @@ for theme, theme_info in themes_config.items():
                         so = None
             shares_outstanding = so
 
-            # compute future_revenue_per_share if we have forward estimate and shares (or use revenue_per_share from info if exists)
-            future_rev_ps = None
+            # --- 強化版通用前瞻營收抓取 ---
+            revenue_estimate = None
             try:
-                # Some API returns revenuePerShare, check if available
-                if info.get('revenuePerShare'):
-                    future_rev_ps = clean_val(info.get('revenuePerShare'))
-                elif revenue_estimate and shares_outstanding and shares_outstanding > 0:
-                    future_rev_ps = round(float(revenue_estimate) / float(shares_outstanding), 4)
-            except Exception:
-                future_rev_ps = None
+                # 1. 優先權最高：抓取 yfinance 新版的 revenue_estimate 表
+                # 這會直接回傳包含 '0y' 當前財年預估的 DataFrame
+                rev_est_table = getattr(ticker, 'revenue_estimate', None)
+                if rev_est_table is not None and not rev_est_table.empty:
+                    if '0y' in rev_est_table.index and 'avg' in rev_est_table.columns:
+                        revenue_estimate = clean_val(rev_est_table.loc['0y', 'avg'])
+                        if revenue_estimate is not None:
+                            print(f"  🎯 [{symbol}] 從 revenue_estimate 抓到 Forward Revenue: {revenue_estimate/1e9:.2f}B")
+
+                # 2. 如果 1 沒抓到，嘗試從 earnings_estimate 找 (舊版邏輯)
+                if not revenue_estimate:
+                    est_table = getattr(ticker, 'earnings_estimate', None)
+                    if est_table is not None and not est_table.empty:
+                        if '0y' in est_table.index and 'revenue' in est_table.columns:
+                            potential_rev = est_table.loc['0y', 'revenue']
+                            if potential_rev and potential_rev > 0:
+                                revenue_estimate = clean_val(potential_rev)
+
+                # 3. 嘗試利用 .calendar
+                if not revenue_estimate:
+                    cal = getattr(ticker, 'calendar', None)
+                    if isinstance(cal, dict) and 'Revenue Estimate' in cal:
+                        revenue_estimate = clean_val(cal['Revenue Estimate'].get('Avg'))
+
+                # 4. 從 info 的 forward target 挖掘
+                if not revenue_estimate:
+                    revenue_estimate = clean_val(info.get('revenueEstimate') or info.get('targetRevenue'))
+
+                # 5. 終極 Fallback：如果連分析師預估都沒有，才用 TTM
+                if not revenue_estimate:
+                    revenue_estimate = clean_val(info.get('totalRevenue') or info.get('revenue'))
+
+            except Exception as e:
+                print(f"  ⚠ [{symbol}] 通用營收抓取失敗，回退至 TTM: {e}")
+                revenue_estimate = clean_val(info.get('totalRevenue') or info.get('revenue'))
+            
+            # --- 最終計算：這會自動套用到所有股票 ---
+            future_rev_ps = None
+            if revenue_estimate and shares_outstanding and shares_outstanding > 0:
+                future_rev_ps = round(float(revenue_estimate) / float(shares_outstanding), 4)
+            elif info.get('revenuePerShare'):
+                future_rev_ps = clean_val(info.get('revenuePerShare'))
 
             # current price
             current_price = clean_val(market.get('price') or info.get('currentPrice') or info.get('regularMarketPrice'))
