@@ -17,13 +17,13 @@
         "market_consensus_eps_forward": 8.2892,
         "calc_growth": 0.7378,
         "growth_estimate": 0.3404,
-        "revenue_estimate": 215938007040.0,
-        "future_revenue_per_share": 8.865,
+        "revenue_estimate": 369421475040.0,
+        "future_revenue_per_share": 15.2025,
         "shares_outstanding": 24300000000.0,
         "current_price": 172.7,
-        "ps": 19.44,
+        "ps": 11.36,
         "pb": 26.68,
-        "last_updated": "2026-03-21 05:43:59"
+        "last_updated": "2026-03-21 06:31:38"
     },
     "AMD": {
         "editor_note": "請填入個人觀點...",
@@ -43,13 +43,13 @@
         "market_consensus_eps_forward": 6.6374,
         "calc_growth": 0.5917,
         "growth_estimate": 0.6189,
-        "revenue_estimate": 34638999552.0,
-        "future_revenue_per_share": 21.329,
+        "revenue_estimate": 46532632960.0,
+        "future_revenue_per_share": 28.5404,
         "shares_outstanding": 1630410843.0,
         "current_price": 201.33,
-        "ps": 9.48,
+        "ps": 7.05,
         "pb": 5.21,
-        "last_updated": "2026-03-21 05:43:59"
+        "last_updated": "2026-03-21 06:31:39"
     },
     "TSM": {
         "editor_note": "請填入個人觀點...",
@@ -69,13 +69,13 @@
         "market_consensus_eps_forward": 14.5381,
         "calc_growth": 0.3651,
         "growth_estimate": 0.2351,
-        "revenue_estimate": 3809054294016.0,
-        "future_revenue_per_share": 91.8169,
+        "revenue_estimate": 4990363807100.0,
+        "future_revenue_per_share": 962.1824,
         "shares_outstanding": 5186504904.0,
         "current_price": 329.24,
-        "ps": 0.45,
+        "ps": 0.34,
         "pb": 50.15,
-        "last_updated": "2026-03-21 05:43:59"
+        "last_updated": "2026-03-21 06:31:39"
     },
     "MU": {
         "editor_note": "請填入個人觀點...",
@@ -94,13 +94,13 @@
         "market_consensus_eps_forward": 57.9342,
         "calc_growth": 5.9884,
         "growth_estimate": 0.6698,
-        "revenue_estimate": 58119000064.0,
-        "future_revenue_per_share": 51.799,
+        "revenue_estimate": 108768131170.0,
+        "future_revenue_per_share": 96.4484,
         "shares_outstanding": 1127734051.0,
         "current_price": 422.9,
-        "ps": 8.21,
+        "ps": 4.38,
         "pb": 6.57,
-        "last_updated": "2026-03-21 05:43:59"
+        "last_updated": "2026-03-21 06:31:39"
     },
     "SNDK": {
         "editor_note": "請填入個人觀點...",
@@ -119,13 +119,13 @@
         "market_consensus_eps_forward": 40.1972,
         "calc_growth": 12.4439,
         "growth_estimate": 1.1744,
-        "revenue_estimate": 8929000448.0,
-        "future_revenue_per_share": 61.368,
+        "revenue_estimate": 15569131650.0,
+        "future_revenue_per_share": 105.4812,
         "shares_outstanding": 147600972.0,
         "current_price": 709.71,
-        "ps": 11.73,
+        "ps": 6.73,
         "pb": 10.28,
-        "last_updated": "2026-03-21 05:44:00"
+        "last_updated": "2026-03-21 06:31:39"
     },
     "GOOGL": {
         "editor_note": "請填入個人觀點...",
@@ -144,13 +144,13 @@
         "market_consensus_eps_forward": 11.5145,
         "calc_growth": 0.0652,
         "growth_estimate": 0.1567,
-        "revenue_estimate": 402835996672.0,
-        "future_revenue_per_share": 33.248,
+        "revenue_estimate": 470927789570.0,
+        "future_revenue_per_share": 80.8876,
         "shares_outstanding": 5822000000.0,
         "current_price": 301.0,
-        "ps": 9.04,
+        "ps": 7.73,
         "pb": 8.76,
-        "last_updated": "2026-03-21 05:44:00"
+        "last_updated": "2026-03-21 06:31:39"
     },
     "META": {
         "editor_note": "請填入個人觀點...",
@@ -169,13 +169,13 @@
         "market_consensus_eps_forward": 29.5998,
         "calc_growth": 0.2601,
         "growth_estimate": 0.1617,
-        "revenue_estimate": 200965996544.0,
-        "future_revenue_per_share": 79.717,
+        "revenue_estimate": 251152177740.0,
+        "future_revenue_per_share": 114.8293,
         "shares_outstanding": 2187177748.0,
         "current_price": 593.66,
-        "ps": 7.47,
+        "ps": 5.98,
         "pb": 6.91,
-        "last_updated": "2026-03-21 05:44:00"
+        "last_updated": "2026-03-21 06:31:40"
     },
     "AMZN": {
         "editor_note": "請填入個人觀點...",
@@ -194,13 +194,13 @@
         "market_consensus_eps_forward": 7.7489,
         "calc_growth": 0.0807,
         "growth_estimate": 0.2182,
-        "revenue_estimate": 716923994112.0,
-        "future_revenue_per_share": 67.279,
+        "revenue_estimate": 807121132610.0,
+        "future_revenue_per_share": 75.1865,
         "shares_outstanding": 10734920870.0,
         "current_price": 205.37,
-        "ps": 3.08,
+        "ps": 2.73,
         "pb": 5.36,
-        "last_updated": "2026-03-21 05:44:00"
+        "last_updated": "2026-03-21 06:31:40"
     },
     "MSFT": {
         "editor_note": "請填入個人觀點...",
@@ -219,13 +219,13 @@
         "market_consensus_eps_forward": 17.2047,
         "calc_growth": 0.2613,
         "growth_estimate": 0.1044,
-        "revenue_estimate": 305453006848.0,
-        "future_revenue_per_share": 41.1,
+        "revenue_estimate": 327780621120.0,
+        "future_revenue_per_share": 44.1418,
         "shares_outstanding": 7425629076.0,
         "current_price": 381.87,
-        "ps": 9.29,
+        "ps": 8.66,
         "pb": 7.26,
-        "last_updated": "2026-03-21 05:44:00"
+        "last_updated": "2026-03-21 06:31:40"
     },
     "ORCL": {
         "editor_note": "請填入個人觀點...",
@@ -244,13 +244,13 @@
         "market_consensus_eps_forward": 7.449,
         "calc_growth": 0.2353,
         "growth_estimate": 0.0702,
-        "revenue_estimate": 64076001280.0,
-        "future_revenue_per_share": 22.538,
+        "revenue_estimate": 67177818060.0,
+        "future_revenue_per_share": 23.3577,
         "shares_outstanding": 2876046000.0,
         "current_price": 149.68,
-        "ps": 6.72,
+        "ps": 6.41,
         "pb": 12.83,
-        "last_updated": "2026-03-21 05:44:01"
+        "last_updated": "2026-03-21 06:31:40"
     },
     "SMCI": {
         "editor_note": "請填入個人觀點...",
@@ -269,13 +269,13 @@
         "market_consensus_eps_forward": 2.2572,
         "calc_growth": 0.0957,
         "growth_estimate": 0.3168,
-        "revenue_estimate": 28057104384.0,
-        "future_revenue_per_share": 47.032,
+        "revenue_estimate": 41571175590.0,
+        "future_revenue_per_share": 69.2297,
         "shares_outstanding": 600481952.0,
         "current_price": 20.53,
-        "ps": 0.44,
+        "ps": 0.3,
         "pb": 1.76,
-        "last_updated": "2026-03-21 05:44:01"
+        "last_updated": "2026-03-21 06:31:41"
     },
     "VRT": {
         "editor_note": "請填入個人觀點...",
@@ -294,13 +294,13 @@
         "market_consensus_eps_forward": 6.1322,
         "calc_growth": 0.4601,
         "growth_estimate": 0.3029,
-        "revenue_estimate": 10229900288.0,
-        "future_revenue_per_share": 26.8,
+        "revenue_estimate": 13679604960.0,
+        "future_revenue_per_share": 35.7545,
         "shares_outstanding": 382598464.0,
         "current_price": 255.88,
-        "ps": 9.57,
+        "ps": 7.16,
         "pb": 24.84,
-        "last_updated": "2026-03-21 05:44:01"
+        "last_updated": "2026-03-21 06:31:41"
     },
     "DELL": {
         "editor_note": "請填入個人觀點...",
@@ -319,13 +319,13 @@
         "market_consensus_eps_forward": 12.7778,
         "calc_growth": 0.2406,
         "growth_estimate": 0.1294,
-        "revenue_estimate": 113537998848.0,
-        "future_revenue_per_share": 168.204,
+        "revenue_estimate": 141181030410.0,
+        "future_revenue_per_share": 443.4661,
         "shares_outstanding": 318358135.0,
         "current_price": 157.67,
-        "ps": 0.92,
+        "ps": 0.74,
         "pb": -41.62,
-        "last_updated": "2026-03-21 05:44:01"
+        "last_updated": "2026-03-21 06:31:41"
     },
     "HPE": {
         "editor_note": "請填入個人觀點...",
@@ -344,13 +344,13 @@
         "market_consensus_eps_forward": 2.4176,
         "calc_growth": 0.2462,
         "growth_estimate": 0.1279,
-        "revenue_estimate": 35742998528.0,
-        "future_revenue_per_share": 26.905,
+        "revenue_estimate": 40821642420.0,
+        "future_revenue_per_share": 30.7657,
         "shares_outstanding": 1326854089.0,
         "current_price": 21.69,
-        "ps": 0.81,
+        "ps": 0.71,
         "pb": 1.16,
-        "last_updated": "2026-03-21 05:44:01"
+        "last_updated": "2026-03-21 06:31:41"
     },
     "AVGO": {
         "editor_note": "請填入個人觀點...",
@@ -370,13 +370,13 @@
         "market_consensus_eps_forward": 11.3007,
         "calc_growth": 0.657,
         "growth_estimate": 0.5636,
-        "revenue_estimate": 68281999360.0,
-        "future_revenue_per_share": 14.456,
+        "revenue_estimate": 104659762710.0,
+        "future_revenue_per_share": 22.105,
         "shares_outstanding": 4734668184.0,
         "current_price": 310.51,
-        "ps": 21.56,
+        "ps": 14.07,
         "pb": 5.24,
-        "last_updated": "2026-03-21 05:44:02"
+        "last_updated": "2026-03-21 06:31:41"
     },
     "MRVL": {
         "editor_note": "請填入個人觀點...",
@@ -396,13 +396,13 @@
         "market_consensus_eps_forward": 3.8236,
         "calc_growth": 0.3463,
         "growth_estimate": 0.4226,
-        "revenue_estimate": 8194599936.0,
-        "future_revenue_per_share": 9.518,
+        "revenue_estimate": 10872644350.0,
+        "future_revenue_per_share": 12.4358,
         "shares_outstanding": 874300000.0,
         "current_price": 87.91,
-        "ps": 9.38,
+        "ps": 7.07,
         "pb": 5.21,
-        "last_updated": "2026-03-21 05:44:02"
+        "last_updated": "2026-03-21 06:31:42"
     },
     "COHR": {
         "editor_note": "請填入個人觀點...",
@@ -422,13 +422,13 @@
         "market_consensus_eps_forward": 5.3513,
         "calc_growth": 0.516,
         "growth_estimate": 0.3874,
-        "revenue_estimate": 6294322176.0,
-        "future_revenue_per_share": 39.693,
+        "revenue_estimate": 6944459360.0,
+        "future_revenue_per_share": 37.0407,
         "shares_outstanding": 187481852.0,
         "current_price": 253.63,
-        "ps": 7.55,
+        "ps": 6.85,
         "pb": 5.57,
-        "last_updated": "2026-03-21 05:44:02"
+        "last_updated": "2026-03-21 06:31:42"
     },
     "LITE": {
         "editor_note": "請填入個人觀點...",
@@ -448,13 +448,13 @@
         "market_consensus_eps_forward": 7.5959,
         "calc_growth": 2.6873,
         "growth_estimate": 0.9302,
-        "revenue_estimate": 2105200000.0,
-        "future_revenue_per_share": 30.053,
+        "revenue_estimate": 2908557270.0,
+        "future_revenue_per_share": 40.7361,
         "shares_outstanding": 71400000.0,
         "current_price": 706.35,
-        "ps": 23.96,
+        "ps": 17.34,
         "pb": 59.57,
-        "last_updated": "2026-03-21 05:44:02"
+        "last_updated": "2026-03-21 06:31:42"
     },
     "ALAB": {
         "editor_note": "請填入個人觀點...",
@@ -474,13 +474,13 @@
         "market_consensus_eps_forward": 2.465,
         "calc_growth": 0.3397,
         "growth_estimate": 0.4288,
-        "revenue_estimate": 852524992.0,
-        "future_revenue_per_share": 5.123,
+        "revenue_estimate": 1347993280.0,
+        "future_revenue_per_share": 7.9194,
         "shares_outstanding": 170214503.0,
         "current_price": 116.04,
-        "ps": 23.17,
+        "ps": 14.65,
         "pb": 14.48,
-        "last_updated": "2026-03-21 05:44:02"
+        "last_updated": "2026-03-21 06:31:42"
     },
     "AAOI": {
         "editor_note": "請填入個人觀點...",
@@ -500,13 +500,13 @@
         "market_consensus_eps_forward": 0.815,
         "calc_growth": null,
         "growth_estimate": 2.9233,
-        "revenue_estimate": 455715008.0,
-        "future_revenue_per_share": 7.572,
+        "revenue_estimate": 962396800.0,
+        "future_revenue_per_share": 12.39,
         "shares_outstanding": 77675124.0,
         "current_price": 87.54,
-        "ps": 14.92,
+        "ps": 7.07,
         "pb": 8.95,
-        "last_updated": "2026-03-21 05:44:03"
+        "last_updated": "2026-03-21 06:31:42"
     },
     "AXTI": {
         "editor_note": "請填入個人觀點...",
@@ -526,13 +526,13 @@
         "market_consensus_eps_forward": 0.004,
         "calc_growth": null,
         "growth_estimate": 1.1567,
-        "revenue_estimate": 88326000.0,
-        "future_revenue_per_share": 2.01,
+        "revenue_estimate": 125306000.0,
+        "future_revenue_per_share": 2.2548,
         "shares_outstanding": 55573599.0,
         "current_price": 54.24,
-        "ps": 34.13,
+        "ps": 24.06,
         "pb": 8.99,
-        "last_updated": "2026-03-21 05:44:03"
+        "last_updated": "2026-03-21 06:31:43"
     },
     "CIEN": {
         "editor_note": "請填入個人觀點...",
@@ -552,13 +552,13 @@
         "market_consensus_eps_forward": 6.1364,
         "calc_growth": 1.3244,
         "growth_estimate": 0.3399,
-        "revenue_estimate": 5124289024.0,
-        "future_revenue_per_share": 36.107,
+        "revenue_estimate": 6114984700.0,
+        "future_revenue_per_share": 43.2465,
         "shares_outstanding": 141398427.0,
         "current_price": 383.89,
-        "ps": 10.6,
+        "ps": 8.88,
         "pb": 19.45,
-        "last_updated": "2026-03-21 05:44:03"
+        "last_updated": "2026-03-21 06:31:43"
     },
     "FN": {
         "editor_note": "請填入個人觀點...",
@@ -578,13 +578,13 @@
         "market_consensus_eps_forward": 13.5792,
         "calc_growth": 0.3352,
         "growth_estimate": 0.1999,
-        "revenue_estimate": 3892506880.0,
-        "future_revenue_per_share": 108.652,
+        "revenue_estimate": 4538655750.0,
+        "future_revenue_per_share": 126.6857,
         "shares_outstanding": 35826117.0,
         "current_price": 506.27,
-        "ps": 4.66,
+        "ps": 4.0,
         "pb": 8.3,
-        "last_updated": "2026-03-21 05:44:03"
+        "last_updated": "2026-03-21 06:31:43"
     },
     "CRDO": {
         "editor_note": "請填入個人觀點...",
@@ -604,13 +604,13 @@
         "market_consensus_eps_forward": 3.3088,
         "calc_growth": 3.7269,
         "growth_estimate": 0.4278,
-        "revenue_estimate": 1068137984.0,
-        "future_revenue_per_share": 6.105,
+        "revenue_estimate": 1330775180.0,
+        "future_revenue_per_share": 7.2148,
         "shares_outstanding": 184449940.0,
         "current_price": 103.4,
-        "ps": 17.86,
+        "ps": 14.33,
         "pb": 10.3,
-        "last_updated": "2026-03-21 05:44:03"
+        "last_updated": "2026-03-21 06:31:43"
     },
     "APH": {
         "editor_note": "請填入個人觀點...",
@@ -630,13 +630,13 @@
         "market_consensus_eps_forward": 4.3837,
         "calc_growth": 0.3125,
         "growth_estimate": 0.1739,
-        "revenue_estimate": 23094700032.0,
-        "future_revenue_per_share": 18.958,
+        "revenue_estimate": 31314617770.0,
+        "future_revenue_per_share": 25.4753,
         "shares_outstanding": 1229214930.0,
         "current_price": 126.74,
-        "ps": 6.75,
+        "ps": 4.98,
         "pb": 11.59,
-        "last_updated": "2026-03-21 05:44:04"
+        "last_updated": "2026-03-21 06:31:43"
     },
     "QCOM": {
         "editor_note": "請填入個人觀點...",
@@ -655,13 +655,13 @@
         "market_consensus_eps_forward": 11.1228,
         "calc_growth": -0.0754,
         "growth_estimate": 0.0024,
-        "revenue_estimate": 44866998272.0,
-        "future_revenue_per_share": 41.314,
+        "revenue_estimate": 43663546780.0,
+        "future_revenue_per_share": 40.9218,
         "shares_outstanding": 1067000000.0,
         "current_price": 129.9,
-        "ps": 3.09,
+        "ps": 3.18,
         "pb": 6.05,
-        "last_updated": "2026-03-21 05:44:04"
+        "last_updated": "2026-03-21 06:31:44"
     },
     "AAPL": {
         "editor_note": "請填入個人觀點...",
@@ -680,13 +680,13 @@
         "market_consensus_eps_forward": 8.5169,
         "calc_growth": 0.1417,
         "growth_estimate": 0.0997,
-        "revenue_estimate": 435617005568.0,
-        "future_revenue_per_share": 29.305,
+        "revenue_estimate": 465369044340.0,
+        "future_revenue_per_share": 31.6984,
         "shares_outstanding": 14681140000.0,
         "current_price": 247.99,
-        "ps": 8.37,
+        "ps": 7.83,
         "pb": 41.35,
-        "last_updated": "2026-03-21 05:44:04"
+        "last_updated": "2026-03-21 06:31:44"
     },
     "NFLX": {
         "editor_note": "請填入個人觀點...",
@@ -705,13 +705,13 @@
         "market_consensus_eps_forward": 3.1459,
         "calc_growth": 0.2434,
         "growth_estimate": 0.2206,
-        "revenue_estimate": 45183037440.0,
-        "future_revenue_per_share": 10.633,
+        "revenue_estimate": 51158176540.0,
+        "future_revenue_per_share": 12.0732,
         "shares_outstanding": 4237323340.0,
         "current_price": 91.82,
-        "ps": 8.62,
+        "ps": 7.61,
         "pb": 14.57,
-        "last_updated": "2026-03-21 05:44:04"
+        "last_updated": "2026-03-21 06:31:44"
     },
     "ADBE": {
         "editor_note": "請填入個人觀點...",
@@ -730,13 +730,13 @@
         "market_consensus_eps_forward": 23.5475,
         "calc_growth": 0.1245,
         "growth_estimate": 0.1193,
-        "revenue_estimate": 24452999168.0,
-        "future_revenue_per_share": 58.263,
+        "revenue_estimate": 26063704600.0,
+        "future_revenue_per_share": 63.9385,
         "shares_outstanding": 407636918.0,
         "current_price": 248.15,
-        "ps": 4.17,
+        "ps": 3.91,
         "pb": 8.9,
-        "last_updated": "2026-03-21 05:44:05"
+        "last_updated": "2026-03-21 06:31:44"
     },
     "CRM": {
         "editor_note": "請填入個人觀點...",
@@ -755,13 +755,13 @@
         "market_consensus_eps_forward": 13.1886,
         "calc_growth": 0.0534,
         "growth_estimate": 0.1303,
-        "revenue_estimate": 41524998144.0,
-        "future_revenue_per_share": 43.711,
+        "revenue_estimate": 46129916430.0,
+        "future_revenue_per_share": 49.9782,
         "shares_outstanding": 923000000.0,
         "current_price": 195.38,
-        "ps": 4.41,
+        "ps": 3.97,
         "pb": 3.07,
-        "last_updated": "2026-03-21 05:44:05"
+        "last_updated": "2026-03-21 06:31:45"
     },
     "INTC": {
         "editor_note": "請填入個人觀點...",
@@ -780,13 +780,13 @@
         "market_consensus_eps_forward": 0.483,
         "calc_growth": 0.1501,
         "growth_estimate": 1.0519,
-        "revenue_estimate": 52852998144.0,
-        "future_revenue_per_share": 11.667,
+        "revenue_estimate": 53832040370.0,
+        "future_revenue_per_share": 10.7772,
         "shares_outstanding": 4995000000.0,
         "current_price": 43.87,
-        "ps": 4.15,
+        "ps": 4.07,
         "pb": 1.92,
-        "last_updated": "2026-03-21 05:44:05"
+        "last_updated": "2026-03-21 06:31:45"
     },
     "IONQ": {
         "editor_note": "請填入個人觀點...",
@@ -804,13 +804,13 @@
         "market_consensus_eps_forward": -2.0825,
         "calc_growth": null,
         "growth_estimate": -0.0195,
-        "revenue_estimate": 130016000.0,
-        "future_revenue_per_share": 0.464,
+        "revenue_estimate": 235696990.0,
+        "future_revenue_per_share": 0.6429,
         "shares_outstanding": 366640756.0,
         "current_price": 31.2,
-        "ps": 88.23,
+        "ps": 48.67,
         "pb": 2.98,
-        "last_updated": "2026-03-21 05:44:05"
+        "last_updated": "2026-03-21 06:31:45"
     },
     "RGTI": {
         "editor_note": "請填入個人觀點...",
@@ -828,13 +828,13 @@
         "market_consensus_eps_forward": -0.1812,
         "calc_growth": null,
         "growth_estimate": -0.0414,
-        "revenue_estimate": 7088000.0,
-        "future_revenue_per_share": 0.023,
+        "revenue_estimate": 22508670.0,
+        "future_revenue_per_share": 0.0678,
         "shares_outstanding": 332150557.0,
         "current_price": 14.88,
-        "ps": 697.29,
+        "ps": 219.58,
         "pb": 9.02,
-        "last_updated": "2026-03-21 05:44:05"
+        "last_updated": "2026-03-21 06:31:45"
     },
     "QBTS": {
         "editor_note": "請填入個人觀點...",
@@ -852,13 +852,13 @@
         "market_consensus_eps_forward": -0.3285,
         "calc_growth": null,
         "growth_estimate": -0.1241,
-        "revenue_estimate": 24587000.0,
-        "future_revenue_per_share": 0.077,
+        "revenue_estimate": 43628620.0,
+        "future_revenue_per_share": 0.119,
         "shares_outstanding": 366737601.0,
         "current_price": 15.73,
-        "ps": 236.66,
+        "ps": 133.37,
         "pb": 6.62,
-        "last_updated": "2026-03-21 05:44:06"
+        "last_updated": "2026-03-21 06:31:45"
     },
     "RKLB": {
         "editor_note": "請填入個人觀點...",
@@ -876,13 +876,13 @@
         "market_consensus_eps_forward": -0.2242,
         "calc_growth": null,
         "growth_estimate": 1.223,
-        "revenue_estimate": 601798976.0,
-        "future_revenue_per_share": 1.134,
+        "revenue_estimate": 850306710.0,
+        "future_revenue_per_share": 1.4985,
         "shares_outstanding": 567445449.0,
         "current_price": 67.23,
-        "ps": 63.39,
+        "ps": 44.87,
         "pb": 21.22,
-        "last_updated": "2026-03-21 05:44:06"
+        "last_updated": "2026-03-21 06:31:46"
     },
     "ASTS": {
         "editor_note": "請填入個人觀點...",
@@ -900,13 +900,13 @@
         "market_consensus_eps_forward": -0.8813,
         "calc_growth": null,
         "growth_estimate": 1.0426,
-        "revenue_estimate": 70918000.0,
-        "future_revenue_per_share": 0.277,
+        "revenue_estimate": 181132020.0,
+        "future_revenue_per_share": 0.619,
         "shares_outstanding": 292637039.0,
         "current_price": 89.93,
-        "ps": 484.44,
+        "ps": 189.67,
         "pb": 13.94,
-        "last_updated": "2026-03-21 05:44:06"
+        "last_updated": "2026-03-21 06:31:46"
     },
     "IRDM": {
         "editor_note": "請填入個人觀點...",
@@ -924,13 +924,13 @@
         "market_consensus_eps_forward": 1.18,
         "calc_growth": 0.0826,
         "growth_estimate": 0.1102,
-        "revenue_estimate": 871659008.0,
-        "future_revenue_per_share": 8.128,
+        "revenue_estimate": 880984820.0,
+        "future_revenue_per_share": 8.3938,
         "shares_outstanding": 104956759.0,
         "current_price": 25.4,
-        "ps": 3.06,
+        "ps": 3.03,
         "pb": 5.76,
-        "last_updated": "2026-03-21 05:44:06"
+        "last_updated": "2026-03-21 06:31:46"
     },
     "GSAT": {
         "editor_note": "請填入個人觀點...",
@@ -948,13 +948,13 @@
         "market_consensus_eps_forward": 0.0964,
         "calc_growth": null,
         "growth_estimate": 2.5908,
-        "revenue_estimate": 272985984.0,
-        "future_revenue_per_share": 2.154,
+        "revenue_estimate": 296153140.0,
+        "future_revenue_per_share": 2.3037,
         "shares_outstanding": 128554348.0,
         "current_price": 58.73,
-        "ps": 27.66,
+        "ps": 25.49,
         "pb": 21.14,
-        "last_updated": "2026-03-21 05:44:06"
+        "last_updated": "2026-03-21 06:31:46"
     },
     "SATS": {
         "editor_note": "請填入個人觀點...",
@@ -972,13 +972,13 @@
         "market_consensus_eps_forward": -0.2788,
         "calc_growth": null,
         "growth_estimate": -4.4664,
-        "revenue_estimate": 15004989440.0,
-        "future_revenue_per_share": 52.175,
+        "revenue_estimate": 14426507720.0,
+        "future_revenue_per_share": 91.5809,
         "shares_outstanding": 157527391.0,
         "current_price": 109.84,
-        "ps": 2.11,
+        "ps": 2.2,
         "pb": 5.5,
-        "last_updated": "2026-03-21 05:44:07"
+        "last_updated": "2026-03-21 06:31:46"
     },
     "LUNR": {
         "editor_note": "請填入個人觀點...",
@@ -996,13 +996,13 @@
         "market_consensus_eps_forward": -0.07,
         "calc_growth": null,
         "growth_estimate": 0.0557,
-        "revenue_estimate": 210059008.0,
-        "future_revenue_per_share": 1.782,
+        "revenue_estimate": 931426150.0,
+        "future_revenue_per_share": 6.545,
         "shares_outstanding": 142310812.0,
         "current_price": 17.83,
-        "ps": 12.08,
-        "pb": -2.78,
-        "last_updated": "2026-03-21 05:44:07"
+        "ps": 2.72,
+        "pb": -2.86,
+        "last_updated": "2026-03-21 06:31:47"
     },
     "PL": {
         "editor_note": "請填入個人觀點...",
@@ -1020,13 +1020,13 @@
         "market_consensus_eps_forward": -0.11,
         "calc_growth": null,
         "growth_estimate": 0.979,
-        "revenue_estimate": 282459008.0,
-        "future_revenue_per_share": 0.934,
+        "revenue_estimate": 428883500.0,
+        "future_revenue_per_share": 1.3504,
         "shares_outstanding": 317596228.0,
         "current_price": 33.83,
-        "ps": 40.85,
+        "ps": 26.9,
         "pb": 30.34,
-        "last_updated": "2026-03-21 05:44:07"
+        "last_updated": "2026-03-21 06:31:47"
     },
     "RDW": {
         "editor_note": "請填入個人觀點...",
@@ -1044,13 +1044,13 @@
         "market_consensus_eps_forward": -0.6,
         "calc_growth": null,
         "growth_estimate": 0.2333,
-        "revenue_estimate": 335380992.0,
-        "future_revenue_per_share": 2.805,
+        "revenue_estimate": 471458780.0,
+        "future_revenue_per_share": 2.4558,
         "shares_outstanding": 191975804.0,
         "current_price": 9.2,
-        "ps": 5.27,
+        "ps": 3.75,
         "pb": 1.66,
-        "last_updated": "2026-03-21 05:44:07"
+        "last_updated": "2026-03-21 06:31:47"
     },
     "FSLR": {
         "editor_note": "請填入個人觀點...",
@@ -1068,13 +1068,13 @@
         "market_consensus_eps_forward": 18.3259,
         "calc_growth": 0.2897,
         "growth_estimate": 0.3225,
-        "revenue_estimate": 5219376128.0,
-        "future_revenue_per_share": 48.672,
+        "revenue_estimate": 5213439170.0,
+        "future_revenue_per_share": 48.5825,
         "shares_outstanding": 107310994.0,
         "current_price": 192.82,
-        "ps": 3.96,
+        "ps": 3.97,
         "pb": 2.17,
-        "last_updated": "2026-03-21 05:44:07"
+        "last_updated": "2026-03-21 06:31:47"
     },
     "JKS": {
         "editor_note": "請填入個人觀點...",
@@ -1092,13 +1092,13 @@
         "market_consensus_eps_forward": 0.316,
         "calc_growth": null,
         "growth_estimate": 0.2437,
-        "revenue_estimate": 68641591296.0,
-        "future_revenue_per_share": 1322.477,
+        "revenue_estimate": 16841063999.0,
+        "future_revenue_per_share": 326.0458,
         "shares_outstanding": 51652441.0,
         "current_price": 23.4,
-        "ps": 0.02,
+        "ps": 0.07,
         "pb": 0.49,
-        "last_updated": "2026-03-21 05:44:08"
+        "last_updated": "2026-03-21 06:31:48"
     },
     "CRSP": {
         "editor_note": "請填入個人觀點...",
@@ -1114,13 +1114,13 @@
         "market_consensus_eps_forward": -4.9447,
         "calc_growth": null,
         "growth_estimate": 0.1502,
-        "revenue_estimate": 3510000.0,
-        "future_revenue_per_share": 0.039,
+        "revenue_estimate": 48076420.0,
+        "future_revenue_per_share": 0.5009,
         "shares_outstanding": 95985312.0,
         "current_price": 46.24,
-        "ps": 1264.49,
+        "ps": 92.32,
         "pb": 2.31,
-        "last_updated": "2026-03-21 05:44:08"
+        "last_updated": "2026-03-21 06:31:48"
     },
     "BEAM": {
         "editor_note": "請填入個人觀點...",
@@ -1136,13 +1136,13 @@
         "market_consensus_eps_forward": -4.3151,
         "calc_growth": null,
         "growth_estimate": -0.0016,
-        "revenue_estimate": 139743008.0,
-        "future_revenue_per_share": 1.413,
+        "revenue_estimate": 48466570.0,
+        "future_revenue_per_share": 0.4758,
         "shares_outstanding": 101856245.0,
         "current_price": 24.63,
-        "ps": 17.95,
+        "ps": 51.76,
         "pb": 1.97,
-        "last_updated": "2026-03-21 05:44:08"
+        "last_updated": "2026-03-21 06:31:48"
     },
     "NTLA": {
         "editor_note": "請填入個人觀點...",
@@ -1158,13 +1158,13 @@
         "market_consensus_eps_forward": -3.5558,
         "calc_growth": null,
         "growth_estimate": 0.1785,
-        "revenue_estimate": 67671000.0,
-        "future_revenue_per_share": 0.624,
+        "revenue_estimate": 59547790.0,
+        "future_revenue_per_share": 0.5041,
         "shares_outstanding": 118133546.0,
         "current_price": 12.84,
-        "ps": 22.41,
+        "ps": 25.47,
         "pb": 2.22,
-        "last_updated": "2026-03-21 05:44:08"
+        "last_updated": "2026-03-21 06:31:48"
     },
     "ARKG": {
         "editor_note": "請填入個人觀點...",
@@ -1186,7 +1186,7 @@
         "current_price": 26.05,
         "ps": null,
         "pb": null,
-        "last_updated": "2026-03-21 05:44:08"
+        "last_updated": "2026-03-21 06:31:49"
     },
     "OKLO": {
         "editor_note": "請填入個人觀點...",
@@ -1202,13 +1202,13 @@
         "market_consensus_eps_forward": -0.7321,
         "calc_growth": null,
         "growth_estimate": -0.1639,
-        "revenue_estimate": null,
-        "future_revenue_per_share": null,
+        "revenue_estimate": 112500.0,
+        "future_revenue_per_share": 0.0006,
         "shares_outstanding": 173568788.0,
         "current_price": 53.97,
-        "ps": null,
+        "ps": 83266.74,
         "pb": 5.87,
-        "last_updated": "2026-03-21 05:44:09"
+        "last_updated": "2026-03-21 06:31:49"
     },
     "SMR": {
         "editor_note": "請填入個人觀點...",
@@ -1224,13 +1224,13 @@
         "market_consensus_eps_forward": -0.5571,
         "calc_growth": null,
         "growth_estimate": 0.0936,
-        "revenue_estimate": 31479000.0,
-        "future_revenue_per_share": 0.192,
+        "revenue_estimate": 85430750.0,
+        "future_revenue_per_share": 0.2681,
         "shares_outstanding": 318603143.0,
         "current_price": 11.44,
-        "ps": 115.79,
+        "ps": 42.66,
         "pb": 3.12,
-        "last_updated": "2026-03-21 05:44:09"
+        "last_updated": "2026-03-21 06:31:49"
     },
     "NNE": {
         "editor_note": "請填入個人觀點...",
@@ -1252,7 +1252,7 @@
         "current_price": 21.1,
         "ps": null,
         "pb": 1.78,
-        "last_updated": "2026-03-21 05:44:09"
+        "last_updated": "2026-03-21 06:31:49"
     },
     "CEG": {
         "editor_note": "請填入個人觀點...",
@@ -1268,13 +1268,13 @@
         "market_consensus_eps_forward": 12.1138,
         "calc_growth": 0.2901,
         "growth_estimate": 0.1337,
-        "revenue_estimate": 25532999680.0,
-        "future_revenue_per_share": 81.575,
+        "revenue_estimate": 32555378950.0,
+        "future_revenue_per_share": 89.9344,
         "shares_outstanding": 361990335.0,
         "current_price": 281.99,
-        "ps": 4.0,
+        "ps": 3.14,
         "pb": 6.07,
-        "last_updated": "2026-03-21 05:44:09"
+        "last_updated": "2026-03-21 06:31:49"
     },
     "VST": {
         "editor_note": "請填入個人觀點...",
@@ -1290,13 +1290,13 @@
         "market_consensus_eps_forward": 8.6527,
         "calc_growth": 2.9691,
         "growth_estimate": 0.2187,
-        "revenue_estimate": 17738000384.0,
-        "future_revenue_per_share": 52.305,
+        "revenue_estimate": 22725276030.0,
+        "future_revenue_per_share": 67.4432,
         "shares_outstanding": 336954256.0,
         "current_price": 146.02,
-        "ps": 2.79,
+        "ps": 2.18,
         "pb": 18.83,
-        "last_updated": "2026-03-21 05:44:10"
+        "last_updated": "2026-03-21 06:31:50"
     },
     "TSLA": {
         "editor_note": "請填入個人觀點...",
@@ -1315,13 +1315,13 @@
         "market_consensus_eps_forward": 2.0595,
         "calc_growth": 0.2406,
         "growth_estimate": 0.3647,
-        "revenue_estimate": 94827003904.0,
-        "future_revenue_per_share": 29.404,
+        "revenue_estimate": 103299837400.0,
+        "future_revenue_per_share": 27.5288,
         "shares_outstanding": 3752431984.0,
         "current_price": 367.96,
-        "ps": 14.56,
+        "ps": 13.37,
         "pb": 16.8,
-        "last_updated": "2026-03-21 05:44:10"
+        "last_updated": "2026-03-21 06:31:50"
     },
     "UBER": {
         "editor_note": "請填入個人觀點...",
@@ -1340,13 +1340,13 @@
         "market_consensus_eps_forward": 3.3651,
         "calc_growth": -0.2886,
         "growth_estimate": 0.2852,
-        "revenue_estimate": 52017000448.0,
-        "future_revenue_per_share": 24.945,
+        "revenue_estimate": 58377845330.0,
+        "future_revenue_per_share": 28.3647,
         "shares_outstanding": 2058115983.0,
         "current_price": 73.89,
-        "ps": 2.95,
+        "ps": 2.63,
         "pb": 5.65,
-        "last_updated": "2026-03-21 05:44:10"
+        "last_updated": "2026-03-21 06:31:50"
     },
     "ISRG": {
         "editor_note": "請填入個人觀點...",
@@ -1365,13 +1365,13 @@
         "market_consensus_eps_forward": 10.0287,
         "calc_growth": 0.123,
         "growth_estimate": 0.1415,
-        "revenue_estimate": 10064700416.0,
-        "future_revenue_per_share": 28.2,
+        "revenue_estimate": 11535299740.0,
+        "future_revenue_per_share": 32.4783,
         "shares_outstanding": 355169692.0,
         "current_price": 477.97,
-        "ps": 16.87,
+        "ps": 14.72,
         "pb": 9.52,
-        "last_updated": "2026-03-21 05:44:10"
+        "last_updated": "2026-03-21 06:31:50"
     },
     "PATH": {
         "editor_note": "請填入個人觀點...",
@@ -1390,13 +1390,13 @@
         "market_consensus_eps_forward": 0.7985,
         "calc_growth": 0.109,
         "growth_estimate": 0.1226,
-        "revenue_estimate": 1610572032.0,
-        "future_revenue_per_share": 2.993,
+        "revenue_estimate": 1757808580.0,
+        "future_revenue_per_share": 3.8176,
         "shares_outstanding": 460443681.0,
         "current_price": 12.06,
-        "ps": 4.0,
+        "ps": 3.67,
         "pb": 3.1,
-        "last_updated": "2026-03-21 05:44:10"
+        "last_updated": "2026-03-21 06:31:51"
     },
     "BOTZ": {
         "editor_note": "請填入個人觀點...",
@@ -1421,7 +1421,7 @@
         "current_price": 33.6,
         "ps": null,
         "pb": null,
-        "last_updated": "2026-03-21 05:44:11"
+        "last_updated": "2026-03-21 06:31:51"
     },
     "AMBA": {
         "editor_note": "請填入個人觀點...",
@@ -1440,12 +1440,12 @@
         "market_consensus_eps_forward": 0.7509,
         "calc_growth": 0.2111,
         "growth_estimate": 0.4465,
-        "revenue_estimate": 390702016.0,
-        "future_revenue_per_share": 9.149,
+        "revenue_estimate": 440609250.0,
+        "future_revenue_per_share": 10.2347,
         "shares_outstanding": 43050486.0,
         "current_price": 54.02,
-        "ps": 5.95,
+        "ps": 5.28,
         "pb": 3.92,
-        "last_updated": "2026-03-21 05:44:11"
+        "last_updated": "2026-03-21 06:31:51"
     }
 }
