@@ -1,5 +1,5 @@
 {
-    "version": "2026.1.0",
+    "version": "2026.1.1",
     "lab_name": "AI & Frontier Tech Investment Lab",
     "themes": {
         "AI_TECH": {
@@ -10,8 +10,9 @@
                     "subtitle": "Growth / PEG 驅動",
                     "logic_type": "peg_growth",
                     "default_params": {
-                        "g": 25,
-                        "target_pe": 40
+                        "g": 30,
+                        "target_pe": 35,
+                        "target_ps": 10.0
                     },
                     "symbols": [
                         "NVDA",
@@ -27,7 +28,7 @@
                     "subtitle": "ASP / P/S 驅動",
                     "logic_type": "ps_cycle",
                     "default_params": {
-                        "target_ps": 4,
+                        "target_ps": 8.0,
                         "cycle_stage": "Mid"
                     },
                     "symbols": [
@@ -42,7 +43,8 @@
                     "subtitle": "CAPEX / P/E 驅動",
                     "logic_type": "pe_slider",
                     "default_params": {
-                        "target_pe": 25
+                        "target_pe": 28,
+                        "target_ps": 7.0
                     },
                     "symbols": [
                         "GOOGL",
@@ -63,8 +65,9 @@
                     "subtitle": "Efficiency / PEG 驅動",
                     "logic_type": "peg_growth",
                     "default_params": {
-                        "g": 20,
-                        "target_pe": 35
+                        "g": 25,    
+                        "target_pe": 38,
+                        "target_ps": 9.0
                     },
                     "symbols": [
                         "AVGO",
@@ -87,7 +90,8 @@
                     "subtitle": "SaaS & Device / PEG 驅動",
                     "logic_type": "peg",
                     "default_params": {
-                        "g": 15
+                        "g": 18,
+                        "target_pe": 32
                     },
                     "symbols": [
                         "QCOM",
@@ -124,6 +128,9 @@
                     "name": "太空經濟與衛星",
                     "subtitle": "P/S / Milestone 驅動",
                     "logic_type": "milestone",
+                    "default_params": {
+                        "target_ps": 12.0
+                    },
                     "symbols": [
                         "RKLB",
                         "ASTS",
@@ -187,6 +194,10 @@
                     "name": "自動駕駛與機器人",
                     "subtitle": "AI Vision / PEG 驅動",
                     "logic_type": "peg",
+                    "default_params": {
+                        "g": 35,  
+                        "target_pe": 60
+                    },
                     "symbols": [
                         "TSLA",
                         "UBER",
