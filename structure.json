@@ -65,7 +65,7 @@
                     "subtitle": "Efficiency / PEG 驅動",
                     "logic_type": "peg_growth",
                     "default_params": {
-                        "g": 25,    
+                        "g": 25,
                         "target_pe": 38,
                         "target_ps": 9.0
                     },
@@ -80,7 +80,8 @@
                         "CIEN",
                         "FN",
                         "CRDO",
-                        "APH"
+                        "APH",
+                        "ANET"
                     ],
                     "insight_link": "/cpo-silicon-photonics",
                     "tag": "orange"
@@ -195,7 +196,7 @@
                     "subtitle": "AI Vision / PEG 驅動",
                     "logic_type": "peg",
                     "default_params": {
-                        "g": 35,  
+                        "g": 35,
                         "target_pe": 60
                     },
                     "symbols": [
