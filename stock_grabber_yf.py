@@ -139,7 +139,9 @@ def get_default_fields(symbol, theme, sector_id, cfg):
         'growth_estimate': None,
         'revenue_estimate': None,
         'future_revenue_per_share': None,
+        'ps_forward': None,
         'target_pe_market': None,
+        'target_ps_market': None,
         'analyst_target': None,
         'shares_outstanding': None,
         'current_price': None,
@@ -376,15 +378,37 @@ for theme, theme_info in themes_config.items():
 
             # current price
             current_price = clean_val(market.get('price') or info.get('currentPrice') or info.get('regularMarketPrice'))
+            # TTM revenue (for fallback usage)
+            revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
 
-            # compute ps and pb
+            # compute ps (TTM) and target_ps_market
             ps_val = None
             try:
                 mcap_val = market.get('market_cap_value')
                 if mcap_val and revenue_estimate and revenue_estimate > 0:
-                    ps_val = round(float(mcap_val) / float(revenue_estimate), 2)
+                    # 原本的 ps_val 我們直接用 TTM 營收算
+                    revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
+                    if revenue_ttm and revenue_ttm > 0:
+                        ps_val = round(float(mcap_val) / float(revenue_ttm), 2)
             except Exception:
                 ps_val = None
+
+            target_ps_market = None
+            try:
+                mcap_val = market.get('market_cap_value')
+                if mcap_val and revenue_estimate and revenue_estimate > 0:
+                    # 使用前瞻營收算出來的 forward PS 作為目標參考
+                    target_ps_market = round(float(mcap_val) / float(revenue_estimate), 2)
+            except Exception:
+                target_ps_market = None
+
+            # forward P/S 明確欄位（供前端直接使用）
+            ps_forward = None
+            try:
+                if mcap_val and revenue_estimate and revenue_estimate > 0:
+                    ps_forward = round(float(mcap_val) / float(revenue_estimate), 2)
+            except Exception:
+                ps_forward = None
 
             pb_val = None
             try:
@@ -402,7 +426,7 @@ for theme, theme_info in themes_config.items():
             # Capture additional target metrics from info
             target_pe_market = clean_val(info.get('forwardPE'))
             analyst_target = clean_val(info.get('targetMedianPrice') or info.get('targetMeanPrice'))
-
+            
             master_data[symbol].update({
                 'theme': theme,
                 'theme_display_name': theme_display_name,
@@ -417,7 +441,10 @@ for theme, theme_info in themes_config.items():
                 'growth_estimate': secure_round(growth_estimate, 4) if growth_estimate is not None else None,
                 'revenue_estimate': revenue_estimate,
                 'future_revenue_per_share': secure_round(future_rev_ps, 4),
+                'revenue_ttm': revenue_ttm,
                 'target_pe_market': secure_round(target_pe_market, 4),
+                'target_ps_market': target_ps_market,
+                'ps_forward': ps_forward,
                 'analyst_target': secure_round(analyst_target, 2),
                 'shares_outstanding': shares_outstanding,
                 'current_price': current_price,
