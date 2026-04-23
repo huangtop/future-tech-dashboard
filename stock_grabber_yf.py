@@ -335,6 +335,38 @@ for theme, theme_info in themes_config.items():
                 print(f"  ⚠ [{symbol}] 通用營收抓取失敗，回退至 TTM: {e}")
                 revenue_estimate = clean_val(info.get('totalRevenue') or info.get('revenue'))
             
+            # --- 貨幣轉換修正 (如 TSM 台幣營收轉美金) ---
+            if revenue_estimate:
+                fin_currency = info.get('financialCurrency')
+                currency = info.get('currency')
+                if fin_currency and currency and fin_currency != currency:
+                    try:
+                        # 使用 yfinance 抓取即時匯率 (例如 TWDUSD=X)
+                        fx_symbol = f"{fin_currency}{currency}=X"
+                        fx_ticker = yf.Ticker(fx_symbol)
+                        fx_info = fx_ticker.info or {}
+                        fx_rate = fx_info.get('regularMarketPrice') or fx_info.get('previousClose')
+                        
+                        if not fx_rate:
+                            # Fallback using history if info is empty
+                            fx_hist = fx_ticker.history(period="1d")
+                            if not fx_hist.empty:
+                                fx_rate = float(fx_hist['Close'].iloc[-1])
+
+                        if fx_rate and fx_rate > 0:
+                            # 轉換營收：原始貨幣金額 * 匯率 (例如 TWD -> USD，匯率 0.0307)
+                            revenue_estimate = revenue_estimate * fx_rate
+                            print(f"  💱 [{symbol}] 執行 {fin_currency} 到 {currency} 轉換，即時匯率: {fx_rate:.4f}，校正後營收: {revenue_estimate/1e9:.2f}B")
+                        elif fin_currency == 'TWD' and currency == 'USD':
+                            # 最後防線 fallback
+                            revenue_estimate = revenue_estimate / 32.5
+                            print(f"  💱 [{symbol}] 執行 TWD 到 USD 轉換 (Fallback 32.5)，校正後營收: {revenue_estimate/1e9:.2f}B")
+                    except Exception as e:
+                        print(f"  ⚠ [{symbol}] 貨幣轉換嘗試失敗: {e}")
+                        if fin_currency == 'TWD' and currency == 'USD':
+                            revenue_estimate = revenue_estimate / 32.5
+                            print(f"  💱 [{symbol}] 執行 TWD 到 USD 轉換 (Fallback 32.5)，校正後營收: {revenue_estimate/1e9:.2f}B")
+
             # --- 最終計算：這會自動套用到所有股票 ---
             future_rev_ps = None
             if revenue_estimate and shares_outstanding and shares_outstanding > 0:
