@@ -139,6 +139,8 @@ def get_default_fields(symbol, theme, sector_id, cfg):
         'growth_estimate': None,
         'revenue_estimate': None,
         'future_revenue_per_share': None,
+        'target_pe_market': None,
+        'analyst_target': None,
         'shares_outstanding': None,
         'current_price': None,
         'ps': None,
@@ -197,34 +199,43 @@ for theme, theme_info in themes_config.items():
             except Exception:
                 info = {}
 
-            # earnings est extraction (similar to earlier logic)
+            # --- 修改後的 EPS 抓取邏輯 ---
             eps_current = 0.0
             eps_forward = 0.0
             growth_estimate = None
+            
             try:
                 est = getattr(ticker, 'earnings_estimate', None)
                 if est is not None and hasattr(est, 'empty') and not est.empty:
+                    # 1. 優先抓取 +1y (明年) 的平均預估，這才是分析師目標價的基準
                     if '+1y' in est.index:
-                        growth_val = est.loc['+1y', 'growth']
-                        try:
-                            growth_estimate = float(growth_val)
-                        except Exception:
-                            growth_estimate = None
-                    if '0y' in est.index:
-                        try:
-                            eps_current = float(est.loc['0y', 'yearAgoEps'])
-                            eps_forward = float(est.loc['0y', 'avg'])
-                        except Exception:
-                            eps_current = eps_forward = 0.0
+                        eps_forward = float(est.loc['+1y', 'avg'])
+                        # 同時抓取明年相對於今年的成長率
+                        if '0y' in est.index:
+                            eps_current = float(est.loc['0y', 'avg']) # 把今年當作基準
+                        else:
+                            eps_current = float(est.loc['+1y', 'yearAgoEps'])
+                        growth_estimate = float(est.loc['+1y', 'growth'])
+                    
+                    # 2. 如果沒有 +1y，退而求其次用 0y (今年)
+                    elif '0y' in est.index:
+                        eps_current = float(est.loc['0y', 'yearAgoEps'])
+                        eps_forward = float(est.loc['0y', 'avg'])
+                        if 'growth' in est.columns:
+                            growth_estimate = float(est.loc['0y', 'growth'])
+                            
                     else:
                         try:
                             eps_current = float(est.iloc[0]['yearAgoEps'])
                             eps_forward = float(est.iloc[0]['avg'])
+                            if 'growth' in est.columns:
+                                growth_estimate = float(est.iloc[0]['growth'])
                         except Exception:
                             eps_current = eps_forward = 0.0
                 else:
-                    val_trailing = info.get('trailingEps') or info.get('trailingEps')
-                    val_forward = info.get('forwardEps')
+                    # Fallback to info
+                    val_trailing = info.get('trailingEps')
+                    val_forward = info.get('forwardEps') # yfinance 的 forwardEps 通常指未來 12 個月
                     eps_current = float(val_trailing) if val_trailing is not None else 0.0
                     eps_forward = float(val_forward) if val_forward is not None else 0.0
             except Exception:
@@ -356,6 +367,10 @@ for theme, theme_info in themes_config.items():
 
             growth = (eps_forward - eps_current) / eps_current if eps_current and eps_current > 0 else None
 
+            # Capture additional target metrics from info
+            target_pe_market = clean_val(info.get('forwardPE'))
+            analyst_target = clean_val(info.get('targetMedianPrice') or info.get('targetMeanPrice'))
+
             master_data[symbol].update({
                 'theme': theme,
                 'theme_display_name': theme_display_name,
@@ -370,6 +385,8 @@ for theme, theme_info in themes_config.items():
                 'growth_estimate': secure_round(growth_estimate, 4) if growth_estimate is not None else None,
                 'revenue_estimate': revenue_estimate,
                 'future_revenue_per_share': secure_round(future_rev_ps, 4),
+                'target_pe_market': secure_round(target_pe_market, 4),
+                'analyst_target': secure_round(analyst_target, 2),
                 'shares_outstanding': shares_outstanding,
                 'current_price': current_price,
                 'ps': ps_val,
