@@ -381,15 +381,52 @@ for theme, theme_info in themes_config.items():
             # TTM revenue (for fallback usage)
             revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
 
+            # Normalize revenue_ttm currency to match revenue_estimate when possible
+            try:
+                fin_currency = info.get('financialCurrency')
+                currency = info.get('currency')
+                if revenue_ttm and fin_currency and currency and fin_currency != currency:
+                    fx_symbol = f"{fin_currency}{currency}=X"
+                    fx_ticker = yf.Ticker(fx_symbol)
+                    fx_info = fx_ticker.info or {}
+                    fx_rate = fx_info.get('regularMarketPrice') or fx_info.get('previousClose')
+                    if not fx_rate:
+                        fx_hist = fx_ticker.history(period="1d")
+                        if not fx_hist.empty:
+                            fx_rate = float(fx_hist['Close'].iloc[-1])
+                    if fx_rate and fx_rate > 0:
+                        revenue_ttm = revenue_ttm * fx_rate
+                        print(f"  💱 [{symbol}] TTM revenue converted {fin_currency}->{currency} rate {fx_rate:.4f}")
+            except Exception:
+                pass
+
             # compute ps (TTM) and target_ps_market
             ps_val = None
             try:
-                mcap_val = market.get('market_cap_value')
-                if mcap_val and revenue_estimate and revenue_estimate > 0:
-                    # 原本的 ps_val 我們直接用 TTM 營收算
-                    revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
-                    if revenue_ttm and revenue_ttm > 0:
-                        ps_val = round(float(mcap_val) / float(revenue_ttm), 2)
+                # 優先使用 TTM 每股營收（由 revenue_ttm / shares_outstanding 計算），因為不同來源可能有幣別或單位差異
+                revps_ttm = None
+                if revenue_ttm and shares_outstanding and shares_outstanding > 0:
+                    try:
+                        revps_ttm = float(revenue_ttm) / float(shares_outstanding)
+                    except Exception:
+                        revps_ttm = None
+
+                if revps_ttm and current_price and revps_ttm > 0:
+                    ps_val = round(float(current_price) / float(revps_ttm), 2)
+                else:
+                    # 次選：若 info 裡有 revenuePerShare，也可用之
+                    revps_info = clean_val(info.get('revenuePerShare'))
+                    if revps_info and current_price and revps_info > 0:
+                        ps_val = round(float(current_price) / float(revps_info), 2)
+                    else:
+                        # 再次選：使用 yfinance 提供的 priceToSalesTrailing12Months
+                        ps_val = clean_val(info.get('priceToSalesTrailing12Months'))
+                        if ps_val is None or ps_val <= 0:
+                            # 最後 fallback: 手動計算 TTM P/S（market_cap / revenue_ttm）
+                            mcap_val = market.get('market_cap_value')
+                            revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
+                            if mcap_val and revenue_ttm and revenue_ttm > 0:
+                                ps_val = round(float(mcap_val) / float(revenue_ttm), 2)
             except Exception:
                 ps_val = None
 
@@ -402,11 +439,13 @@ for theme, theme_info in themes_config.items():
             except Exception:
                 target_ps_market = None
 
-            # forward P/S 明確欄位（供前端直接使用）
+            # ✅ Forward P/S：用 current_price / forward_revenue_per_share
+            # 這樣不會逆推，而是基於對未來營收的獨立估計
             ps_forward = None
             try:
-                if mcap_val and revenue_estimate and revenue_estimate > 0:
-                    ps_forward = round(float(mcap_val) / float(revenue_estimate), 2)
+                if current_price and future_rev_ps and future_rev_ps > 0:
+                    # Forward P/S = 當前股價 / 預估的每股營收
+                    ps_forward = round(float(current_price) / float(future_rev_ps), 2)
             except Exception:
                 ps_forward = None
 
