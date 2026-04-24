@@ -171,323 +171,330 @@ try:
 except FileNotFoundError:
     master_data = {}
 
-# iterate
+# iterate through themes -> sectors -> clusters
 for theme, theme_info in themes_config.items():
     theme_display_name = theme_info.get('display_name', theme)
-    clusters = theme_info.get('clusters', {})
-    for sector_id, cfg in clusters.items():
-        cfg['theme_display_name'] = theme_display_name
-        print(f"\n📂 主題: {theme_display_name} | 板塊：{cfg.get('name')}")
-        for symbol in cfg.get('symbols', []):
-            print(f"  > 處理: {symbol}")
-            # init or reset structure for this symbol
-            if symbol not in master_data:
-                master_data[symbol] = get_default_fields(symbol, theme, sector_id, cfg)
-            else:
-                # keep editor_note, but reset other fields to defaults to avoid stale keys
-                note = master_data[symbol].get('editor_note', '請填入個人觀點...')
-                master_data[symbol] = get_default_fields(symbol, theme, sector_id, cfg)
-                master_data[symbol]['editor_note'] = note
-
-            # fetch market/financial data (IEX primary, yfinance fallback)
-            market = fetch_stock_data(symbol)
-
-            # also use yfinance ticker for earnings estimates and shares/book
-            try:
-                ticker = yf.Ticker(symbol)
-                info = ticker.info or {}
-            except Exception:
-                info = {}
-
-            # --- 修改後的 EPS 抓取邏輯 ---
-            eps_current = 0.0
-            eps_forward = 0.0
-            growth_estimate = None
+    sectors = theme_info.get('sectors', {})
+    
+    for sector_id, sector_info in sectors.items():
+        sector_name = sector_info.get('name', sector_id)
+        clusters = sector_info.get('clusters', {})
+        
+        for cluster_id, cfg in clusters.items():
+            cfg['theme_display_name'] = theme_display_name
+            cfg['sector_name'] = sector_name
+            print(f"\n📂 主題: {theme_display_name} | 板塊: {sector_name} | 群組: {cfg.get('name')}")
             
-            try:
-                est = getattr(ticker, 'earnings_estimate', None)
-                if est is not None and hasattr(est, 'empty') and not est.empty:
-                    # 1. 優先抓取 +1y (明年) 的平均預估，這才是分析師目標價的基準
-                    if '+1y' in est.index:
-                        eps_forward = float(est.loc['+1y', 'avg'])
-                        # 同時抓取明年相對於今年的成長率
-                        if '0y' in est.index:
-                            eps_current = float(est.loc['0y', 'avg']) # 把今年當作基準
-                        else:
-                            eps_current = float(est.loc['+1y', 'yearAgoEps'])
-                        growth_estimate = float(est.loc['+1y', 'growth'])
-                    
-                    # 2. 如果沒有 +1y，退而求其次用 0y (今年)
-                    elif '0y' in est.index:
-                        eps_current = float(est.loc['0y', 'yearAgoEps'])
-                        eps_forward = float(est.loc['0y', 'avg'])
-                        if 'growth' in est.columns:
-                            growth_estimate = float(est.loc['0y', 'growth'])
-                            
-                    else:
-                        try:
-                            eps_current = float(est.iloc[0]['yearAgoEps'])
-                            eps_forward = float(est.iloc[0]['avg'])
-                            if 'growth' in est.columns:
-                                growth_estimate = float(est.iloc[0]['growth'])
-                        except Exception:
-                            eps_current = eps_forward = 0.0
+            for symbol in cfg.get('symbols', []):
+                print(f"  > 處理: {symbol}")
+                # init or reset structure for this symbol
+                if symbol not in master_data:
+                    master_data[symbol] = get_default_fields(symbol, theme, sector_id, cfg)
                 else:
-                    # Fallback to info
-                    val_trailing = info.get('trailingEps')
-                    val_forward = info.get('forwardEps') # yfinance 的 forwardEps 通常指未來 12 個月
-                    eps_current = float(val_trailing) if val_trailing is not None else 0.0
-                    eps_forward = float(val_forward) if val_forward is not None else 0.0
-            except Exception:
-                try:
-                    val_trailing = info.get('trailingEps')
-                    val_forward = info.get('forwardEps')
-                    eps_current = float(val_trailing) if val_trailing is not None else 0.0
-                    eps_forward = float(val_forward) if val_forward is not None else 0.0
-                except Exception:
-                    eps_current = eps_forward = 0.0
+                    # keep editor_note, but reset other fields to defaults to avoid stale keys
+                    note = master_data[symbol].get('editor_note', '請填入個人觀點...')
+                    master_data[symbol] = get_default_fields(symbol, theme, sector_id, cfg)
+                    master_data[symbol]['editor_note'] = note
 
-            # --- Normalization & sanity checks for growth_estimate ---
-            if growth_estimate is not None:
-                raw = growth_estimate
-                # If value looks like a percent (e.g., 10 or 1068), convert to fraction
-                # Expected typical growth_estimate values are small fractions (e.g., 0.25 for 25%)
-                if abs(raw) > 5:
-                    # treat as percent -> divide by 100
+                # fetch market/financial data (IEX primary, yfinance fallback)
+                market = fetch_stock_data(symbol)
+
+                # also use yfinance ticker for earnings estimates and shares/book
+                try:
+                    ticker = yf.Ticker(symbol)
+                    info = ticker.info or {}
+                except Exception:
+                    info = {}
+
+                # --- 修改後的 EPS 抓取邏輯 ---
+                eps_current = 0.0
+                eps_forward = 0.0
+                growth_estimate = None
+            
+                try:
+                    est = getattr(ticker, 'earnings_estimate', None)
+                    if est is not None and hasattr(est, 'empty') and not est.empty:
+                        # 1. 優先抓取 +1y (明年) 的平均預估，這才是分析師目標價的基準
+                        if '+1y' in est.index:
+                            eps_forward = float(est.loc['+1y', 'avg'])
+                            # 同時抓取明年相對於今年的成長率
+                            if '0y' in est.index:
+                                eps_current = float(est.loc['0y', 'avg']) # 把今年當作基準
+                            else:
+                                eps_current = float(est.loc['+1y', 'yearAgoEps'])
+                            growth_estimate = float(est.loc['+1y', 'growth'])
+                    
+                        # 2. 如果沒有 +1y，退而求其次用 0y (今年)
+                        elif '0y' in est.index:
+                            eps_current = float(est.loc['0y', 'yearAgoEps'])
+                            eps_forward = float(est.loc['0y', 'avg'])
+                            if 'growth' in est.columns:
+                                growth_estimate = float(est.loc['0y', 'growth'])
+                            
+                        else:
+                            try:
+                                eps_current = float(est.iloc[0]['yearAgoEps'])
+                                eps_forward = float(est.iloc[0]['avg'])
+                                if 'growth' in est.columns:
+                                    growth_estimate = float(est.iloc[0]['growth'])
+                            except Exception:
+                                eps_current = eps_forward = 0.0
+                    else:
+                        # Fallback to info
+                        val_trailing = info.get('trailingEps')
+                        val_forward = info.get('forwardEps') # yfinance 的 forwardEps 通常指未來 12 個月
+                        eps_current = float(val_trailing) if val_trailing is not None else 0.0
+                        eps_forward = float(val_forward) if val_forward is not None else 0.0
+                except Exception:
                     try:
-                        growth_estimate = raw / 100.0
+                        val_trailing = info.get('trailingEps')
+                        val_forward = info.get('forwardEps')
+                        eps_current = float(val_trailing) if val_trailing is not None else 0.0
+                        eps_forward = float(val_forward) if val_forward is not None else 0.0
+                    except Exception:
+                        eps_current = eps_forward = 0.0
+
+                # --- Normalization & sanity checks for growth_estimate ---
+                if growth_estimate is not None:
+                    raw = growth_estimate
+                    # If value looks like a percent (e.g., 10 or 1068), convert to fraction
+                    # Expected typical growth_estimate values are small fractions (e.g., 0.25 for 25%)
+                    if abs(raw) > 5:
+                        # treat as percent -> divide by 100
+                        try:
+                            growth_estimate = raw / 100.0
+                        except Exception:
+                            growth_estimate = None
+                    # clamp absurd outliers to +/-500% (5.0) to avoid UI blowups
+                    if growth_estimate is not None and abs(growth_estimate) > 5.0:
+                        growth_estimate = 5.0 if growth_estimate > 0 else -5.0
+                    # debug: log suspicious values (very large or NaN)
+                    if growth_estimate is None or abs(growth_estimate) > 1.0:
+                        # only print for debugging during development; comment out in production if noisy
+                        print(f"⚠ [{symbol}] normalized growth_estimate from {raw} -> {growth_estimate}")
+
+                # 如果仍為 None，嘗試使用 cluster 的 fallback_growth
+                if growth_estimate is None:
+                    try:
+                        fb = cfg.get('default_params', {}).get('fallback_growth')
+                        if fb is not None:
+                            growth_estimate = float(fb)
+                            # 若看起來像百分比值 (例如 10 或 1068)，則除以100
+                            if abs(growth_estimate) > 5:
+                                growth_estimate = growth_estimate / 100.0
+                            # clamp 到 +/-500%
+                            if abs(growth_estimate) > 5.0:
+                                growth_estimate = 5.0 if growth_estimate > 0 else -5.0
+                            print(f"ℹ [{symbol}] applied fallback_growth from cluster: {fb} -> {growth_estimate}")
                     except Exception:
                         growth_estimate = None
-                # clamp absurd outliers to +/-500% (5.0) to avoid UI blowups
-                if growth_estimate is not None and abs(growth_estimate) > 5.0:
-                    growth_estimate = 5.0 if growth_estimate > 0 else -5.0
-                # debug: log suspicious values (very large or NaN)
-                if growth_estimate is None or abs(growth_estimate) > 1.0:
-                    # only print for debugging during development; comment out in production if noisy
-                    print(f"⚠ [{symbol}] normalized growth_estimate from {raw} -> {growth_estimate}")
 
-            # 如果仍為 None，嘗試使用 cluster 的 fallback_growth
-            if growth_estimate is None:
+                # compute shares_outstanding defensively FIRST so it's available for fallback calculations
+                so = None
+                if info.get('sharesOutstanding'):
+                    so = clean_val(info.get('sharesOutstanding'))
+                else:
+                    mcap = market.get('market_cap_value')
+                    mprice = market.get('price')
+                    if mcap and mprice:
+                        try:
+                            so = clean_val(float(mcap) / float(mprice))
+                        except Exception:
+                            so = None
+                shares_outstanding = so
+
+                # --- 強化版通用前瞻營收抓取 ---
+                revenue_estimate = None
                 try:
-                    fb = cfg.get('default_params', {}).get('fallback_growth')
-                    if fb is not None:
-                        growth_estimate = float(fb)
-                        # 若看起來像百分比值 (例如 10 或 1068)，則除以100
-                        if abs(growth_estimate) > 5:
-                            growth_estimate = growth_estimate / 100.0
-                        # clamp 到 +/-500%
-                        if abs(growth_estimate) > 5.0:
-                            growth_estimate = 5.0 if growth_estimate > 0 else -5.0
-                        print(f"ℹ [{symbol}] applied fallback_growth from cluster: {fb} -> {growth_estimate}")
-                except Exception:
-                    growth_estimate = None
+                    # 1. 優先權最高：抓取 yfinance 新版的 revenue_estimate 表
+                    # 這會直接回傳包含 '0y' 當前財年預估的 DataFrame
+                    rev_est_table = getattr(ticker, 'revenue_estimate', None)
+                    if rev_est_table is not None and not rev_est_table.empty:
+                        if '0y' in rev_est_table.index and 'avg' in rev_est_table.columns:
+                            revenue_estimate = clean_val(rev_est_table.loc['0y', 'avg'])
+                            if revenue_estimate is not None:
+                                print(f"  🎯 [{symbol}] 從 revenue_estimate 抓到 Forward Revenue: {revenue_estimate/1e9:.2f}B")
 
-            # compute shares_outstanding defensively FIRST so it's available for fallback calculations
-            so = None
-            if info.get('sharesOutstanding'):
-                so = clean_val(info.get('sharesOutstanding'))
-            else:
-                mcap = market.get('market_cap_value')
-                mprice = market.get('price')
-                if mcap and mprice:
-                    try:
-                        so = clean_val(float(mcap) / float(mprice))
-                    except Exception:
-                        so = None
-            shares_outstanding = so
+                    # 2. 如果 1 沒抓到，嘗試從 earnings_estimate 找 (舊版邏輯)
+                    if not revenue_estimate:
+                        est_table = getattr(ticker, 'earnings_estimate', None)
+                        if est_table is not None and not est_table.empty:
+                            if '0y' in est_table.index and 'revenue' in est_table.columns:
+                                potential_rev = est_table.loc['0y', 'revenue']
+                                if potential_rev and potential_rev > 0:
+                                    revenue_estimate = clean_val(potential_rev)
 
-            # --- 強化版通用前瞻營收抓取 ---
-            revenue_estimate = None
-            try:
-                # 1. 優先權最高：抓取 yfinance 新版的 revenue_estimate 表
-                # 這會直接回傳包含 '0y' 當前財年預估的 DataFrame
-                rev_est_table = getattr(ticker, 'revenue_estimate', None)
-                if rev_est_table is not None and not rev_est_table.empty:
-                    if '0y' in rev_est_table.index and 'avg' in rev_est_table.columns:
-                        revenue_estimate = clean_val(rev_est_table.loc['0y', 'avg'])
-                        if revenue_estimate is not None:
-                            print(f"  🎯 [{symbol}] 從 revenue_estimate 抓到 Forward Revenue: {revenue_estimate/1e9:.2f}B")
+                    # 3. 嘗試利用 .calendar
+                    if not revenue_estimate:
+                        cal = getattr(ticker, 'calendar', None)
+                        if isinstance(cal, dict) and 'Revenue Estimate' in cal:
+                            revenue_estimate = clean_val(cal['Revenue Estimate'].get('Avg'))
 
-                # 2. 如果 1 沒抓到，嘗試從 earnings_estimate 找 (舊版邏輯)
-                if not revenue_estimate:
-                    est_table = getattr(ticker, 'earnings_estimate', None)
-                    if est_table is not None and not est_table.empty:
-                        if '0y' in est_table.index and 'revenue' in est_table.columns:
-                            potential_rev = est_table.loc['0y', 'revenue']
-                            if potential_rev and potential_rev > 0:
-                                revenue_estimate = clean_val(potential_rev)
+                    # 4. 從 info 的 forward target 挖掘
+                    if not revenue_estimate:
+                        revenue_estimate = clean_val(info.get('revenueEstimate') or info.get('targetRevenue'))
 
-                # 3. 嘗試利用 .calendar
-                if not revenue_estimate:
-                    cal = getattr(ticker, 'calendar', None)
-                    if isinstance(cal, dict) and 'Revenue Estimate' in cal:
-                        revenue_estimate = clean_val(cal['Revenue Estimate'].get('Avg'))
+                    # 5. 終極 Fallback：如果連分析師預估都沒有，才用 TTM
+                    if not revenue_estimate:
+                        revenue_estimate = clean_val(info.get('totalRevenue') or info.get('revenue'))
 
-                # 4. 從 info 的 forward target 挖掘
-                if not revenue_estimate:
-                    revenue_estimate = clean_val(info.get('revenueEstimate') or info.get('targetRevenue'))
-
-                # 5. 終極 Fallback：如果連分析師預估都沒有，才用 TTM
-                if not revenue_estimate:
+                except Exception as e:
+                    print(f"  ⚠ [{symbol}] 通用營收抓取失敗，回退至 TTM: {e}")
                     revenue_estimate = clean_val(info.get('totalRevenue') or info.get('revenue'))
-
-            except Exception as e:
-                print(f"  ⚠ [{symbol}] 通用營收抓取失敗，回退至 TTM: {e}")
-                revenue_estimate = clean_val(info.get('totalRevenue') or info.get('revenue'))
             
-            # --- 貨幣轉換修正 (如 TSM 台幣營收轉美金) ---
-            if revenue_estimate:
-                fin_currency = info.get('financialCurrency')
-                currency = info.get('currency')
-                if fin_currency and currency and fin_currency != currency:
-                    try:
-                        # 使用 yfinance 抓取即時匯率 (例如 TWDUSD=X)
+                # --- 貨幣轉換修正 (如 TSM 台幣營收轉美金) ---
+                if revenue_estimate:
+                    fin_currency = info.get('financialCurrency')
+                    currency = info.get('currency')
+                    if fin_currency and currency and fin_currency != currency:
+                        try:
+                            # 使用 yfinance 抓取即時匯率 (例如 TWDUSD=X)
+                            fx_symbol = f"{fin_currency}{currency}=X"
+                            fx_ticker = yf.Ticker(fx_symbol)
+                            fx_info = fx_ticker.info or {}
+                            fx_rate = fx_info.get('regularMarketPrice') or fx_info.get('previousClose')
+                        
+                            if not fx_rate:
+                                # Fallback using history if info is empty
+                                fx_hist = fx_ticker.history(period="1d")
+                                if not fx_hist.empty:
+                                    fx_rate = float(fx_hist['Close'].iloc[-1])
+
+                            if fx_rate and fx_rate > 0:
+                                # 轉換營收：原始貨幣金額 * 匯率 (例如 TWD -> USD，匯率 0.0307)
+                                revenue_estimate = revenue_estimate * fx_rate
+                                print(f"  💱 [{symbol}] 執行 {fin_currency} 到 {currency} 轉換，即時匯率: {fx_rate:.4f}，校正後營收: {revenue_estimate/1e9:.2f}B")
+                            elif fin_currency == 'TWD' and currency == 'USD':
+                                # 最後防線 fallback
+                                revenue_estimate = revenue_estimate / 32.5
+                                print(f"  💱 [{symbol}] 執行 TWD 到 USD 轉換 (Fallback 32.5)，校正後營收: {revenue_estimate/1e9:.2f}B")
+                        except Exception as e:
+                            print(f"  ⚠ [{symbol}] 貨幣轉換嘗試失敗: {e}")
+                            if fin_currency == 'TWD' and currency == 'USD':
+                                revenue_estimate = revenue_estimate / 32.5
+                                print(f"  💱 [{symbol}] 執行 TWD 到 USD 轉換 (Fallback 32.5)，校正後營收: {revenue_estimate/1e9:.2f}B")
+
+                # --- 最終計算：這會自動套用到所有股票 ---
+                future_rev_ps = None
+                if revenue_estimate and shares_outstanding and shares_outstanding > 0:
+                    future_rev_ps = round(float(revenue_estimate) / float(shares_outstanding), 4)
+                elif info.get('revenuePerShare'):
+                    future_rev_ps = clean_val(info.get('revenuePerShare'))
+
+                # current price
+                current_price = clean_val(market.get('price') or info.get('currentPrice') or info.get('regularMarketPrice'))
+                # TTM revenue (for fallback usage)
+                revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
+
+                # Normalize revenue_ttm currency to match revenue_estimate when possible
+                try:
+                    fin_currency = info.get('financialCurrency')
+                    currency = info.get('currency')
+                    if revenue_ttm and fin_currency and currency and fin_currency != currency:
                         fx_symbol = f"{fin_currency}{currency}=X"
                         fx_ticker = yf.Ticker(fx_symbol)
                         fx_info = fx_ticker.info or {}
                         fx_rate = fx_info.get('regularMarketPrice') or fx_info.get('previousClose')
-                        
                         if not fx_rate:
-                            # Fallback using history if info is empty
                             fx_hist = fx_ticker.history(period="1d")
                             if not fx_hist.empty:
                                 fx_rate = float(fx_hist['Close'].iloc[-1])
-
                         if fx_rate and fx_rate > 0:
-                            # 轉換營收：原始貨幣金額 * 匯率 (例如 TWD -> USD，匯率 0.0307)
-                            revenue_estimate = revenue_estimate * fx_rate
-                            print(f"  💱 [{symbol}] 執行 {fin_currency} 到 {currency} 轉換，即時匯率: {fx_rate:.4f}，校正後營收: {revenue_estimate/1e9:.2f}B")
-                        elif fin_currency == 'TWD' and currency == 'USD':
-                            # 最後防線 fallback
-                            revenue_estimate = revenue_estimate / 32.5
-                            print(f"  💱 [{symbol}] 執行 TWD 到 USD 轉換 (Fallback 32.5)，校正後營收: {revenue_estimate/1e9:.2f}B")
-                    except Exception as e:
-                        print(f"  ⚠ [{symbol}] 貨幣轉換嘗試失敗: {e}")
-                        if fin_currency == 'TWD' and currency == 'USD':
-                            revenue_estimate = revenue_estimate / 32.5
-                            print(f"  💱 [{symbol}] 執行 TWD 到 USD 轉換 (Fallback 32.5)，校正後營收: {revenue_estimate/1e9:.2f}B")
+                            revenue_ttm = revenue_ttm * fx_rate
+                            print(f"  💱 [{symbol}] TTM revenue converted {fin_currency}->{currency} rate {fx_rate:.4f}")
+                except Exception:
+                    pass
 
-            # --- 最終計算：這會自動套用到所有股票 ---
-            future_rev_ps = None
-            if revenue_estimate and shares_outstanding and shares_outstanding > 0:
-                future_rev_ps = round(float(revenue_estimate) / float(shares_outstanding), 4)
-            elif info.get('revenuePerShare'):
-                future_rev_ps = clean_val(info.get('revenuePerShare'))
-
-            # current price
-            current_price = clean_val(market.get('price') or info.get('currentPrice') or info.get('regularMarketPrice'))
-            # TTM revenue (for fallback usage)
-            revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
-
-            # Normalize revenue_ttm currency to match revenue_estimate when possible
-            try:
-                fin_currency = info.get('financialCurrency')
-                currency = info.get('currency')
-                if revenue_ttm and fin_currency and currency and fin_currency != currency:
-                    fx_symbol = f"{fin_currency}{currency}=X"
-                    fx_ticker = yf.Ticker(fx_symbol)
-                    fx_info = fx_ticker.info or {}
-                    fx_rate = fx_info.get('regularMarketPrice') or fx_info.get('previousClose')
-                    if not fx_rate:
-                        fx_hist = fx_ticker.history(period="1d")
-                        if not fx_hist.empty:
-                            fx_rate = float(fx_hist['Close'].iloc[-1])
-                    if fx_rate and fx_rate > 0:
-                        revenue_ttm = revenue_ttm * fx_rate
-                        print(f"  💱 [{symbol}] TTM revenue converted {fin_currency}->{currency} rate {fx_rate:.4f}")
-            except Exception:
-                pass
-
-            # compute ps (TTM) and target_ps_market
-            ps_val = None
-            try:
-                # 優先使用 TTM 每股營收（由 revenue_ttm / shares_outstanding 計算），因為不同來源可能有幣別或單位差異
-                revps_ttm = None
-                if revenue_ttm and shares_outstanding and shares_outstanding > 0:
-                    try:
-                        revps_ttm = float(revenue_ttm) / float(shares_outstanding)
-                    except Exception:
-                        revps_ttm = None
-
-                if revps_ttm and current_price and revps_ttm > 0:
-                    ps_val = round(float(current_price) / float(revps_ttm), 2)
-                else:
-                    # 次選：若 info 裡有 revenuePerShare，也可用之
-                    revps_info = clean_val(info.get('revenuePerShare'))
-                    if revps_info and current_price and revps_info > 0:
-                        ps_val = round(float(current_price) / float(revps_info), 2)
-                    else:
-                        # 再次選：使用 yfinance 提供的 priceToSalesTrailing12Months
-                        ps_val = clean_val(info.get('priceToSalesTrailing12Months'))
-                        if ps_val is None or ps_val <= 0:
-                            # 最後 fallback: 手動計算 TTM P/S（market_cap / revenue_ttm）
-                            mcap_val = market.get('market_cap_value')
-                            revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
-                            if mcap_val and revenue_ttm and revenue_ttm > 0:
-                                ps_val = round(float(mcap_val) / float(revenue_ttm), 2)
-            except Exception:
+                # compute ps (TTM) and target_ps_market
                 ps_val = None
+                try:
+                    # 優先使用 TTM 每股營收（由 revenue_ttm / shares_outstanding 計算），因為不同來源可能有幣別或單位差異
+                    revps_ttm = None
+                    if revenue_ttm and shares_outstanding and shares_outstanding > 0:
+                        try:
+                            revps_ttm = float(revenue_ttm) / float(shares_outstanding)
+                        except Exception:
+                            revps_ttm = None
 
-            target_ps_market = None
-            try:
-                mcap_val = market.get('market_cap_value')
-                if mcap_val and revenue_estimate and revenue_estimate > 0:
-                    # 使用前瞻營收算出來的 forward PS 作為目標參考
-                    target_ps_market = round(float(mcap_val) / float(revenue_estimate), 2)
-            except Exception:
+                    if revps_ttm and current_price and revps_ttm > 0:
+                        ps_val = round(float(current_price) / float(revps_ttm), 2)
+                    else:
+                        # 次選：若 info 裡有 revenuePerShare，也可用之
+                        revps_info = clean_val(info.get('revenuePerShare'))
+                        if revps_info and current_price and revps_info > 0:
+                            ps_val = round(float(current_price) / float(revps_info), 2)
+                        else:
+                            # 再次選：使用 yfinance 提供的 priceToSalesTrailing12Months
+                            ps_val = clean_val(info.get('priceToSalesTrailing12Months'))
+                            if ps_val is None or ps_val <= 0:
+                                # 最後 fallback: 手動計算 TTM P/S（market_cap / revenue_ttm）
+                                mcap_val = market.get('market_cap_value')
+                                revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
+                                if mcap_val and revenue_ttm and revenue_ttm > 0:
+                                    ps_val = round(float(mcap_val) / float(revenue_ttm), 2)
+                except Exception:
+                    ps_val = None
+
                 target_ps_market = None
+                try:
+                    mcap_val = market.get('market_cap_value')
+                    if mcap_val and revenue_estimate and revenue_estimate > 0:
+                        # 使用前瞻營收算出來的 forward PS 作為目標參考
+                        target_ps_market = round(float(mcap_val) / float(revenue_estimate), 2)
+                except Exception:
+                    target_ps_market = None
 
-            # ✅ Forward P/S：用 current_price / forward_revenue_per_share
-            # 這樣不會逆推，而是基於對未來營收的獨立估計
-            ps_forward = None
-            try:
-                if current_price and future_rev_ps and future_rev_ps > 0:
-                    # Forward P/S = 當前股價 / 預估的每股營收
-                    ps_forward = round(float(current_price) / float(future_rev_ps), 2)
-            except Exception:
+                # ✅ Forward P/S：用 current_price / forward_revenue_per_share
+                # 這樣不會逆推，而是基於對未來營收的獨立估計
                 ps_forward = None
+                try:
+                    if current_price and future_rev_ps and future_rev_ps > 0:
+                        # Forward P/S = 當前股價 / 預估的每股營收
+                        ps_forward = round(float(current_price) / float(future_rev_ps), 2)
+                except Exception:
+                    ps_forward = None
 
-            pb_val = None
-            try:
-                book_val = info.get('bookValue')
-                if book_val and current_price:
-                    pb_val = round(current_price / float(book_val), 2)
-            except Exception:
                 pb_val = None
+                try:
+                    book_val = info.get('bookValue')
+                    if book_val and current_price:
+                        pb_val = round(current_price / float(book_val), 2)
+                except Exception:
+                    pb_val = None
 
-            # default params
-            default_params = cfg.get('default_params', {})
+                # default params
+                default_params = cfg.get('default_params', {})
 
-            growth = (eps_forward - eps_current) / eps_current if eps_current and eps_current > 0 else None
+                growth = (eps_forward - eps_current) / eps_current if eps_current and eps_current > 0 else None
 
-            # Capture additional target metrics from info
-            target_pe_market = clean_val(info.get('forwardPE'))
-            analyst_target = clean_val(info.get('targetMedianPrice') or info.get('targetMeanPrice'))
+                # Capture additional target metrics from info
+                target_pe_market = clean_val(info.get('forwardPE'))
+                analyst_target = clean_val(info.get('targetMedianPrice') or info.get('targetMeanPrice'))
             
-            master_data[symbol].update({
-                'theme': theme,
-                'theme_display_name': theme_display_name,
-                'sector_id': sector_id,
-                'sector_name': cfg.get('name'),
-                'calc_type': (cfg.get('logic_type', 'ps').split('_')[0] if isinstance(cfg.get('logic_type', 'ps'), str) else 'ps'),
-                'insight_link': cfg.get('insight_link', master_data[symbol].get('insight_link')),
-                'tag': cfg.get('tag', master_data[symbol].get('tag', 'grey')),
-                'market_consensus_eps_current': secure_round(eps_current, 4),
-                'market_consensus_eps_forward': secure_round(eps_forward, 4),
-                'growth_estimate': secure_round(growth_estimate, 4) if growth_estimate is not None else None,
-                'revenue_estimate': revenue_estimate,
-                'future_revenue_per_share': secure_round(future_rev_ps, 4),
-                'revenue_ttm': revenue_ttm,
-                'target_pe_market': secure_round(target_pe_market, 4),
-                'ps_forward': ps_forward,
-                'analyst_target': secure_round(analyst_target, 2),
-                'shares_outstanding': shares_outstanding,
-                'current_price': current_price,
-                'ps': ps_val,
-                'pb': pb_val,
-                'default_params': default_params,
-                'last_updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-            })
+                master_data[symbol].update({
+                    'theme': theme,
+                    'theme_display_name': theme_display_name,
+                    'sector_id': sector_id,
+                    'sector_name': cfg.get('name'),
+                    'calc_type': (cfg.get('logic_type', 'ps').split('_')[0] if isinstance(cfg.get('logic_type', 'ps'), str) else 'ps'),
+                    'insight_link': cfg.get('insight_link', master_data[symbol].get('insight_link')),
+                    'tag': cfg.get('tag', master_data[symbol].get('tag', 'grey')),
+                    'market_consensus_eps_current': secure_round(eps_current, 4),
+                    'market_consensus_eps_forward': secure_round(eps_forward, 4),
+                    'growth_estimate': secure_round(growth_estimate, 4) if growth_estimate is not None else None,
+                    'revenue_estimate': revenue_estimate,
+                    'future_revenue_per_share': secure_round(future_rev_ps, 4),
+                    'revenue_ttm': revenue_ttm,
+                    'target_pe_market': secure_round(target_pe_market, 4),
+                    'ps_forward': ps_forward,
+                    'analyst_target': secure_round(analyst_target, 2),
+                    'shares_outstanding': shares_outstanding,
+                    'current_price': current_price,
+                    'ps': ps_val,
+                    'pb': pb_val,
+                    'default_params': default_params,
+                    'last_updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                })
 
 # write out
 with open(output_path, 'w', encoding='utf-8') as f:
