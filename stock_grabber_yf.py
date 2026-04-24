@@ -133,15 +133,13 @@ def get_default_fields(symbol, theme, sector_id, cfg):
         'insight_link': cfg.get('insight_link', f"/insight/{symbol.lower()}"),
         'tag': cfg.get('tag', 'grey'),
         'default_params': cfg.get('default_params', {}),
-        'market_consensus_eps_current': None,
-        'market_consensus_eps_forward': None,
-        'calc_growth': None,
-        'growth_estimate': None,
+        'market_consensus_eps_current': None,  # TTM EPS
+        'market_consensus_eps_forward': None,  # Forward EPS
+        'growth_estimate': None,  # 分析師預估成長率（移除 calc_growth 冗余字段）
         'revenue_estimate': None,
         'future_revenue_per_share': None,
-        'ps_forward': None,
+        'ps_forward': None,  # Forward P/S（隱含）
         'target_pe_market': None,
-        'target_ps_market': None,
         'analyst_target': None,
         'shares_outstanding': None,
         'current_price': None,
@@ -476,13 +474,11 @@ for theme, theme_info in themes_config.items():
                 'tag': cfg.get('tag', master_data[symbol].get('tag', 'grey')),
                 'market_consensus_eps_current': secure_round(eps_current, 4),
                 'market_consensus_eps_forward': secure_round(eps_forward, 4),
-                'calc_growth': secure_round(growth, 4) if growth is not None else None,
                 'growth_estimate': secure_round(growth_estimate, 4) if growth_estimate is not None else None,
                 'revenue_estimate': revenue_estimate,
                 'future_revenue_per_share': secure_round(future_rev_ps, 4),
                 'revenue_ttm': revenue_ttm,
                 'target_pe_market': secure_round(target_pe_market, 4),
-                'target_ps_market': target_ps_market,
                 'ps_forward': ps_forward,
                 'analyst_target': secure_round(analyst_target, 2),
                 'shares_outstanding': shares_outstanding,
