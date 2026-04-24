@@ -16,7 +16,14 @@
                                 "g": 30,
                                 "target_ps": 10.0
                             },
-                            "symbols": ["NVDA", "AMD", "INTC", "GOOGL", "AVGO", "ARM"],
+                            "symbols": [
+                                "NVDA",
+                                "AMD",
+                                "INTC",
+                                "GOOGL",
+                                "AVGO",
+                                "ARM"
+                            ],
                             "insight_link": "/xpu-market-share-2026",
                             "tag": "blue"
                         }
@@ -33,7 +40,10 @@
                                 "target_ps": 8.0,
                                 "cycle_stage": "Mid"
                             },
-                            "symbols": ["MU", "SNDK"],
+                            "symbols": [
+                                "MU",
+                                "SNDK"
+                            ],
                             "insight_link": "/hbm-market-analysis",
                             "tag": "orange"
                         }
@@ -49,7 +59,12 @@
                             "default_params": {
                                 "target_ps": 7.0
                             },
-                            "symbols": ["SMCI", "VRT", "DELL", "HPE"],
+                            "symbols": [
+                                "SMCI",
+                                "VRT",
+                                "DELL",
+                                "HPE"
+                            ],
                             "insight_link": "/server-thermal-supply-chain",
                             "tag": "purple"
                         }
@@ -66,7 +81,12 @@
                                 "g": 18,
                                 "target_ps": 7.0
                             },
-                            "symbols": ["MSFT", "AMZN", "META", "ORCL"],
+                            "symbols": [
+                                "MSFT",
+                                "AMZN",
+                                "META",
+                                "ORCL"
+                            ],
                             "insight_link": "/csp-capex-tracker",
                             "tag": "purple"
                         }
@@ -83,7 +103,20 @@
                                 "g": 25,
                                 "target_ps": 9.0
                             },
-                            "symbols": ["AVGO", "MRVL", "COHR", "LITE", "ALAB", "AAOI", "AXTI", "CIEN", "FN", "CRDO", "APH", "ANET"],
+                            "symbols": [
+                                "AVGO",
+                                "MRVL",
+                                "COHR",
+                                "LITE",
+                                "ALAB",
+                                "AAOI",
+                                "AXTI",
+                                "CIEN",
+                                "FN",
+                                "CRDO",
+                                "APH",
+                                "ANET"
+                            ],
                             "insight_link": "/cpo-silicon-photonics",
                             "tag": "orange"
                         }
@@ -100,7 +133,13 @@
                                 "g": 18,
                                 "target_ps": 6.0
                             },
-                            "symbols": ["QCOM", "AAPL", "NFLX", "ADBE", "CRM"],
+                            "symbols": [
+                                "QCOM",
+                                "AAPL",
+                                "NFLX",
+                                "ADBE",
+                                "CRM"
+                            ],
                             "insight_link": "/ai-consumer-monetization",
                             "tag": "purple"
                         }
@@ -121,7 +160,11 @@
                             "default_params": {
                                 "success_prob": 0.2
                             },
-                            "symbols": ["IONQ", "RGTI", "QBTS"],
+                            "symbols": [
+                                "IONQ",
+                                "RGTI",
+                                "QBTS"
+                            ],
                             "insight_link": "/quantum-computing-roadmap",
                             "tag": "purple"
                         }
@@ -137,7 +180,16 @@
                             "default_params": {
                                 "success_prob": 0.25
                             },
-                            "symbols": ["RKLB", "ASTS", "IRDM", "GSAT", "SATS", "LUNR", "PL", "RDW"],
+                            "symbols": [
+                                "RKLB",
+                                "ASTS",
+                                "IRDM",
+                                "GSAT",
+                                "SATS",
+                                "LUNR",
+                                "PL",
+                                "RDW"
+                            ],
                             "insight_link": "/space-x-competitors",
                             "tag": "blue"
                         }
@@ -153,7 +205,10 @@
                             "default_params": {
                                 "success_prob": 0.25
                             },
-                            "symbols": ["FSLR", "JKS"],
+                            "symbols": [
+                                "FSLR",
+                                "JKS"
+                            ],
                             "insight_link": "/perovskite-solar-2026",
                             "tag": "green"
                         }
@@ -169,7 +224,12 @@
                             "default_params": {
                                 "success_prob": 0.20
                             },
-                            "symbols": ["CRSP", "BEAM", "NTLA", "ARKG"],
+                            "symbols": [
+                                "CRSP",
+                                "BEAM",
+                                "NTLA",
+                                "ARKG"
+                            ],
                             "insight_link": "/gene-editing-future",
                             "tag": "purple"
                         }
@@ -190,7 +250,13 @@
                             "default_params": {
                                 "success_prob": 0.30
                             },
-                            "symbols": ["OKLO", "SMR", "NNE", "CEG", "VST"],
+                            "symbols": [
+                                "OKLO",
+                                "SMR",
+                                "NNE",
+                                "CEG",
+                                "VST"
+                            ],
                             "insight_link": "/nuclear-energy-renaissance",
                             "tag": "orange"
                         }
@@ -207,7 +273,14 @@
                                 "g": 35,
                                 "target_ps": 8.0
                             },
-                            "symbols": ["TSLA", "UBER", "ISRG", "PATH", "BOTZ", "AMBA"],
+                            "symbols": [
+                                "TSLA",
+                                "UBER",
+                                "ISRG",
+                                "PATH",
+                                "BOTZ",
+                                "AMBA"
+                            ],
                             "insight_link": "/robotaxi-economics",
                             "tag": "purple"
                         }
