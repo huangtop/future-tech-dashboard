@@ -6,7 +6,7 @@
             "display_name": "人工智慧與核心科技",
             "sectors": {
                 "ai_core_compute": {
-                    "name": "AI 核心算力 (XPU)",
+                    "name": "AI核心算力(XPU)",
                     "clusters": {
                         "compute_engines": {
                             "name": "核心計算引擎 (GPU/CPU/TPU)",
@@ -22,7 +22,8 @@
                                 "INTC",
                                 "GOOGL",
                                 "AVGO",
-                                "ARM"
+                                "ARM",
+                                "TSM"
                             ],
                             "insight_link": "/xpu-market-share-2026",
                             "tag": "blue"
