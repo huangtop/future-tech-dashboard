@@ -24,7 +24,7 @@
         "current_price": 215.2,
         "ps": 24.22,
         "pb": 33.25,
-        "last_updated": "2026-05-09 16:11:57",
+        "last_updated": "2026-05-09 16:27:15",
         "revenue_ttm": 215938007040.0
     },
     "AMD": {
@@ -52,36 +52,8 @@
         "current_price": 455.19,
         "ps": 19.82,
         "pb": 11.78,
-        "last_updated": "2026-05-09 16:11:58",
+        "last_updated": "2026-05-09 16:27:15",
         "revenue_ttm": 37454000128.0
-    },
-    "INTC": {
-        "editor_note": "請填入個人觀點...",
-        "theme": "AI_TECH",
-        "theme_display_name": "人工智慧與核心科技",
-        "sector_id": "ai_core_compute",
-        "sector_name": "核心計算引擎 (GPU/CPU/TPU)",
-        "calc_type": "peg",
-        "insight_link": "/xpu-market-share-2026",
-        "tag": "blue",
-        "default_params": {
-            "g": 30,
-            "target_ps": 10.0
-        },
-        "market_consensus_eps_current": 1.0842,
-        "market_consensus_eps_forward": 1.5163,
-        "growth_estimate": 0.3986,
-        "revenue_estimate": 58583182210.0,
-        "future_revenue_per_share": 11.656,
-        "ps_forward": 10.72,
-        "target_pe_market": 81.6065,
-        "analyst_target": 80.0,
-        "shares_outstanding": 5026000000.0,
-        "current_price": 124.92,
-        "ps": 11.68,
-        "pb": 5.46,
-        "last_updated": "2026-05-09 16:11:59",
-        "revenue_ttm": 53762998272.0
     },
     "GOOGL": {
         "editor_note": "請填入個人觀點...",
@@ -108,7 +80,7 @@
         "current_price": 400.8,
         "ps": 5.52,
         "pb": 11.67,
-        "last_updated": "2026-05-09 16:11:59",
+        "last_updated": "2026-05-09 16:27:16",
         "revenue_ttm": 422498009088.0
     },
     "AVGO": {
@@ -136,7 +108,7 @@
         "current_price": 430.0,
         "ps": 29.82,
         "pb": 25.5,
-        "last_updated": "2026-05-09 16:12:08",
+        "last_updated": "2026-05-09 16:27:26",
         "revenue_ttm": 68281999360.0
     },
     "ARM": {
@@ -164,7 +136,7 @@
         "current_price": 213.27,
         "ps": 48.58,
         "pb": 29.04,
-        "last_updated": "2026-05-09 16:12:00",
+        "last_updated": "2026-05-09 16:27:17",
         "revenue_ttm": 4671000064.0
     },
     "TSM": {
@@ -192,8 +164,35 @@
         "current_price": 411.68,
         "ps": 16.28,
         "pb": 62.97,
-        "last_updated": "2026-05-09 16:12:01",
+        "last_updated": "2026-05-09 16:27:18",
         "revenue_ttm": 131115128913.54434
+    },
+    "INTC": {
+        "editor_note": "請填入個人觀點...",
+        "theme": "AI_TECH",
+        "theme_display_name": "人工智慧與核心科技",
+        "sector_id": "ai_core_compute",
+        "sector_name": "成熟計算晶片",
+        "calc_type": "pe",
+        "insight_link": "/mature-compute-2026",
+        "tag": "blue",
+        "default_params": {
+            "target_pe": 15.0
+        },
+        "market_consensus_eps_current": 1.0842,
+        "market_consensus_eps_forward": 1.5163,
+        "growth_estimate": 0.3986,
+        "revenue_estimate": 58583182210.0,
+        "future_revenue_per_share": 11.656,
+        "ps_forward": 10.72,
+        "target_pe_market": 81.6065,
+        "analyst_target": 80.0,
+        "shares_outstanding": 5026000000.0,
+        "current_price": 124.92,
+        "ps": 11.68,
+        "pb": 5.46,
+        "last_updated": "2026-05-09 16:27:19",
+        "revenue_ttm": 53762998272.0
     },
     "MU": {
         "editor_note": "請填入個人觀點...",
@@ -220,7 +219,7 @@
         "current_price": 746.81,
         "ps": 14.49,
         "pb": 11.63,
-        "last_updated": "2026-05-09 16:12:02",
+        "last_updated": "2026-05-09 16:27:20",
         "revenue_ttm": 58119000064.0
     },
     "SNDK": {
@@ -248,7 +247,7 @@
         "current_price": 1562.34,
         "ps": 17.55,
         "pb": 22.64,
-        "last_updated": "2026-05-09 16:12:02",
+        "last_updated": "2026-05-09 16:27:20",
         "revenue_ttm": 13184000000.0
     },
     "SMCI": {
@@ -275,7 +274,7 @@
         "current_price": 35.37,
         "ps": 0.63,
         "pb": 3.03,
-        "last_updated": "2026-05-09 16:12:03",
+        "last_updated": "2026-05-09 16:27:21",
         "revenue_ttm": 33700206592.0
     },
     "VRT": {
@@ -302,7 +301,7 @@
         "current_price": 339.97,
         "ps": 12.04,
         "pb": 33.0,
-        "last_updated": "2026-05-09 16:12:30",
+        "last_updated": "2026-05-09 16:27:46",
         "revenue_ttm": 10843400192.0
     },
     "DELL": {
@@ -310,12 +309,12 @@
         "theme": "AI_TECH",
         "theme_display_name": "人工智慧與核心科技",
         "sector_id": "ai_infra_systems",
-        "sector_name": "伺服器與散熱系統",
-        "calc_type": "ps",
-        "insight_link": "/server-thermal-supply-chain",
+        "sector_name": "伺服器製造商",
+        "calc_type": "pe",
+        "insight_link": "/server-vendors",
         "tag": "purple",
         "default_params": {
-            "target_ps": 7.0
+            "target_pe": 15.0
         },
         "market_consensus_eps_current": 12.9448,
         "market_consensus_eps_forward": 14.7378,
@@ -329,7 +328,7 @@
         "current_price": 260.46,
         "ps": 0.75,
         "pb": -68.76,
-        "last_updated": "2026-05-09 16:12:04",
+        "last_updated": "2026-05-09 16:27:22",
         "revenue_ttm": 113537998848.0
     },
     "HPE": {
@@ -337,12 +336,12 @@
         "theme": "AI_TECH",
         "theme_display_name": "人工智慧與核心科技",
         "sector_id": "ai_infra_systems",
-        "sector_name": "伺服器與散熱系統",
-        "calc_type": "ps",
-        "insight_link": "/server-thermal-supply-chain",
+        "sector_name": "伺服器製造商",
+        "calc_type": "pe",
+        "insight_link": "/server-vendors",
         "tag": "purple",
         "default_params": {
-            "target_ps": 7.0
+            "target_pe": 15.0
         },
         "market_consensus_eps_current": 2.4159,
         "market_consensus_eps_forward": 2.7189,
@@ -356,7 +355,7 @@
         "current_price": 31.35,
         "ps": 1.16,
         "pb": 1.68,
-        "last_updated": "2026-05-09 16:12:05",
+        "last_updated": "2026-05-09 16:27:23",
         "revenue_ttm": 35742998528.0
     },
     "MSFT": {
@@ -364,7 +363,7 @@
         "theme": "AI_TECH",
         "theme_display_name": "人工智慧與核心科技",
         "sector_id": "hyperscalers",
-        "sector_name": "雲端服務商",
+        "sector_name": "高成長雲端服務商",
         "calc_type": "peg",
         "insight_link": "/csp-capex-tracker",
         "tag": "purple",
@@ -384,7 +383,7 @@
         "current_price": 415.12,
         "ps": 9.69,
         "pb": 7.44,
-        "last_updated": "2026-05-09 16:12:06",
+        "last_updated": "2026-05-09 16:27:24",
         "revenue_ttm": 318272995328.0
     },
     "AMZN": {
@@ -392,7 +391,7 @@
         "theme": "AI_TECH",
         "theme_display_name": "人工智慧與核心科技",
         "sector_id": "hyperscalers",
-        "sector_name": "雲端服務商",
+        "sector_name": "高成長雲端服務商",
         "calc_type": "peg",
         "insight_link": "/csp-capex-tracker",
         "tag": "purple",
@@ -412,7 +411,7 @@
         "current_price": 272.68,
         "ps": 3.95,
         "pb": 6.64,
-        "last_updated": "2026-05-09 16:12:06",
+        "last_updated": "2026-05-09 16:27:24",
         "revenue_ttm": 742775980032.0
     },
     "META": {
@@ -420,7 +419,7 @@
         "theme": "AI_TECH",
         "theme_display_name": "人工智慧與核心科技",
         "sector_id": "hyperscalers",
-        "sector_name": "雲端服務商",
+        "sector_name": "高成長雲端服務商",
         "calc_type": "peg",
         "insight_link": "/csp-capex-tracker",
         "tag": "purple",
@@ -440,7 +439,7 @@
         "current_price": 609.63,
         "ps": 6.23,
         "pb": 7.1,
-        "last_updated": "2026-05-09 16:12:07",
+        "last_updated": "2026-05-09 16:27:25",
         "revenue_ttm": 214962995200.0
     },
     "ORCL": {
@@ -468,7 +467,7 @@
         "current_price": 195.95,
         "ps": 8.8,
         "pb": 16.8,
-        "last_updated": "2026-05-09 16:12:41",
+        "last_updated": "2026-05-09 16:27:56",
         "revenue_ttm": 64076001280.0
     },
     "MRVL": {
@@ -496,7 +495,7 @@
         "current_price": 170.13,
         "ps": 18.15,
         "pb": 10.07,
-        "last_updated": "2026-05-09 16:12:09",
+        "last_updated": "2026-05-09 16:27:27",
         "revenue_ttm": 8194599936.0
     },
     "COHR": {
@@ -524,7 +523,7 @@
         "current_price": 335.26,
         "ps": 9.93,
         "pb": 7.36,
-        "last_updated": "2026-05-09 16:12:10",
+        "last_updated": "2026-05-09 16:27:28",
         "revenue_ttm": 6602083840.0
     },
     "LITE": {
@@ -552,7 +551,7 @@
         "current_price": 903.8,
         "ps": 28.26,
         "pb": 76.23,
-        "last_updated": "2026-05-09 16:12:10",
+        "last_updated": "2026-05-09 16:27:28",
         "revenue_ttm": 2488399872.0
     },
     "ALAB": {
@@ -580,7 +579,7 @@
         "current_price": 199.79,
         "ps": 34.2,
         "pb": 24.93,
-        "last_updated": "2026-05-09 16:12:11",
+        "last_updated": "2026-05-09 16:27:29",
         "revenue_ttm": 1001443968.0
     },
     "AAOI": {
@@ -608,7 +607,7 @@
         "current_price": 148.94,
         "ps": 26.23,
         "pb": 15.22,
-        "last_updated": "2026-05-09 16:12:11",
+        "last_updated": "2026-05-09 16:27:29",
         "revenue_ttm": 455715008.0
     },
     "AXTI": {
@@ -636,7 +635,7 @@
         "current_price": 116.36,
         "ps": 79.39,
         "pb": 22.87,
-        "last_updated": "2026-05-09 16:12:12",
+        "last_updated": "2026-05-09 16:27:30",
         "revenue_ttm": 95894000.0
     },
     "CIEN": {
@@ -664,7 +663,7 @@
         "current_price": 548.11,
         "ps": 15.12,
         "pb": 27.77,
-        "last_updated": "2026-05-09 16:12:13",
+        "last_updated": "2026-05-09 16:27:30",
         "revenue_ttm": 5124289024.0
     },
     "FN": {
@@ -692,7 +691,7 @@
         "current_price": 621.28,
         "ps": 5.26,
         "pb": 9.66,
-        "last_updated": "2026-05-09 16:12:13",
+        "last_updated": "2026-05-09 16:27:31",
         "revenue_ttm": 4235001088.0
     },
     "CRDO": {
@@ -720,36 +719,8 @@
         "current_price": 188.5,
         "ps": 32.55,
         "pb": 18.78,
-        "last_updated": "2026-05-09 16:12:13",
+        "last_updated": "2026-05-09 16:27:31",
         "revenue_ttm": 1068137984.0
-    },
-    "APH": {
-        "editor_note": "請填入個人觀點...",
-        "theme": "AI_TECH",
-        "theme_display_name": "人工智慧與核心科技",
-        "sector_id": "ai_interconnect",
-        "sector_name": "矽光子與光學引擎",
-        "calc_type": "peg",
-        "insight_link": "/cpo-silicon-photonics",
-        "tag": "orange",
-        "default_params": {
-            "g": 25,
-            "target_ps": 9.0
-        },
-        "market_consensus_eps_current": 4.8133,
-        "market_consensus_eps_forward": 5.6276,
-        "growth_estimate": 0.1692,
-        "revenue_estimate": 33416866620.0,
-        "future_revenue_per_share": 27.163,
-        "ps_forward": 4.71,
-        "target_pe_market": 22.7503,
-        "analyst_target": 180.0,
-        "shares_outstanding": 1230234445.0,
-        "current_price": 128.03,
-        "ps": 6.08,
-        "pb": 11.26,
-        "last_updated": "2026-05-09 16:12:14",
-        "revenue_ttm": 25903800320.0
     },
     "ANET": {
         "editor_note": "請填入個人觀點...",
@@ -776,7 +747,7 @@
         "current_price": 141.77,
         "ps": 18.38,
         "pb": 13.22,
-        "last_updated": "2026-05-09 16:12:15",
+        "last_updated": "2026-05-09 16:27:32",
         "revenue_ttm": 9709899776.0
     },
     "NOK": {
@@ -784,13 +755,12 @@
         "theme": "AI_TECH",
         "theme_display_name": "人工智慧與核心科技",
         "sector_id": "ai_interconnect",
-        "sector_name": "矽光子與光學引擎",
-        "calc_type": "peg",
-        "insight_link": "/cpo-silicon-photonics",
-        "tag": "orange",
+        "sector_name": "通訊基礎設施與光纖",
+        "calc_type": "pe",
+        "insight_link": "/telecom-infrastructure-2026",
+        "tag": "blue",
         "default_params": {
-            "g": 25,
-            "target_ps": 9.0
+            "target_pe": 14.0
         },
         "market_consensus_eps_current": 0.4019,
         "market_consensus_eps_forward": 0.4851,
@@ -804,7 +774,7 @@
         "current_price": 12.82,
         "ps": 3.04,
         "pb": 2.89,
-        "last_updated": "2026-05-09 16:12:16",
+        "last_updated": "2026-05-09 16:27:33",
         "revenue_ttm": 23574628433.015602
     },
     "GLW": {
@@ -812,13 +782,12 @@
         "theme": "AI_TECH",
         "theme_display_name": "人工智慧與核心科技",
         "sector_id": "ai_interconnect",
-        "sector_name": "矽光子與光學引擎",
-        "calc_type": "peg",
-        "insight_link": "/cpo-silicon-photonics",
-        "tag": "orange",
+        "sector_name": "通訊基礎設施與光纖",
+        "calc_type": "pe",
+        "insight_link": "/telecom-infrastructure-2026",
+        "tag": "blue",
         "default_params": {
-            "g": 25,
-            "target_ps": 9.0
+            "target_pe": 14.0
         },
         "market_consensus_eps_current": 3.1845,
         "market_consensus_eps_forward": 4.0956,
@@ -832,7 +801,7 @@
         "current_price": 186.94,
         "ps": 9.86,
         "pb": 13.57,
-        "last_updated": "2026-05-09 16:12:17",
+        "last_updated": "2026-05-09 16:27:33",
         "revenue_ttm": 16321000448.0
     },
     "QCOM": {
@@ -860,7 +829,7 @@
         "current_price": 219.09,
         "ps": 5.19,
         "pb": 10.2,
-        "last_updated": "2026-05-09 16:12:17",
+        "last_updated": "2026-05-09 16:27:34",
         "revenue_ttm": 44486000640.0
     },
     "AAPL": {
@@ -888,7 +857,7 @@
         "current_price": 293.32,
         "ps": 9.54,
         "pb": 40.4,
-        "last_updated": "2026-05-09 16:12:18",
+        "last_updated": "2026-05-09 16:27:35",
         "revenue_ttm": 451442016256.0
     },
     "NFLX": {
@@ -916,7 +885,7 @@
         "current_price": 87.49,
         "ps": 7.86,
         "pb": 13.88,
-        "last_updated": "2026-05-09 16:12:18",
+        "last_updated": "2026-05-09 16:27:35",
         "revenue_ttm": 46889992192.0
     },
     "ADBE": {
@@ -944,7 +913,7 @@
         "current_price": 253.04,
         "ps": 4.18,
         "pb": 8.99,
-        "last_updated": "2026-05-09 16:12:19",
+        "last_updated": "2026-05-09 16:27:36",
         "revenue_ttm": 24452999168.0
     },
     "CRM": {
@@ -972,7 +941,7 @@
         "current_price": 181.82,
         "ps": 3.58,
         "pb": 2.86,
-        "last_updated": "2026-05-09 16:12:20",
+        "last_updated": "2026-05-09 16:27:37",
         "revenue_ttm": 41524998144.0
     },
     "CRWD": {
@@ -1000,7 +969,7 @@
         "current_price": 527.77,
         "ps": 27.92,
         "pb": 30.2,
-        "last_updated": "2026-05-09 16:12:20",
+        "last_updated": "2026-05-09 16:27:37",
         "revenue_ttm": 4812004864.0
     },
     "IONQ": {
@@ -1027,7 +996,7 @@
         "current_price": 49.24,
         "ps": 98.23,
         "pb": 4.7,
-        "last_updated": "2026-05-09 16:12:21",
+        "last_updated": "2026-05-09 16:27:38",
         "revenue_ttm": 187118000.0
     },
     "RGTI": {
@@ -1054,7 +1023,7 @@
         "current_price": 18.94,
         "ps": 888.07,
         "pb": 11.49,
-        "last_updated": "2026-05-09 16:12:22",
+        "last_updated": "2026-05-09 16:27:38",
         "revenue_ttm": 7088000.0
     },
     "QBTS": {
@@ -1081,7 +1050,7 @@
         "current_price": 22.57,
         "ps": 337.12,
         "pb": 9.5,
-        "last_updated": "2026-05-09 16:12:22",
+        "last_updated": "2026-05-09 16:27:39",
         "revenue_ttm": 24587000.0
     },
     "RKLB": {
@@ -1089,9 +1058,9 @@
         "theme": "FRONTIER_TECH",
         "theme_display_name": "前沿與突破性科技",
         "sector_id": "space_economy",
-        "sector_name": "太空發射與衛星",
+        "sector_name": "商業太空發射",
         "calc_type": "milestone",
-        "insight_link": "/space-x-competitors",
+        "insight_link": "/space-launch",
         "tag": "blue",
         "default_params": {
             "success_prob": 0.25
@@ -1108,7 +1077,7 @@
         "current_price": 105.47,
         "ps": 101.43,
         "pb": 33.29,
-        "last_updated": "2026-05-09 16:12:23",
+        "last_updated": "2026-05-09 16:27:40",
         "revenue_ttm": 601798976.0
     },
     "ASTS": {
@@ -1116,9 +1085,9 @@
         "theme": "FRONTIER_TECH",
         "theme_display_name": "前沿與突破性科技",
         "sector_id": "space_economy",
-        "sector_name": "太空發射與衛星",
+        "sector_name": "商業太空發射",
         "calc_type": "milestone",
-        "insight_link": "/space-x-competitors",
+        "insight_link": "/space-launch",
         "tag": "blue",
         "default_params": {
             "success_prob": 0.25
@@ -1135,98 +1104,17 @@
         "current_price": 75.05,
         "ps": 316.08,
         "pb": 11.63,
-        "last_updated": "2026-05-09 16:12:23",
+        "last_updated": "2026-05-09 16:27:40",
         "revenue_ttm": 70918000.0
-    },
-    "IRDM": {
-        "editor_note": "請填入個人觀點...",
-        "theme": "FRONTIER_TECH",
-        "theme_display_name": "前沿與突破性科技",
-        "sector_id": "space_economy",
-        "sector_name": "太空發射與衛星",
-        "calc_type": "milestone",
-        "insight_link": "/space-x-competitors",
-        "tag": "blue",
-        "default_params": {
-            "success_prob": 0.25
-        },
-        "market_consensus_eps_current": 1.23,
-        "market_consensus_eps_forward": 1.425,
-        "growth_estimate": 0.1585,
-        "revenue_estimate": 884210510.0,
-        "future_revenue_per_share": 8.3631,
-        "ps_forward": 4.96,
-        "target_pe_market": 29.0947,
-        "analyst_target": 40.0,
-        "shares_outstanding": 105727744.0,
-        "current_price": 41.46,
-        "ps": 5.0,
-        "pb": 9.36,
-        "last_updated": "2026-05-09 16:12:24",
-        "revenue_ttm": 875838016.0
-    },
-    "GSAT": {
-        "editor_note": "請填入個人觀點...",
-        "theme": "FRONTIER_TECH",
-        "theme_display_name": "前沿與突破性科技",
-        "sector_id": "space_economy",
-        "sector_name": "太空發射與衛星",
-        "calc_type": "milestone",
-        "insight_link": "/space-x-competitors",
-        "tag": "blue",
-        "default_params": {
-            "success_prob": 0.25
-        },
-        "market_consensus_eps_current": 0.0964,
-        "market_consensus_eps_forward": 0.3463,
-        "growth_estimate": 2.5908,
-        "revenue_estimate": 296153140.0,
-        "future_revenue_per_share": 2.2995,
-        "ps_forward": 35.7,
-        "target_pe_market": 237.0488,
-        "analyst_target": 90.0,
-        "shares_outstanding": 128788931.0,
-        "current_price": 82.09,
-        "ps": 38.73,
-        "pb": 29.55,
-        "last_updated": "2026-05-09 16:12:24",
-        "revenue_ttm": 272985984.0
-    },
-    "SATS": {
-        "editor_note": "請填入個人觀點...",
-        "theme": "FRONTIER_TECH",
-        "theme_display_name": "前沿與突破性科技",
-        "sector_id": "space_economy",
-        "sector_name": "太空發射與衛星",
-        "calc_type": "milestone",
-        "insight_link": "/space-x-competitors",
-        "tag": "blue",
-        "default_params": {
-            "success_prob": 0.25
-        },
-        "market_consensus_eps_current": -1.4536,
-        "market_consensus_eps_forward": -1.5241,
-        "growth_estimate": -0.0485,
-        "revenue_estimate": 14426507720.0,
-        "future_revenue_per_share": 91.0424,
-        "ps_forward": 1.4,
-        "target_pe_market": -1115.3508,
-        "analyst_target": 129.0,
-        "shares_outstanding": 158459167.0,
-        "current_price": 127.15,
-        "ps": 1.34,
-        "pb": 6.37,
-        "last_updated": "2026-05-09 16:12:25",
-        "revenue_ttm": 15004989440.0
     },
     "LUNR": {
         "editor_note": "請填入個人觀點...",
         "theme": "FRONTIER_TECH",
         "theme_display_name": "前沿與突破性科技",
         "sector_id": "space_economy",
-        "sector_name": "太空發射與衛星",
+        "sector_name": "商業太空發射",
         "calc_type": "milestone",
-        "insight_link": "/space-x-competitors",
+        "insight_link": "/space-launch",
         "tag": "blue",
         "default_params": {
             "success_prob": 0.25
@@ -1243,7 +1131,7 @@
         "current_price": 28.97,
         "ps": 22.06,
         "pb": -4.65,
-        "last_updated": "2026-05-09 16:12:25",
+        "last_updated": "2026-05-09 16:27:41",
         "revenue_ttm": 210059008.0
     },
     "PL": {
@@ -1251,9 +1139,9 @@
         "theme": "FRONTIER_TECH",
         "theme_display_name": "前沿與突破性科技",
         "sector_id": "space_economy",
-        "sector_name": "太空發射與衛星",
+        "sector_name": "商業太空發射",
         "calc_type": "milestone",
-        "insight_link": "/space-x-competitors",
+        "insight_link": "/space-launch",
         "tag": "blue",
         "default_params": {
             "success_prob": 0.25
@@ -1270,7 +1158,7 @@
         "current_price": 39.04,
         "ps": 42.23,
         "pb": 69.47,
-        "last_updated": "2026-05-09 16:12:26",
+        "last_updated": "2026-05-09 16:27:41",
         "revenue_ttm": 307727008.0
     },
     "RDW": {
@@ -1278,9 +1166,9 @@
         "theme": "FRONTIER_TECH",
         "theme_display_name": "前沿與突破性科技",
         "sector_id": "space_economy",
-        "sector_name": "太空發射與衛星",
+        "sector_name": "商業太空發射",
         "calc_type": "milestone",
-        "insight_link": "/space-x-competitors",
+        "insight_link": "/space-launch",
         "tag": "blue",
         "default_params": {
             "success_prob": 0.25
@@ -1297,20 +1185,74 @@
         "current_price": 11.07,
         "ps": 5.94,
         "pb": 1.99,
-        "last_updated": "2026-05-09 16:12:26",
+        "last_updated": "2026-05-09 16:27:42",
         "revenue_ttm": 370958016.0
+    },
+    "IRDM": {
+        "editor_note": "請填入個人觀點...",
+        "theme": "FRONTIER_TECH",
+        "theme_display_name": "前沿與突破性科技",
+        "sector_id": "space_economy",
+        "sector_name": "衛星通訊運營商",
+        "calc_type": "pe",
+        "insight_link": "/satellite-operators",
+        "tag": "blue",
+        "default_params": {
+            "target_pe": 13.0
+        },
+        "market_consensus_eps_current": 1.23,
+        "market_consensus_eps_forward": 1.425,
+        "growth_estimate": 0.1585,
+        "revenue_estimate": 884210510.0,
+        "future_revenue_per_share": 8.3631,
+        "ps_forward": 4.96,
+        "target_pe_market": 29.0947,
+        "analyst_target": 40.0,
+        "shares_outstanding": 105727744.0,
+        "current_price": 41.46,
+        "ps": 5.0,
+        "pb": 9.36,
+        "last_updated": "2026-05-09 16:27:42",
+        "revenue_ttm": 875838016.0
+    },
+    "GSAT": {
+        "editor_note": "請填入個人觀點...",
+        "theme": "FRONTIER_TECH",
+        "theme_display_name": "前沿與突破性科技",
+        "sector_id": "space_economy",
+        "sector_name": "衛星通訊運營商",
+        "calc_type": "pe",
+        "insight_link": "/satellite-operators",
+        "tag": "blue",
+        "default_params": {
+            "target_pe": 13.0
+        },
+        "market_consensus_eps_current": 0.0964,
+        "market_consensus_eps_forward": 0.3463,
+        "growth_estimate": 2.5908,
+        "revenue_estimate": 296153140.0,
+        "future_revenue_per_share": 2.2995,
+        "ps_forward": 35.7,
+        "target_pe_market": 237.0488,
+        "analyst_target": 90.0,
+        "shares_outstanding": 128788931.0,
+        "current_price": 82.09,
+        "ps": 38.73,
+        "pb": 29.55,
+        "last_updated": "2026-05-09 16:27:42",
+        "revenue_ttm": 272985984.0
     },
     "FSLR": {
         "editor_note": "請填入個人觀點...",
         "theme": "FRONTIER_TECH",
         "theme_display_name": "前沿與突破性科技",
-        "sector_id": "perovskite_solar",
-        "sector_name": "新型太陽能",
-        "calc_type": "milestone",
-        "insight_link": "/perovskite-solar-2026",
+        "sector_id": "solar_revolution",
+        "sector_name": "太陽能製造商",
+        "calc_type": "ps",
+        "insight_link": "/solar-manufacturing",
         "tag": "green",
         "default_params": {
-            "success_prob": 0.25
+            "target_ps": 3.0
         },
         "market_consensus_eps_current": 17.3941,
         "market_consensus_eps_forward": 23.3163,
@@ -1324,20 +1266,20 @@
         "current_price": 219.95,
         "ps": 4.36,
         "pb": 2.39,
-        "last_updated": "2026-05-09 16:12:27",
+        "last_updated": "2026-05-09 16:27:43",
         "revenue_ttm": 5419047936.0
     },
     "JKS": {
         "editor_note": "請填入個人觀點...",
         "theme": "FRONTIER_TECH",
         "theme_display_name": "前沿與突破性科技",
-        "sector_id": "perovskite_solar",
-        "sector_name": "新型太陽能",
-        "calc_type": "milestone",
-        "insight_link": "/perovskite-solar-2026",
+        "sector_id": "solar_revolution",
+        "sector_name": "太陽能製造商",
+        "calc_type": "ps",
+        "insight_link": "/solar-manufacturing",
         "tag": "green",
         "default_params": {
-            "success_prob": 0.25
+            "target_ps": 3.0
         },
         "market_consensus_eps_current": -3.4435,
         "market_consensus_eps_forward": 0.7485,
@@ -1351,7 +1293,7 @@
         "current_price": 24.56,
         "ps": 0.14,
         "pb": 0.55,
-        "last_updated": "2026-05-09 16:12:28",
+        "last_updated": "2026-05-09 16:27:44",
         "revenue_ttm": 9397507351.899834
     },
     "PWR": {
@@ -1378,7 +1320,7 @@
         "current_price": 745.0,
         "ps": 3.71,
         "pb": 12.47,
-        "last_updated": "2026-05-09 16:12:29",
+        "last_updated": "2026-05-09 16:27:44",
         "revenue_ttm": 30121150464.0
     },
     "ETN": {
@@ -1405,7 +1347,7 @@
         "current_price": 401.51,
         "ps": 5.47,
         "pb": 7.9,
-        "last_updated": "2026-05-09 16:12:29",
+        "last_updated": "2026-05-09 16:27:45",
         "revenue_ttm": 28522000384.0
     },
     "MYRG": {
@@ -1432,7 +1374,7 @@
         "current_price": 437.86,
         "ps": 1.78,
         "pb": 10.29,
-        "last_updated": "2026-05-09 16:12:30",
+        "last_updated": "2026-05-09 16:27:46",
         "revenue_ttm": 3824648960.0
     },
     "NEE": {
@@ -1459,98 +1401,17 @@
         "current_price": 93.1,
         "ps": 6.97,
         "pb": 3.52,
-        "last_updated": "2026-05-09 16:12:31",
+        "last_updated": "2026-05-09 16:27:47",
         "revenue_ttm": 27865999360.0
-    },
-    "CEG": {
-        "editor_note": "請填入個人觀點...",
-        "theme": "ENERGY_AI_INFRA",
-        "theme_display_name": "AI基建與電力革命",
-        "sector_id": "nuclear_uranium",
-        "sector_name": "核能與鈾資源",
-        "calc_type": "milestone",
-        "insight_link": "/nuclear-energy-renaissance",
-        "tag": "green",
-        "default_params": {
-            "success_prob": 0.3
-        },
-        "market_consensus_eps_current": 11.6156,
-        "market_consensus_eps_forward": 13.5864,
-        "growth_estimate": 0.1697,
-        "revenue_estimate": 32088816710.0,
-        "future_revenue_per_share": 88.571,
-        "ps_forward": 3.43,
-        "target_pe_market": 22.348,
-        "analyst_target": 380.5,
-        "shares_outstanding": 362294672.0,
-        "current_price": 303.63,
-        "ps": 4.31,
-        "pb": 6.53,
-        "last_updated": "2026-05-09 16:12:32",
-        "revenue_ttm": 25532999680.0
-    },
-    "CCJ": {
-        "editor_note": "請填入個人觀點...",
-        "theme": "ENERGY_AI_INFRA",
-        "theme_display_name": "AI基建與電力革命",
-        "sector_id": "nuclear_uranium",
-        "sector_name": "核能與鈾資源",
-        "calc_type": "milestone",
-        "insight_link": "/nuclear-energy-renaissance",
-        "tag": "green",
-        "default_params": {
-            "success_prob": 0.3
-        },
-        "market_consensus_eps_current": 1.6075,
-        "market_consensus_eps_forward": 2.6547,
-        "growth_estimate": 0.6514,
-        "revenue_estimate": 2541711040.3102818,
-        "future_revenue_per_share": 5.8359,
-        "ps_forward": 20.01,
-        "target_pe_market": 60.0831,
-        "analyst_target": 139.37,
-        "shares_outstanding": 435532978.0,
-        "current_price": 116.75,
-        "ps": 19.66,
-        "pb": 9.82,
-        "last_updated": "2026-05-09 16:12:33",
-        "revenue_ttm": 2586915804.2926927
-    },
-    "LEU": {
-        "editor_note": "請填入個人觀點...",
-        "theme": "ENERGY_AI_INFRA",
-        "theme_display_name": "AI基建與電力革命",
-        "sector_id": "nuclear_uranium",
-        "sector_name": "核能與鈾資源",
-        "calc_type": "milestone",
-        "insight_link": "/nuclear-energy-renaissance",
-        "tag": "green",
-        "default_params": {
-            "success_prob": 0.3
-        },
-        "market_consensus_eps_current": 3.56,
-        "market_consensus_eps_forward": 3.975,
-        "growth_estimate": 0.1166,
-        "revenue_estimate": 459344850.0,
-        "future_revenue_per_share": 24.2352,
-        "ps_forward": 8.55,
-        "target_pe_market": 52.1585,
-        "analyst_target": 285.0,
-        "shares_outstanding": 18953594.0,
-        "current_price": 207.33,
-        "ps": 8.69,
-        "pb": 5.26,
-        "last_updated": "2026-05-09 16:12:33",
-        "revenue_ttm": 452300000.0
     },
     "OKLO": {
         "editor_note": "請填入個人觀點...",
         "theme": "ENERGY_AI_INFRA",
         "theme_display_name": "AI基建與電力革命",
         "sector_id": "nuclear_uranium",
-        "sector_name": "核能與鈾資源",
+        "sector_name": "小型反應爐與突破技術",
         "calc_type": "milestone",
-        "insight_link": "/nuclear-energy-renaissance",
+        "insight_link": "/nuclear-breakthrough",
         "tag": "green",
         "default_params": {
             "success_prob": 0.3
@@ -1567,7 +1428,7 @@
         "current_price": 72.51,
         "ps": null,
         "pb": 7.88,
-        "last_updated": "2026-05-09 16:12:34",
+        "last_updated": "2026-05-09 16:27:47",
         "revenue_ttm": null
     },
     "SMR": {
@@ -1575,9 +1436,9 @@
         "theme": "ENERGY_AI_INFRA",
         "theme_display_name": "AI基建與電力革命",
         "sector_id": "nuclear_uranium",
-        "sector_name": "核能與鈾資源",
+        "sector_name": "小型反應爐與突破技術",
         "calc_type": "milestone",
-        "insight_link": "/nuclear-energy-renaissance",
+        "insight_link": "/nuclear-breakthrough",
         "tag": "green",
         "default_params": {
             "success_prob": 0.3
@@ -1594,8 +1455,89 @@
         "current_price": 12.55,
         "ps": 137.98,
         "pb": 3.42,
-        "last_updated": "2026-05-09 16:12:34",
+        "last_updated": "2026-05-09 16:27:48",
         "revenue_ttm": 31479000.0
+    },
+    "CEG": {
+        "editor_note": "請填入個人觀點...",
+        "theme": "ENERGY_AI_INFRA",
+        "theme_display_name": "AI基建與電力革命",
+        "sector_id": "nuclear_uranium",
+        "sector_name": "核能運營商與鈾資源",
+        "calc_type": "pe",
+        "insight_link": "/nuclear-operators",
+        "tag": "green",
+        "default_params": {
+            "target_pe": 14.0
+        },
+        "market_consensus_eps_current": 11.6156,
+        "market_consensus_eps_forward": 13.5864,
+        "growth_estimate": 0.1697,
+        "revenue_estimate": 32088816710.0,
+        "future_revenue_per_share": 88.571,
+        "ps_forward": 3.43,
+        "target_pe_market": 22.348,
+        "analyst_target": 380.5,
+        "shares_outstanding": 362294672.0,
+        "current_price": 303.63,
+        "ps": 4.31,
+        "pb": 6.53,
+        "last_updated": "2026-05-09 16:27:49",
+        "revenue_ttm": 25532999680.0
+    },
+    "CCJ": {
+        "editor_note": "請填入個人觀點...",
+        "theme": "ENERGY_AI_INFRA",
+        "theme_display_name": "AI基建與電力革命",
+        "sector_id": "nuclear_uranium",
+        "sector_name": "核能運營商與鈾資源",
+        "calc_type": "pe",
+        "insight_link": "/nuclear-operators",
+        "tag": "green",
+        "default_params": {
+            "target_pe": 14.0
+        },
+        "market_consensus_eps_current": 1.6075,
+        "market_consensus_eps_forward": 2.6547,
+        "growth_estimate": 0.6514,
+        "revenue_estimate": 2541711040.3102818,
+        "future_revenue_per_share": 5.8359,
+        "ps_forward": 20.01,
+        "target_pe_market": 60.0831,
+        "analyst_target": 139.37,
+        "shares_outstanding": 435532978.0,
+        "current_price": 116.75,
+        "ps": 19.66,
+        "pb": 9.82,
+        "last_updated": "2026-05-09 16:27:49",
+        "revenue_ttm": 2586915804.2926927
+    },
+    "LEU": {
+        "editor_note": "請填入個人觀點...",
+        "theme": "ENERGY_AI_INFRA",
+        "theme_display_name": "AI基建與電力革命",
+        "sector_id": "nuclear_uranium",
+        "sector_name": "核能運營商與鈾資源",
+        "calc_type": "pe",
+        "insight_link": "/nuclear-operators",
+        "tag": "green",
+        "default_params": {
+            "target_pe": 14.0
+        },
+        "market_consensus_eps_current": 3.56,
+        "market_consensus_eps_forward": 3.975,
+        "growth_estimate": 0.1166,
+        "revenue_estimate": 459344850.0,
+        "future_revenue_per_share": 24.2352,
+        "ps_forward": 8.55,
+        "target_pe_market": 52.1585,
+        "analyst_target": 285.0,
+        "shares_outstanding": 18953594.0,
+        "current_price": 207.33,
+        "ps": 8.69,
+        "pb": 5.26,
+        "last_updated": "2026-05-09 16:27:50",
+        "revenue_ttm": 452300000.0
     },
     "ON": {
         "editor_note": "請填入個人觀點...",
@@ -1622,7 +1564,7 @@
         "current_price": 103.2,
         "ps": 6.67,
         "pb": 5.54,
-        "last_updated": "2026-05-09 16:12:35",
+        "last_updated": "2026-05-09 16:27:50",
         "revenue_ttm": 6063000064.0
     },
     "IFNNY": {
@@ -1650,7 +1592,7 @@
         "current_price": 73.4,
         "ps": 5.35,
         "pb": 4.84,
-        "last_updated": "2026-05-09 16:12:36",
+        "last_updated": "2026-05-09 16:27:51",
         "revenue_ttm": 17829521342.869503
     },
     "WOLF": {
@@ -1678,7 +1620,7 @@
         "current_price": 46.6,
         "ps": 3.16,
         "pb": 2.03,
-        "last_updated": "2026-05-09 16:12:36",
+        "last_updated": "2026-05-09 16:27:51",
         "revenue_ttm": 712499968.0
     },
     "TSLA": {
@@ -1706,7 +1648,7 @@
         "current_price": 428.35,
         "ps": 16.44,
         "pb": 19.56,
-        "last_updated": "2026-05-09 16:12:39",
+        "last_updated": "2026-05-09 16:27:54",
         "revenue_ttm": 97878999040.0
     },
     "FLNC": {
@@ -1714,9 +1656,9 @@
         "theme": "ENERGY_AI_INFRA",
         "theme_display_name": "AI基建與電力革命",
         "sector_id": "energy_storage",
-        "sector_name": "儲能與智慧電網",
+        "sector_name": "高成長儲能系統",
         "calc_type": "peg",
-        "insight_link": "/energy-storage-revolution",
+        "insight_link": "/energy-storage-growth",
         "tag": "purple",
         "default_params": {
             "g": 25,
@@ -1734,7 +1676,7 @@
         "current_price": 24.16,
         "ps": 1.24,
         "pb": 8.23,
-        "last_updated": "2026-05-09 16:12:37",
+        "last_updated": "2026-05-09 16:27:52",
         "revenue_ttm": 2584549120.0
     },
     "ROK": {
@@ -1742,13 +1684,12 @@
         "theme": "ENERGY_AI_INFRA",
         "theme_display_name": "AI基建與電力革命",
         "sector_id": "energy_storage",
-        "sector_name": "儲能與智慧電網",
-        "calc_type": "peg",
-        "insight_link": "/energy-storage-revolution",
+        "sector_name": "工業自動化與能源巨頭",
+        "calc_type": "pe",
+        "insight_link": "/industrial-automation",
         "tag": "purple",
         "default_params": {
-            "g": 25,
-            "target_ps": 7.0
+            "target_pe": 17.0
         },
         "market_consensus_eps_current": 12.9562,
         "market_consensus_eps_forward": 14.4128,
@@ -1762,7 +1703,7 @@
         "current_price": 453.89,
         "ps": 5.74,
         "pb": 14.45,
-        "last_updated": "2026-05-09 16:12:38",
+        "last_updated": "2026-05-09 16:27:53",
         "revenue_ttm": 8803999744.0
     },
     "SIEGY": {
@@ -1770,13 +1711,12 @@
         "theme": "ENERGY_AI_INFRA",
         "theme_display_name": "AI基建與電力革命",
         "sector_id": "energy_storage",
-        "sector_name": "儲能與智慧電網",
-        "calc_type": "peg",
-        "insight_link": "/energy-storage-revolution",
+        "sector_name": "工業自動化與能源巨頭",
+        "calc_type": "pe",
+        "insight_link": "/industrial-automation",
         "tag": "purple",
         "default_params": {
-            "g": 25,
-            "target_ps": 7.0
+            "target_pe": 17.0
         },
         "market_consensus_eps_current": 6.2756,
         "market_consensus_eps_forward": 7.3077,
@@ -1790,7 +1730,7 @@
         "current_price": 157.0,
         "ps": 2.55,
         "pb": 1.62,
-        "last_updated": "2026-05-09 16:12:39",
+        "last_updated": "2026-05-09 16:27:54",
         "revenue_ttm": 93963686745.44681
     },
     "UBER": {
@@ -1818,7 +1758,7 @@
         "current_price": 75.45,
         "ps": 2.86,
         "pb": 5.77,
-        "last_updated": "2026-05-09 16:12:40",
+        "last_updated": "2026-05-09 16:27:55",
         "revenue_ttm": 53687001088.0
     },
     "AMBA": {
@@ -1846,7 +1786,7 @@
         "current_price": 76.3,
         "ps": 8.55,
         "pb": 5.56,
-        "last_updated": "2026-05-09 16:12:40",
+        "last_updated": "2026-05-09 16:27:55",
         "revenue_ttm": 390702016.0
     },
     "ISRG": {
@@ -1874,7 +1814,7 @@
         "current_price": 450.06,
         "ps": 15.06,
         "pb": 9.13,
-        "last_updated": "2026-05-09 16:12:42",
+        "last_updated": "2026-05-09 16:27:57",
         "revenue_ttm": 10582099968.0
     },
     "PATH": {
@@ -1902,7 +1842,7 @@
         "current_price": 10.79,
         "ps": 3.08,
         "pb": 2.78,
-        "last_updated": "2026-05-09 16:12:42",
+        "last_updated": "2026-05-09 16:27:57",
         "revenue_ttm": 1610572032.0
     },
     "BOTZ": {
@@ -1930,7 +1870,7 @@
         "current_price": 41.45,
         "ps": null,
         "pb": null,
-        "last_updated": "2026-05-09 16:12:44",
+        "last_updated": "2026-05-09 16:27:59",
         "revenue_ttm": null
     },
     "AXP": {
@@ -1958,7 +1898,7 @@
         "current_price": 316.03,
         "ps": 3.13,
         "pb": 6.34,
-        "last_updated": "2026-05-09 16:12:44",
+        "last_updated": "2026-05-09 16:27:59",
         "revenue_ttm": 68811997184.0
     }
 }
