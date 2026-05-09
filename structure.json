@@ -116,7 +116,9 @@
                                 "FN",
                                 "CRDO",
                                 "APH",
-                                "ANET"
+                                "ANET",
+                                "NOK",
+                                "GLW"
                             ],
                             "insight_link": "/cpo-silicon-photonics",
                             "tag": "orange"
@@ -139,7 +141,8 @@
                                 "AAPL",
                                 "NFLX",
                                 "ADBE",
-                                "CRM"
+                                "CRM",
+                                "CRWD"
                             ],
                             "insight_link": "/ai-consumer-monetization",
                             "tag": "purple"
@@ -214,60 +217,109 @@
                             "tag": "green"
                         }
                     }
-                },
-                "bio_revolution": {
-                    "name": "生物革命 (CRISPR)",
-                    "clusters": {
-                        "gene_editing": {
-                            "name": "基因編輯",
-                            "subtitle": "臨床試驗 / 里程碑驅動",
-                            "logic_type": "milestone",
-                            "default_params": {
-                                "success_prob": 0.20
-                            },
-                            "symbols": [
-                                "CRSP",
-                                "BEAM",
-                                "NTLA",
-                                "ARKG"
-                            ],
-                            "insight_link": "/gene-editing-future",
-                            "tag": "purple"
-                        }
-                    }
                 }
             }
         },
-        "ENERGY_EV": {
-            "display_name": "新能源與自動駕駛",
+        "ENERGY_AI_INFRA": {
+            "display_name": "AI基建與電力革命",
             "sectors": {
-                "next_gen_nuclear": {
-                    "name": "次世代核能 (SMR)",
+                "ai_power_infra": {
+                    "name": "AI 電力基建",
+                    "clusters": {
+                        "power_infrastructure": {
+                            "name": "AI 電力基建",
+                            "subtitle": "CAPEX 供應鏈 / P/E 驅動",
+                            "logic_type": "pe",
+                            "default_params": {
+                                "target_pe": 18.0
+                            },
+                            "symbols": [
+                                "PWR",
+                                "ETN",
+                                "VRT",
+                                "MYRG",
+                                "NEE"
+                            ],
+                            "insight_link": "/ai-power-infrastructure",
+                            "tag": "orange"
+                        }
+                    }
+                },
+                "nuclear_uranium": {
+                    "name": "核能與鈾",
                     "clusters": {
                         "nuclear_energy": {
-                            "name": "小型模組反應爐",
+                            "name": "核能與鈾資源",
                             "subtitle": "政策驅動 / 里程碑",
                             "logic_type": "milestone",
                             "default_params": {
                                 "success_prob": 0.30
                             },
                             "symbols": [
-                                "OKLO",
-                                "SMR",
-                                "NNE",
                                 "CEG",
-                                "VST"
+                                "CCJ",
+                                "LEU",
+                                "OKLO",
+                                "SMR"
                             ],
                             "insight_link": "/nuclear-energy-renaissance",
-                            "tag": "orange"
+                            "tag": "green"
                         }
                     }
                 },
-                "autonomy_robotics": {
-                    "name": "自動駕駛與機器人",
+                "power_semiconductors": {
+                    "name": "電氣化與功率半導體",
                     "clusters": {
-                        "autonomous_vehicles": {
-                            "name": "自動駕駛與機器人",
+                        "power_chips": {
+                            "name": "功率半導體與電氣化",
+                            "subtitle": "高成長 / PEG 驅動",
+                            "logic_type": "peg_growth",
+                            "default_params": {
+                                "g": 20,
+                                "target_ps": 8.0
+                            },
+                            "symbols": [
+                                "ON",
+                                "IFNNY",
+                                "WOLF"
+                            ],
+                            "insight_link": "/power-semiconductor-boom",
+                            "tag": "blue"
+                        }
+                    }
+                },
+                "energy_storage": {
+                    "name": "儲能與智慧電網",
+                    "clusters": {
+                        "storage_grid": {
+                            "name": "儲能與智慧電網",
+                            "subtitle": "成長驅動 / PEG 驅動",
+                            "logic_type": "peg_growth",
+                            "default_params": {
+                                "g": 25,
+                                "target_ps": 7.0
+                            },
+                            "symbols": [
+                                "TSLA",
+                                "FLNC",
+                                "ROK",
+                                "SIEGY"
+                            ],
+                            "insight_link": "/energy-storage-revolution",
+                            "tag": "purple"
+                        }
+                    }
+                }
+            }
+        },
+        "AUTONOMY_ROBOTICS": {
+            "display_name": "自動駕駛與機器人",
+            "sectors": {
+                "autonomous_vehicles": {
+                    "name": "自動駕駛",
+                    "clusters": {
+                        "av_platforms": {
+                            "name": "自動駕駛平台",
                             "subtitle": "AI Vision / PEG 驅動",
                             "logic_type": "peg_growth",
                             "default_params": {
@@ -277,13 +329,33 @@
                             "symbols": [
                                 "TSLA",
                                 "UBER",
-                                "ISRG",
-                                "PATH",
-                                "BOTZ",
-                                "AMBA"
+                                "AMBA",
+                                "ORCL"
                             ],
                             "insight_link": "/robotaxi-economics",
                             "tag": "purple"
+                        }
+                    }
+                },
+                "robotics": {
+                    "name": "機器人與自動化",
+                    "clusters": {
+                        "robotics_automation": {
+                            "name": "機器人與自動化系統",
+                            "subtitle": "成長驅動 / PEG 驅動",
+                            "logic_type": "peg_growth",
+                            "default_params": {
+                                "g": 20,
+                                "target_ps": 7.5
+                            },
+                            "symbols": [
+                                "ISRG",
+                                "PATH",
+                                "BOTZ",
+                                "AXP"
+                            ],
+                            "insight_link": "/robotics-revolution",
+                            "tag": "blue"
                         }
                     }
                 }
