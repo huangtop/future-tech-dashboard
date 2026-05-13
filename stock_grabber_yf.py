@@ -168,7 +168,7 @@ except Exception as e:
 try:
     with open(output_path, 'r', encoding='utf-8') as f:
         master_data = json.load(f)
-except FileNotFoundError:
+except (FileNotFoundError, json.JSONDecodeError):
     master_data = {}
 
 # iterate through themes -> sectors -> clusters
@@ -253,6 +253,18 @@ for theme, theme_info in themes_config.items():
                         eps_forward = float(val_forward) if val_forward is not None else 0.0
                     except Exception:
                         eps_current = eps_forward = 0.0
+
+                # === 修正：確保 eps_current 和 eps_forward 至少有一個是正數 ===
+                # 如果 eps_current 為 0 但 eps_forward > 0，或反之，進行補救性查詢
+                if eps_current <= 0 or eps_forward <= 0:
+                    try:
+                        # 最後的降級方案：嘗試從 info 中的其他欄位獲取
+                        if eps_current <= 0:
+                            eps_current = float(info.get('trailingEps') or info.get('epsTrailingTwelveMonths') or 0)
+                        if eps_forward <= 0:
+                            eps_forward = float(info.get('forwardEps') or info.get('epsCurrentYear') or info.get('epsForward') or 0)
+                    except Exception:
+                        pass
 
                 # --- Normalization & sanity checks for growth_estimate ---
                 if growth_estimate is not None:
@@ -462,14 +474,107 @@ for theme, theme_info in themes_config.items():
                 except Exception:
                     pb_val = None
 
+                # compute book value per share (BVPS) with fallbacks
+                book_value_per_share = None
+                try:
+                    if book_val:
+                        book_value_per_share = clean_val(book_val)
+                    else:
+                        # try total shareholder equity divided by shares_outstanding
+                        total_equity = info.get('totalStockholderEquity') or info.get('totalStockholdersEquity') or info.get('totalEquity') or info.get('totalShareholderEquity')
+                        if total_equity and shares_outstanding and shares_outstanding > 0:
+                            book_value_per_share = clean_val(float(total_equity) / float(shares_outstanding))
+                except Exception:
+                    book_value_per_share = None
+
+                analyst_target = clean_val(info.get('targetMedianPrice') or info.get('targetMeanPrice'))
+
+                target_pb = None
+                try:
+                    at = master_data[symbol].get('analyst_target') or analyst_target
+                    if at and book_value_per_share and book_value_per_share > 0:
+                        target_pb = round(float(at) / float(book_value_per_share), 2)
+                except Exception:
+                    target_pb = None
+
+                # sector/cluster median P/B - compute over this cluster's symbols if not too large
+                sector_median_pb = None
+                try:
+                    peers = cfg.get('symbols', [])
+                    pb_list = []
+                    if peers and len(peers) <= 30:
+                        for peer in peers:
+                            if peer == symbol:
+                                continue
+                            try:
+                                peer_t = yf.Ticker(peer)
+                                pinfo = peer_t.info or {}
+                                p_price = clean_val(pinfo.get('currentPrice') or pinfo.get('regularMarketPrice'))
+                                p_book = pinfo.get('bookValue')
+                                if not p_book:
+                                    p_total_eq = pinfo.get('totalStockholderEquity') or pinfo.get('totalEquity')
+                                    shares_out = clean_val(pinfo.get('sharesOutstanding'))
+                                    if p_total_eq and shares_out:
+                                        try:
+                                            p_book = float(p_total_eq) / float(shares_out)
+                                        except Exception:
+                                            p_book = None
+                                if p_book and p_price:
+                                    try:
+                                        p_pb = float(p_price) / float(p_book)
+                                        if p_pb and p_pb > 0:
+                                            pb_list.append(p_pb)
+                                    except Exception:
+                                        pass
+                            except Exception:
+                                pass
+                            time.sleep(0.05)
+                        if pb_list:
+                            sector_median_pb = round(float(np.median(pb_list)), 2)
+                except Exception:
+                    sector_median_pb = None
+
                 # default params
                 default_params = cfg.get('default_params', {})
 
-                growth = (eps_forward - eps_current) / eps_current if eps_current and eps_current > 0 else None
-
                 # Capture additional target metrics from info
                 target_pe_market = clean_val(info.get('forwardPE'))
-                analyst_target = clean_val(info.get('targetMedianPrice') or info.get('targetMeanPrice'))
+                # enterprise / ebitda / debt / cash fields
+                enterprise_value = clean_val(info.get('enterpriseValue'))
+                enterprise_to_ebitda = clean_val(info.get('enterpriseToEbitda') or info.get('enterpriseValueToEbitda'))
+                ebitda = clean_val(info.get('ebitda') or info.get('ebitdaTTM') or info.get('ebitda_ttm'))
+                total_debt = clean_val(info.get('totalDebt') or info.get('totalDebtRaw') or info.get('total_liabilities'))
+                total_cash = clean_val(info.get('totalCash') or info.get('cash') or info.get('totalCashRaw'))
+                net_debt = None
+                try:
+                    if total_debt is not None and total_cash is not None:
+                        net_debt = round(float(total_debt) - float(total_cash), 2)
+                except Exception:
+                    net_debt = None
+                # implied EV/price using available multipliers (prefer enterprise_to_ebitda)
+                implied_ev = None
+                implied_ev_multiplier = None
+                try:
+                    # prefer explicit enterprise_to_ebitda
+                    if enterprise_to_ebitda:
+                        implied_ev_multiplier = float(enterprise_to_ebitda)
+                        if ebitda:
+                            implied_ev = float(implied_ev_multiplier) * float(ebitda)
+                    else:
+                        # fallback: use cluster default if provided
+                        if default_params and default_params.get('target_ev_ebitda'):
+                            implied_ev_multiplier = float(default_params.get('target_ev_ebitda'))
+                            if ebitda:
+                                implied_ev = float(implied_ev_multiplier) * float(ebitda)
+                except Exception:
+                    implied_ev = None
+
+                implied_price = None
+                try:
+                    if implied_ev is not None and net_debt is not None and shares_outstanding:
+                        implied_price = float(implied_ev - net_debt) / float(shares_outstanding)
+                except Exception:
+                    implied_price = None
             
                 master_data[symbol].update({
                     'theme': theme,
@@ -492,6 +597,20 @@ for theme, theme_info in themes_config.items():
                     'current_price': current_price,
                     'ps': ps_val,
                     'pb': pb_val,
+                    'enterprise_value': enterprise_value,
+                    'enterprise_to_ebitda': enterprise_to_ebitda,
+                    'ebitda': ebitda,
+                    'total_debt': total_debt,
+                    'total_cash': total_cash,
+                    'net_debt': net_debt,
+                    'implied_ev': implied_ev,
+                    'implied_ev_multiplier': implied_ev_multiplier,
+                    'implied_price': implied_price,
+                    # record the growth estimate used for forward adjustments (analyst fallback)
+                    'implied_growth_used': growth_estimate,
+                    'book_value_per_share': secure_round(book_value_per_share, 4) if book_value_per_share is not None else None,
+                    'target_pb': secure_round(target_pb, 2) if target_pb is not None else None,
+                    'sector_median_pb': secure_round(sector_median_pb, 2) if sector_median_pb is not None else None,
                     'default_params': default_params,
                     'last_updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 })

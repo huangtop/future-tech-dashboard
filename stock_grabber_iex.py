@@ -85,6 +85,36 @@ def update_research_report():
             return None
         return response.json()
 
+
+    def fetch_iex_advanced(symbol):
+        url = f"{IEX_BASE_URL}/stock/{symbol}/advanced-stats"
+        params = {'token': IEX_CLOUD_API_KEY}
+        try:
+            resp = requests.get(url, params=params, timeout=10)
+            if resp.status_code == 200:
+                return resp.json() or {}
+        except Exception:
+            pass
+        return {}
+
+
+    def fetch_iex_balance(symbol):
+        url = f"{IEX_BASE_URL}/stock/{symbol}/balance-sheet"
+        params = {'token': IEX_CLOUD_API_KEY}
+        try:
+            resp = requests.get(url, params=params, timeout=10)
+            if resp.status_code == 200:
+                j = resp.json() or {}
+                # IEX may return a 'balancesheet' list
+                if isinstance(j, dict) and j.get('balancesheet'):
+                    arr = j.get('balancesheet')
+                    if isinstance(arr, list) and len(arr) > 0:
+                        return arr[0]
+                return j
+        except Exception:
+            pass
+        return {}
+
     # 遍歷主題和類群
     for theme_id, theme_info in themes_config.items():
         theme_display_name = theme_info.get('display_name', theme_id)
@@ -107,9 +137,54 @@ def update_research_report():
 
                 try:
                     data = fetch_iex_data(symbol)
+                    adv = fetch_iex_advanced(symbol)
+                    bal = fetch_iex_balance(symbol)
                     if data:
                         price = data.get('latestPrice', 0.0)
-                        
+
+                        # collect shares_outstanding if present
+                        shares_out = data.get('sharesOutstanding') or adv.get('sharesOutstanding') or data.get('sharesOutstanding')
+                        try:
+                            shares_out = float(shares_out) if shares_out is not None else None
+                        except Exception:
+                            shares_out = None
+
+                        # attempt to extract enterprise/ebitda/debt/cash from advanced stats or balance sheet
+                        enterprise_value = adv.get('enterpriseValue') or None
+                        enterprise_to_ebitda = adv.get('enterpriseToEbitda') or adv.get('enterpriseToRevenue') or None
+                        ebitda = adv.get('EBITDA') or adv.get('ebitda') or None
+                        total_debt = bal.get('totalDebt') or adv.get('totalDebt') or bal.get('totalLiabilities') or None
+                        total_cash = bal.get('cash') or bal.get('totalCash') or adv.get('totalCash') or None
+                        net_debt = None
+                        try:
+                            if total_debt is not None and total_cash is not None:
+                                net_debt = float(total_debt) - float(total_cash)
+                        except Exception:
+                            net_debt = None
+
+                        # implied EV/price using available multipliers (prefer enterprise_to_ebitda)
+                        implied_ev = None
+                        implied_ev_multiplier = None
+                        try:
+                            if enterprise_to_ebitda:
+                                implied_ev_multiplier = float(enterprise_to_ebitda)
+                                if ebitda:
+                                    implied_ev = float(implied_ev_multiplier) * float(ebitda)
+                            else:
+                                if cluster_config.get('default_params') and cluster_config.get('default_params').get('target_ev_ebitda'):
+                                    implied_ev_multiplier = float(cluster_config.get('default_params').get('target_ev_ebitda'))
+                                    if ebitda:
+                                        implied_ev = float(implied_ev_multiplier) * float(ebitda)
+                        except Exception:
+                            implied_ev = None
+
+                        implied_price = None
+                        try:
+                            if implied_ev is not None and net_debt is not None and shares_out:
+                                implied_price = float(implied_ev - net_debt) / float(shares_out)
+                        except Exception:
+                            implied_price = None
+
                         master_data[symbol].update({
                             "theme_id": theme_id,
                             "theme_display_name": theme_display_name,
@@ -119,6 +194,16 @@ def update_research_report():
                             "insight_link": cluster_config.get('insight_link', master_data[symbol].get('insight_link', f"/insight/{symbol.lower()}")),
                             "tag": cluster_config.get('tag', master_data[symbol].get('tag', 'grey')),
                             "current_price": clean_val(price),
+                            "shares_outstanding": shares_out,
+                            "enterprise_value": clean_val(enterprise_value),
+                            "enterprise_to_ebitda": clean_val(enterprise_to_ebitda),
+                            "ebitda": clean_val(ebitda),
+                            "total_debt": clean_val(total_debt),
+                            "total_cash": clean_val(total_cash),
+                            "net_debt": clean_val(net_debt),
+                            "implied_ev": clean_val(implied_ev),
+                            "implied_ev_multiplier": clean_val(implied_ev_multiplier),
+                            "implied_price": clean_val(implied_price),
                             "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                         })
                         
