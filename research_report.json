@@ -1083,7 +1083,11 @@
         "ps": 9.54,
         "pb": 40.4,
         "last_updated": "2026-05-09 16:27:35",
-        "revenue_ttm": 451442016256.0
+        "revenue_ttm": 451442016256.0,
+        "symbol": "AAPL",
+        "theme_id": "consumer_edge_ai",
+        "cluster_id": "consumer_apps",
+        "calc_growth": null
     },
     "NFLX": {
         "editor_note": "請填入個人觀點...",
@@ -1139,7 +1143,11 @@
         "ps": 4.18,
         "pb": 8.99,
         "last_updated": "2026-05-09 16:27:36",
-        "revenue_ttm": 24452999168.0
+        "revenue_ttm": 24452999168.0,
+        "symbol": "ADBE",
+        "theme_id": "consumer_edge_ai",
+        "cluster_id": "consumer_apps",
+        "calc_growth": null
     },
     "CRM": {
         "editor_note": "請填入個人觀點...",
@@ -1167,7 +1175,11 @@
         "ps": 3.58,
         "pb": 2.86,
         "last_updated": "2026-05-09 16:27:37",
-        "revenue_ttm": 41524998144.0
+        "revenue_ttm": 41524998144.0,
+        "symbol": "CRM",
+        "theme_id": "consumer_edge_ai",
+        "cluster_id": "consumer_apps",
+        "calc_growth": null
     },
     "CRWD": {
         "editor_note": "請填入個人觀點...",
@@ -1195,7 +1207,11 @@
         "ps": 27.92,
         "pb": 30.2,
         "last_updated": "2026-05-09 16:27:37",
-        "revenue_ttm": 4812004864.0
+        "revenue_ttm": 4812004864.0,
+        "symbol": "CRWD",
+        "theme_id": "consumer_edge_ai",
+        "cluster_id": "consumer_apps",
+        "calc_growth": null
     },
     "IONQ": {
         "editor_note": "請填入個人觀點...",
@@ -2012,7 +2028,11 @@
         "ps": 8.55,
         "pb": 5.56,
         "last_updated": "2026-05-09 16:27:55",
-        "revenue_ttm": 390702016.0
+        "revenue_ttm": 390702016.0,
+        "symbol": "AMBA",
+        "theme_id": "consumer_edge_ai",
+        "cluster_id": "consumer_apps",
+        "calc_growth": null
     },
     "ISRG": {
         "editor_note": "請填入個人觀點...",
@@ -2372,5 +2392,71 @@
         "book_value_per_share": 2.104,
         "target_pb": 366.44,
         "sector_median_pb": 21.04
+    },
+    "SNOW": {
+        "symbol": "SNOW",
+        "theme_id": "consumer_edge_ai",
+        "cluster_id": "consumer_apps",
+        "sector_name": "終端設備與 AI SaaS",
+        "theme_display_name": "consumer_edge_ai",
+        "calc_type": "peg_growth",
+        "insight_link": "/ai-consumer-monetization",
+        "tag": "purple",
+        "default_params": {
+            "g": 18,
+            "target_ps": 6.0
+        },
+        "market_consensus_eps_current": null,
+        "market_consensus_eps_forward": null,
+        "calc_growth": null,
+        "growth_estimate": null,
+        "revenue_estimate": null,
+        "shares_outstanding": null,
+        "current_price": null,
+        "last_updated": "2026-05-13 11:07:00"
+    },
+    "PLTR": {
+        "symbol": "PLTR",
+        "theme_id": "consumer_edge_ai",
+        "cluster_id": "consumer_apps",
+        "sector_name": "終端設備與 AI SaaS",
+        "theme_display_name": "consumer_edge_ai",
+        "calc_type": "peg_growth",
+        "insight_link": "/ai-consumer-monetization",
+        "tag": "purple",
+        "default_params": {
+            "g": 18,
+            "target_ps": 6.0
+        },
+        "market_consensus_eps_current": null,
+        "market_consensus_eps_forward": null,
+        "calc_growth": null,
+        "growth_estimate": null,
+        "revenue_estimate": null,
+        "shares_outstanding": null,
+        "current_price": null,
+        "last_updated": "2026-05-13 11:08:15"
+    },
+    "DDOG": {
+        "symbol": "DDOG",
+        "theme_id": "consumer_edge_ai",
+        "cluster_id": "consumer_apps",
+        "sector_name": "終端設備與 AI SaaS",
+        "theme_display_name": "consumer_edge_ai",
+        "calc_type": "peg_growth",
+        "insight_link": "/ai-consumer-monetization",
+        "tag": "purple",
+        "default_params": {
+            "g": 18,
+            "target_ps": 6.0
+        },
+        "market_consensus_eps_current": null,
+        "market_consensus_eps_forward": null,
+        "calc_growth": null,
+        "growth_estimate": null,
+        "revenue_estimate": null,
+        "shares_outstanding": null,
+        "current_price": null,
+        "last_updated": "2026-05-13 11:09:30"
     }
 }
