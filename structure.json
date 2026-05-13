@@ -12,18 +12,8 @@
                             "name": "核心計算引擎 (GPU/CPU/TPU)",
                             "subtitle": "AI 晶片與核心算力 / PEG 驅動",
                             "logic_type": "peg_growth",
-                            "default_params": {
-                                "g": 28,
-                                "target_ps": 8.0
-                            },
-                            "symbols": [
-                                "NVDA",
-                                "AMD",
-                                "GOOGL",
-                                "ARM",
-                                "TSM",
-                                "QCOM"
-                            ],
+                            "default_params": { "g": 28, "target_ps": 8.0 },
+                            "symbols": ["NVDA","AMD","GOOGL","ARM","TSM","QCOM"],
                             "insight_link": "/xpu-market-share-2026",
                             "tag": "blue"
                         },
@@ -31,13 +21,8 @@
                             "name": "成熟運算平台與 IDM",
                             "subtitle": "成熟半導體 / P/E 驅動",
                             "logic_type": "pe",
-                            "default_params": {
-                                "target_pe": 18.0
-                            },
-                            "symbols": [
-                                "INTC",
-                                "TXN"
-                            ],
+                            "default_params": { "target_pe": 18.0 },
+                            "symbols": ["INTC","TXN"],
                             "insight_link": "/mature-compute-platforms",
                             "tag": "blue"
                         }
@@ -50,16 +35,8 @@
                             "name": "HBM、NAND與企業級儲存",
                             "subtitle": "AI Memory Hierarchy / 景氣循環驅動",
                             "logic_type": "ps_cycle",
-                            "default_params": {
-                                "target_ps": 10,
-                                "cycle_stage": "Mid"
-                            },
-                            "symbols": [
-                                "MU",
-                                "SNDK",
-                                "WDC",
-                                "STX"
-                            ],
+                            "default_params": { "target_ps": 10, "cycle_stage": "Mid" },
+                            "symbols": ["MU","SNDK","WDC","STX"],
                             "insight_link": "/ai-memory-storage",
                             "tag": "orange"
                         }
@@ -72,18 +49,8 @@
                             "name": "雲端服務商",
                             "subtitle": "AI 雲端平台 / P/E 驅動",
                             "logic_type": "peg_growth",
-                             "default_params": {
-                                "g": 20,
-                                "target_ps": 7.0
-                            },
-                            "symbols": [
-                                "MSFT",
-                                "AMZN",
-                                "NBIS",
-                                "CRWV",
-                                "META",
-                                "ORCL"
-                            ],
+                            "default_params": { "g": 20, "target_ps": 7.0 },
+                            "symbols": ["MSFT","AMZN","NBIS","CRWV","META","ORCL"],
                             "insight_link": "/csp-capex-tracker",
                             "tag": "purple"
                         }
@@ -96,22 +63,8 @@
                             "name": "矽光子與高速互聯",
                             "subtitle": "AI Networking / PEG 驅動",
                             "logic_type": "peg_growth",
-                            "default_params": {
-                                "g": 22,
-                                "target_ps": 7.0
-                            },
-                            "symbols": [
-                                "AVGO",
-                                "MRVL",
-                                "CRDO",
-                                "COHR",
-                                "LITE",
-                                "AAOI",
-                                "AXTI",
-                                "CIEN",
-                                "FN",
-                                "ANET"
-                            ],
+                            "default_params": { "g": 22, "target_ps": 7.0 },
+                            "symbols": ["AVGO","MRVL","CRDO","COHR","LITE","AAOI","AXTI","CIEN","FN","ANET"],
                             "insight_link": "/cpo-silicon-photonics",
                             "tag": "orange"
                         },
@@ -119,14 +72,8 @@
                             "name": "通訊基礎設施與光纖",
                             "subtitle": "成熟通訊設備 / P/E 驅動",
                             "logic_type": "pe",
-                            "default_params": {
-                                "target_pe": 15.0
-                            },
-                            "symbols": [
-                                "CSCO",
-                                "GLW",
-                                "NOK"
-                            ],
+                            "default_params": { "target_pe": 15.0 },
+                            "symbols": ["CSCO","GLW","NOK"],
                             "insight_link": "/telecom-infrastructure-2026",
                             "tag": "blue"
                         }
@@ -136,296 +83,195 @@
                     "name": "伺服器、機櫃與散熱",
                     "subtitle": "AI Datacenter CAPEX / EV EBITDA 驅動",
                     "logic_type": "ev_ebitda",
-                    "default_params": {
-                        "target_ev_ebitda": 18.0
-                    },
-                    "symbols": [
-                        "SMCI",
-                        "VRT",
-                        "DELL",
-                        "HPE",
-                        "ETN",
-                        "MOD"
-                    ],
+                    "default_params": { "target_ev_ebitda": 18.0 },
+                    "symbols": ["SMCI","VRT","DELL","HPE","ETN","MOD"],
                     "insight_link": "/server-thermal-supply-chain",
                     "tag": "purple"
+                },
+                "consumer_edge_ai": {
+                    "name": "終端應用與邊緣 AI",
+                    "clusters": {
+                        "consumer_apps": {
+                            "name": "終端設備與 AI SaaS",
+                            "subtitle": "AI 軟硬整合 / PEG 驅動",
+                            "logic_type": "peg_growth",
+                            "default_params": { "g": 18, "target_ps": 6.0 },
+                            "symbols": ["AAPL","ADBE","CRM","CRWD","SNOW","PLTR","DDOG","AMBA"],
+                            "insight_link": "/ai-consumer-monetization",
+                            "tag": "purple"
+                        }
+                    }
                 }
             }
         },
-        "consumer_edge_ai": {
-            "name": "終端應用與邊緣 AI",
-            "clusters": {
-                "consumer_apps": {
-                    "name": "終端設備與 AI SaaS",
-                    "subtitle": "AI 軟硬整合 / PEG 驅動",
-                    "logic_type": "peg_growth",
-                    "default_params": {
-                        "g": 18,
-                        "target_ps": 6.0
-                    },
-                    "symbols": [
-                        "AAPL",
-                        "ADBE",
-                        "CRM",
-                        "CRWD",
-                        "SNOW",
-                        "PLTR",
-                        "DDOG",
-                        "AMBA"
-                    ],
-                    "insight_link": "/ai-consumer-monetization",
-                    "tag": "purple"
-                }
-            }
-        }
-    },
-    "FRONTIER_TECH": {
-        "display_name": "前沿與突破性科技",
-        "sectors": {
-            "quantum_lab": {
-                "name": "量子計算實驗室",
-                "clusters": {
-                    "quantum_computing": {
-                        "name": "量子計算",
-                        "subtitle": "前沿科技 / 里程碑驅動",
-                        "logic_type": "milestone",
-                        "default_params": {
-                            "success_prob": 0.2
-                        },
-                        "symbols": [
-                            "IONQ",
-                            "RGTI",
-                            "QBTS"
-                        ],
-                        "insight_link": "/quantum-computing-roadmap",
-                        "tag": "purple"
+        "FRONTIER_TECH": {
+            "display_name": "前沿與突破性科技",
+            "sectors": {
+                "quantum_lab": {
+                    "name": "量子計算實驗室",
+                    "clusters": {
+                        "quantum_computing": {
+                            "name": "量子計算",
+                            "subtitle": "前沿科技 / 里程碑驅動",
+                            "logic_type": "milestone",
+                            "default_params": { "success_prob": 0.2 },
+                            "symbols": ["IONQ","RGTI","QBTS"],
+                            "insight_link": "/quantum-computing-roadmap",
+                            "tag": "purple"
+                        }
                     }
-                }
-            },
-            "space_economy": {
-                "name": "太空經濟與衛星",
-                "clusters": {
-                    "space_systems": {
-                        "name": "商業太空與衛星系統",
-                        "subtitle": "太空基建 / 里程碑驅動",
-                        "logic_type": "milestone",
-                        "default_params": {
-                            "success_prob": 0.25
+                },
+                "space_economy": {
+                    "name": "太空經濟與衛星",
+                    "clusters": {
+                        "space_systems": {
+                            "name": "商業太空與衛星系統",
+                            "subtitle": "太空基建 / 里程碑驅動",
+                            "logic_type": "milestone",
+                            "default_params": { "success_prob": 0.25 },
+                            "symbols": ["RKLB","ASTS","LUNR","RDW","PL"],
+                            "insight_link": "/space-launch",
+                            "tag": "blue"
                         },
-                        "symbols": [
-                            "RKLB",
-                            "ASTS",
-                            "LUNR",
-                            "RDW",
-                            "PL"
-                        ],
-                        "insight_link": "/space-launch",
-                        "tag": "blue"
-                    },
-                    "satellite_operators": {
-                        "name": "衛星通訊運營商",
-                        "subtitle": "成熟衛星服務 / P/E 驅動",
-                        "logic_type": "pe",
-                        "default_params": {
-                            "target_pe": 14.0
-                        },
-                        "symbols": [
-                            "IRDM",
-                            "GSAT",
-                            "SATS"
-                        ],
-                        "insight_link": "/satellite-operators",
-                        "tag": "blue"
+                        "satellite_operators": {
+                            "name": "衛星通訊運營商",
+                            "subtitle": "成熟衛星服務 / P/E 驅動",
+                            "logic_type": "pe",
+                            "default_params": { "target_pe": 14.0 },
+                            "symbols": ["IRDM","GSAT","SATS"],
+                            "insight_link": "/satellite-operators",
+                            "tag": "blue"
+                        }
                     }
-                }
-            },
-            "solar_revolution": {
-                "name": "太陽能革命",
-                "clusters": {
-                    "solar_manufacturing": {
-                        "name": "太陽能製造商",
-                        "subtitle": "景氣循環製造業 / EV EBITDA 驅動",
-                        "logic_type": "ev_ebitda",
-                        "default_params": {
-                            "target_ev_ebitda": 10.0
-                        },
-                        "symbols": [
-                            "FSLR",
-                            "JKS"
-                        ],
-                        "insight_link": "/solar-manufacturing",
-                        "tag": "green"
+                },
+                "solar_revolution": {
+                    "name": "太陽能革命",
+                    "clusters": {
+                        "solar_manufacturing": {
+                            "name": "太陽能製造商",
+                            "subtitle": "景氣循環製造業 / EV EBITDA 驅動",
+                            "logic_type": "ev_ebitda",
+                            "default_params": { "target_ev_ebitda": 10.0 },
+                            "symbols": ["FSLR","JKS"],
+                            "insight_link": "/solar-manufacturing",
+                            "tag": "green"
+                        }
                     }
                 }
             }
-        }
-    },
-    "ENERGY_AI_INFRA": {
-        "display_name": "AI基建與電力革命",
-        "sectors": {
-            "ai_power_infra": {
-                "name": "AI 電力基建",
-                "clusters": {
-                    "power_infrastructure": {
-                        "name": "AI 電力基建",
-                        "subtitle": "電網與資料中心電力 / P/E 驅動",
-                        "logic_type": "pe",
-                        "default_params": {
-                            "target_pe": 20.0
-                        },
-                        "symbols": [
-                            "PWR",
-                            "ETN",
-                            "VRT",
-                            "MYRG",
-                            "CEG",
-                            "NEE"
-                        ],
-                        "insight_link": "/ai-power-infrastructure",
-                        "tag": "orange"
+        },
+        "ENERGY_AI_INFRA": {
+            "display_name": "AI基建與電力革命",
+            "sectors": {
+                "ai_power_infra": {
+                    "name": "AI 電力基建",
+                    "clusters": {
+                        "power_infrastructure": {
+                            "name": "AI 電力基建",
+                            "subtitle": "電網與資料中心電力 / P/E 驅動",
+                            "logic_type": "pe",
+                            "default_params": { "target_pe": 20.0 },
+                            "symbols": ["PWR","ETN","VRT","MYRG","CEG","NEE"],
+                            "insight_link": "/ai-power-infrastructure",
+                            "tag": "orange"
+                        }
                     }
-                }
-            },
-            "nuclear_uranium": {
-                "name": "核能與鈾",
-                "clusters": {
-                    "nuclear_breakthrough": {
-                        "name": "小型反應爐與突破技術",
-                        "subtitle": "核能創新 / 里程碑驅動",
-                        "logic_type": "milestone",
-                        "default_params": {
-                            "success_prob": 0.3
+                },
+                "nuclear_uranium": {
+                    "name": "核能與鈾",
+                    "clusters": {
+                        "nuclear_breakthrough": {
+                            "name": "小型反應爐與突破技術",
+                            "subtitle": "核能創新 / 里程碑驅動",
+                            "logic_type": "milestone",
+                            "default_params": { "success_prob": 0.3 },
+                            "symbols": ["OKLO","SMR","NNE"],
+                            "insight_link": "/nuclear-breakthrough",
+                            "tag": "green"
                         },
-                        "symbols": [
-                            "OKLO",
-                            "SMR",
-                            "NNE"
-                        ],
-                        "insight_link": "/nuclear-breakthrough",
-                        "tag": "green"
-                    },
-                    "nuclear_operators": {
-                        "name": "核能運營與鈾資源",
-                        "subtitle": "核電與燃料循環 / P/E 驅動",
-                        "logic_type": "pe",
-                        "default_params": {
-                            "target_pe": 15.0
-                        },
-                        "symbols": [
-                            "CCJ",
-                            "LEU",
-                            "VST",
-                            "NEE"
-                        ],
-                        "insight_link": "/nuclear-operators",
-                        "tag": "green"
+                        "nuclear_operators": {
+                            "name": "核能運營與鈾資源",
+                            "subtitle": "核電與燃料循環 / P/E 驅動",
+                            "logic_type": "pe",
+                            "default_params": { "target_pe": 15.0 },
+                            "symbols": ["CCJ","LEU","VST","NEE"],
+                            "insight_link": "/nuclear-operators",
+                            "tag": "green"
+                        }
                     }
-                }
-            },
-            "power_semiconductors": {
-                "name": "電氣化與功率半導體",
-                "clusters": {
-                    "power_chips": {
-                        "name": "功率半導體與電氣化",
-                        "subtitle": "電氣化趨勢 / PEG 驅動",
-                        "logic_type": "peg_growth",
-                        "default_params": {
-                            "g": 18,
-                            "target_ps": 6.0
+                },
+                "power_semiconductors": {
+                    "name": "電氣化與功率半導體",
+                    "clusters": {
+                        "power_chips": {
+                            "name": "功率半導體與電氣化",
+                            "subtitle": "電氣化趨勢 / PEG 驅動",
+                            "logic_type": "peg_growth",
+                            "default_params": { "g": 18, "target_ps": 6.0 },
+                            "symbols": ["ON","IFNNY"],
+                            "insight_link": "/power-semiconductor-boom",
+                            "tag": "blue"
                         },
-                        "symbols": [
-                            "ON",
-                            "IFNNY"
-                        ],
-                        "insight_link": "/power-semiconductor-boom",
-                        "tag": "blue"
-                    },
-                    "high_risk_power_chips": {
-                        "name": "高風險功率半導體",
-                        "subtitle": "轉機與產能風險 / milestone 驅動",
-                        "logic_type": "milestone",
-                        "default_params": {
-                            "success_prob": 0.35
-                        },
-                        "symbols": [
-                            "WOLF"
-                        ],
-                        "insight_link": "/sic-transition",
-                        "tag": "blue"
+                        "high_risk_power_chips": {
+                            "name": "高風險功率半導體",
+                            "subtitle": "轉機與產能風險 / milestone 驅動",
+                            "logic_type": "milestone",
+                            "default_params": { "success_prob": 0.35 },
+                            "symbols": ["WOLF"],
+                            "insight_link": "/sic-transition",
+                            "tag": "blue"
+                        }
                     }
-                }
-            },
-            "energy_storage": {
-                "name": "能源儲存與工業自動化",
-                "clusters": {
-                    "storage_growth": {
-                        "name": "儲能與能源平台",
-                        "subtitle": "高成長能源系統 / PEG 驅動",
-                        "logic_type": "peg_growth",
-                        "default_params": {
-                            "g": 22,
-                            "target_ps": 6.0
+                },
+                "energy_storage": {
+                    "name": "能源儲存與工業自動化",
+                    "clusters": {
+                        "storage_growth": {
+                            "name": "儲能與能源平台",
+                            "subtitle": "高成長能源系統 / PEG 驅動",
+                            "logic_type": "peg_growth",
+                            "default_params": { "g": 22, "target_ps": 6.0 },
+                            "symbols": ["FLNC"],
+                            "insight_link": "/energy-storage-growth",
+                            "tag": "purple"
                         },
-                        "symbols": [
-                            "FLNC"
-                        ],
-                        "insight_link": "/energy-storage-growth",
-                        "tag": "purple"
-                    },
-                    "industrial_automation": {
-                        "name": "工業自動化",
-                        "subtitle": "成熟工業科技 / P/E 驅動",
-                        "logic_type": "pe",
-                        "default_params": {
-                            "target_pe": 18.0
-                        },
-                        "symbols": [
-                            "ROK",
-                            "SIEGY"
-                        ],
-                        "insight_link": "/industrial-automation",
-                        "tag": "purple"
+                        "industrial_automation": {
+                            "name": "工業自動化",
+                            "subtitle": "成熟工業科技 / P/E 驅動",
+                            "logic_type": "pe",
+                            "default_params": { "target_pe": 18.0 },
+                            "symbols": ["ROK","SIEGY"],
+                            "insight_link": "/industrial-automation",
+                            "tag": "purple"
+                        }
                     }
                 }
             }
-        }
-    },
-    "AUTONOMY_ROBOTICS": {
-        "display_name": "自動駕駛與機器人",
-        "sectors": {
-            "autonomous_vehicles": {
-                "name": "自動駕駛與機器人",
-                "clusters": {
-                    "av_platforms": {
-                        "name": "自動駕駛平台",
-                        "subtitle": "Robotaxi 與 AI Mobility / PEG 驅動",
-                        "logic_type": "peg_growth",
-                        "default_params": {
-                            "g": 30,
-                            "target_ps": 7.0
+        },
+        "AUTONOMY_ROBOTICS": {
+            "display_name": "自動駕駛與機器人",
+            "sectors": {
+                "autonomous_vehicles": {
+                    "name": "自動駕駛與機器人",
+                    "clusters": {
+                        "av_platforms": {
+                            "name": "自動駕駛平台",
+                            "subtitle": "Robotaxi 與 AI Mobility / PEG 驅動",
+                            "logic_type": "peg_growth",
+                            "default_params": { "g": 30, "target_ps": 7.0 },
+                            "symbols": ["TSLA","UBER","MBLY"],
+                            "insight_link": "/robotaxi-economics",
+                            "tag": "purple"
                         },
-                        "symbols": [
-                            "TSLA",
-                            "UBER",
-                            "MBLY"
-                        ],
-                        "insight_link": "/robotaxi-economics",
-                        "tag": "purple"
-                    },
-                    "robotics_automation": {
-                        "name": "機器人與自動化",
-                        "subtitle": "機器人平台 / P/E 與 PEG 混合",
-                        "logic_type": "pe",
-                        "default_params": {
-                            "target_pe": 30.0
-                        },
-                        "symbols": [
-                            "ISRG",
-                            "PATH",
-                            "SYM"
-                        ],
-                        "insight_link": "/robotics-automation",
-                        "tag": "purple"
+                        "robotics_automation": {
+                            "name": "機器人與自動化",
+                            "subtitle": "機器人平台 / P/E 與 PEG 混合",
+                            "logic_type": "pe",
+                            "default_params": { "target_pe": 30.0 },
+                            "symbols": ["ISRG","PATH","SYM"],
+                            "insight_link": "/robotics-automation",
+                            "tag": "purple"
+                        }
                     }
                 }
             }
