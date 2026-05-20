@@ -1,5 +1,5 @@
 {
-    "version": "2026.2.0",
+    "version": "2026.2.1",
     "lab_name": "AI & Frontier Tech Investment Lab",
     "themes": {
         "AI_TECH": {
@@ -13,9 +13,18 @@
                             "subtitle": "AI 晶片與核心算力 / PEG 驅動",
                             "logic_type": "peg_growth",
                             "default_params": { "g": 28, "target_ps": 8.0 },
-                            "symbols": ["NVDA","AMD","GOOGL","ARM","TSM","QCOM"],
+                            "symbols": ["NVDA","AMD","GOOGL","ARM","TSM","QCOM","INTC"],
                             "insight_link": "/xpu-market-share-2026",
                             "tag": "blue"
+                        },
+                        "emerging_compute": {
+                            "name": "新興計算架構與 Inference Specialists",
+                            "subtitle": "Wafer-scale / Alternative Compute / Milestone + High Growth",
+                            "logic_type": "milestone",
+                            "default_params": { "success_prob": 0.45 },
+                            "symbols": ["CBRS"],
+                            "insight_link": "/emerging-xpu-inference",
+                            "tag": "purple"
                         },
                         "mature_compute_platforms": {
                             "name": "成熟運算平台與 IDM",
@@ -36,7 +45,7 @@
                             "subtitle": "AI Memory Hierarchy / 景氣循環驅動",
                             "logic_type": "ps_cycle",
                             "default_params": { "target_ps": 10, "cycle_stage": "Mid" },
-                            "symbols": ["MU","SNDK","WDC","STX"],
+                            "symbols": ["MU","SNDK","WDC","STX","000660.KS","SSNLF"],
                             "insight_link": "/ai-memory-storage",
                             "tag": "orange"
                         }
@@ -64,7 +73,7 @@
                             "subtitle": "AI Networking / PEG 驅動",
                             "logic_type": "peg_growth",
                             "default_params": { "g": 22, "target_ps": 7.0 },
-                            "symbols": ["AVGO","MRVL","CRDO","COHR","LITE","AAOI","AXTI","CIEN","FN","ANET"],
+                            "symbols": ["AVGO","MRVL","CRDO","COHR","LITE","AAOI","AXTI","CIEN","FN","ANET","ALAB"],
                             "insight_link": "/cpo-silicon-photonics",
                             "tag": "orange"
                         },
