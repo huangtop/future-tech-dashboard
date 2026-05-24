@@ -21,9 +21,7 @@
                                 "AMD",
                                 "GOOGL",
                                 "ARM",
-                                "TSM",
-                                "QCOM",
-                                "INTC"
+                                "TSM"
                             ],
                             "insight_link": "/xpu-market-share-2026",
                             "tag": "blue"
@@ -137,7 +135,9 @@
                                 "COHR",
                                 "LITE",
                                 "AAOI",
-                                "AXTI"
+                                "AXTI",
+                                "CIEN",
+                                "APH"
                             ],
                             "insight_link": "/cpo-silicon-photonics",
                             "tag": "orange"
@@ -152,9 +152,6 @@
                             },
                             "symbols": [
                                 "ANET",
-                                "AVGO",
-                                "MRVL",
-                                "CIEN",
                                 "FN"
                             ],
                             "insight_link": "/ai-networking-switching",
@@ -186,10 +183,8 @@
                     },
                     "symbols": [
                         "SMCI",
-                        "VRT",
                         "DELL",
                         "HPE",
-                        "ETN",
                         "MOD"
                     ],
                     "insight_link": "/server-thermal-supply-chain",
@@ -199,7 +194,7 @@
                     "name": "終端應用與邊緣 AI",
                     "clusters": {
                         "consumer_apps": {
-                            "name": "終端設備與 AI SaaS",
+                            "name": "終端設備與成熟 AI 軟體",
                             "subtitle": "AI 軟硬整合 / PEG 驅動",
                             "logic_type": "peg_growth",
                             "default_params": {
@@ -210,14 +205,40 @@
                                 "AAPL",
                                 "ADBE",
                                 "CRM",
-                                "CRWD",
-                                "SNOW",
-                                "PLTR",
-                                "DDOG",
                                 "AMBA"
                             ],
                             "insight_link": "/ai-consumer-monetization",
                             "tag": "purple"
+                        },
+                        "ai_saas_platforms": {
+                            "name": "AI SaaS 與資料平台",
+                            "subtitle": "AI 軟體平台 / P/S 驅動",
+                            "logic_type": "ps",
+                            "default_params": {
+                                "target_ps": 18.0,
+                                "g": 25
+                            },
+                            "symbols": [
+                                "CRWD",
+                                "SNOW",
+                                "PLTR",
+                                "DDOG"
+                            ],
+                            "insight_link": "/ai-saas-platforms",
+                            "tag": "purple"
+                        },
+                        "edge_ai_chipsets": {
+                            "name": "邊緣 AI 晶片與終端平台",
+                            "subtitle": "AI Phone、AI PC、Automotive 與 Edge Inference / P/E 驅動",
+                            "logic_type": "pe",
+                            "default_params": {
+                                "target_pe": 20.0
+                            },
+                            "symbols": [
+                                "QCOM"
+                            ],
+                            "insight_link": "/edge-ai-chipsets",
+                            "tag": "blue"
                         }
                     }
                 }
@@ -358,8 +379,7 @@
                             "symbols": [
                                 "CCJ",
                                 "LEU",
-                                "VST",
-                                "NEE"
+                                "VST"
                             ],
                             "insight_link": "/nuclear-operators",
                             "tag": "green"
@@ -386,10 +406,10 @@
                         },
                         "high_risk_power_chips": {
                             "name": "高風險功率半導體",
-                            "subtitle": "轉機與產能風險 / milestone 驅動",
-                            "logic_type": "milestone",
+                            "subtitle": "轉機與產能風險 / P/S 驅動",
+                            "logic_type": "ps",
                             "default_params": {
-                                "success_prob": 0.35
+                                "target_ps": 4.0
                             },
                             "symbols": [
                                 "WOLF"
