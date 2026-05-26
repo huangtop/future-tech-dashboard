@@ -79,6 +79,28 @@
                         }
                     }
                 },
+                "ai_semicap_equipment_test": {
+                    "name": "AI半導體設備與測試",
+                    "clusters": {
+                        "semicap_equipment_test": {
+                            "name": "AI 半導體設備與測試 (曝光/設備/蝕刻/檢測/ATE)",
+                            "subtitle": "Semicap Equipment & Test / 高品質週期成長 / P/E 驅動",
+                            "logic_type": "pe",
+                            "default_params": {
+                                "target_pe": 22.0
+                            },
+                            "symbols": [
+                                "ASML",
+                                "AMAT",
+                                "LRCX",
+                                "KLAC",
+                                "TER"
+                            ],
+                            "insight_link": "/ai-semiconductor-equipment-test",
+                            "tag": "blue"
+                        }
+                    }
+                },
                 "hyperscalers": {
                     "name": "雲端巨頭 (CSP)",
                     "clusters": {
@@ -220,6 +242,8 @@
                             },
                             "symbols": [
                                 "CRWD",
+                                "MDB",
+                                "NOW",
                                 "SNOW",
                                 "PLTR",
                                 "DDOG"
@@ -339,6 +363,8 @@
                                 "target_pe": 20.0
                             },
                             "symbols": [
+                                "BWXT",
+                                "GEV",
                                 "PWR",
                                 "ETN",
                                 "VRT",
@@ -399,7 +425,8 @@
                             },
                             "symbols": [
                                 "ON",
-                                "IFNNY"
+                                "IFNNY",
+                                "STM"
                             ],
                             "insight_link": "/power-semiconductor-boom",
                             "tag": "blue"
@@ -469,6 +496,7 @@
                                 "target_ps": 7.0
                             },
                             "symbols": [
+                                "ABB",
                                 "TSLA",
                                 "UBER",
                                 "MBLY"
