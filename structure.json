@@ -265,6 +265,59 @@
                             "tag": "blue"
                         }
                     }
+                },
+                "power_semiconductors": {
+                    "name": "電氣化與功率半導體",
+                    "clusters": {
+                        "ai_power_architecture": {
+                        "name": "AI 電力架構與 GaN/SiC",
+                        "subtitle": "AI Data Center / 800V HVDC / P/S 驅動",
+                        "logic_type": "ps",
+                        "default_params": {
+                            "target_ps": 10.0,
+                            "g": 35
+                        },
+                        "symbols": [
+                            "NVTS",
+                            "POWI",
+                            "IFNNY",
+                            "STM",
+                            "ON"
+                        ],
+                        "insight_link": "/ai-power-semiconductors",
+                        "tag": "orange"
+                        },
+                        "power_chips": {
+                        "name": "功率半導體與電氣化",
+                        "subtitle": "車用 SiC / 工業電氣化 / PEG 驅動",
+                        "logic_type": "peg_growth",
+                        "default_params": {
+                            "g": 18,
+                            "target_ps": 6.0
+                        },
+                        "symbols": [
+                            "ON",
+                            "IFNNY",
+                            "STM"
+                        ],
+                        "insight_link": "/power-semiconductor-boom",
+                        "tag": "blue"
+                        },
+                        "high_risk_power_chips": {
+                        "name": "高風險 SiC / GaN 轉機股",
+                        "subtitle": "轉機與產能風險 / P/S 驅動",
+                        "logic_type": "ps",
+                        "default_params": {
+                            "target_ps": 4.0
+                        },
+                        "symbols": [
+                            "WOLF",
+                            "NVTS"
+                        ],
+                        "insight_link": "/sic-gan-transition",
+                        "tag": "red"
+                        }
+                    }
                 }
             }
         },
@@ -409,40 +462,6 @@
                             ],
                             "insight_link": "/nuclear-operators",
                             "tag": "green"
-                        }
-                    }
-                },
-                "power_semiconductors": {
-                    "name": "電氣化與功率半導體",
-                    "clusters": {
-                        "power_chips": {
-                            "name": "功率半導體與電氣化",
-                            "subtitle": "電氣化趨勢 / PEG 驅動",
-                            "logic_type": "peg_growth",
-                            "default_params": {
-                                "g": 18,
-                                "target_ps": 6.0
-                            },
-                            "symbols": [
-                                "ON",
-                                "IFNNY",
-                                "STM"
-                            ],
-                            "insight_link": "/power-semiconductor-boom",
-                            "tag": "blue"
-                        },
-                        "high_risk_power_chips": {
-                            "name": "高風險功率半導體",
-                            "subtitle": "轉機與產能風險 / P/S 驅動",
-                            "logic_type": "ps",
-                            "default_params": {
-                                "target_ps": 4.0
-                            },
-                            "symbols": [
-                                "WOLF"
-                            ],
-                            "insight_link": "/sic-transition",
-                            "tag": "blue"
                         }
                     }
                 },
