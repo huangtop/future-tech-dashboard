@@ -198,19 +198,24 @@
                 },
                 "server_rack_thermal": {
                     "name": "伺服器、機櫃與散熱",
-                    "subtitle": "AI Datacenter CAPEX / EV EBITDA 驅動",
-                    "logic_type": "ev_ebitda",
-                    "default_params": {
-                        "target_ev_ebitda": 18.0
-                    },
-                    "symbols": [
-                        "SMCI",
-                        "DELL",
-                        "HPE",
-                        "MOD"
-                    ],
-                    "insight_link": "/server-thermal-supply-chain",
-                    "tag": "purple"
+                    "clusters": {
+                        "server_thermal_supply": {
+                            "name": "伺服器、機櫃與散熱",
+                            "subtitle": "AI Datacenter CAPEX / EV EBITDA 驅動",
+                            "logic_type": "ev_ebitda",
+                            "default_params": {
+                                "target_ev_ebitda": 18.0
+                            },
+                            "symbols": [
+                                "SMCI",
+                                "DELL",
+                                "HPE",
+                                "MOD"
+                            ],
+                            "insight_link": "/server-thermal-supply-chain",
+                            "tag": "purple"
+                        }
+                    }
                 },
                 "consumer_edge_ai": {
                     "name": "終端應用與邊緣 AI",
