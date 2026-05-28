@@ -284,7 +284,8 @@
                             },
                             "symbols": [
                                 "NVTS",
-                                "POWI"
+                                "POWI",
+                                "AOSL"
                             ],
                             "insight_link": "/ai-power-semiconductors",
                             "tag": "orange"
@@ -300,7 +301,8 @@
                             "symbols": [
                                 "ON",
                                 "IFNNY",
-                                "STM"
+                                "STM",
+                                "VSH"
                             ],
                             "insight_link": "/power-semiconductor-boom",
                             "tag": "blue"
