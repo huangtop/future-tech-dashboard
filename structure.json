@@ -145,25 +145,7 @@
                             "insight_link": "/ai-connectivity-semiconductors",
                             "tag": "purple"
                         },
-                        "silicon_photonics_cpo": {
-                            "name": "矽光子與 CPO 光互聯",
-                            "subtitle": "Silicon Photonics / CPO / Optical I/O / P/S 高成長",
-                            "logic_type": "ps_high_growth",
-                            "default_params": {
-                                "target_ps": 16.0,
-                                "g": 38
-                            },
-                            "symbols": [
-                                "COHR",
-                                "LITE",
-                                "AAOI",
-                                "AXTI",
-                                "CIEN",
-                                "APH"
-                            ],
-                            "insight_link": "/cpo-silicon-photonics",
-                            "tag": "orange"
-                        },
+                        
                         "ai_networking_switching": {
                             "name": "AI 網路交換與資料中心網通",
                             "subtitle": "Ethernet Switching / AI Fabric / PEG",
@@ -193,6 +175,30 @@
                             ],
                             "insight_link": "/telecom-infrastructure-2026",
                             "tag": "blue"
+                        }
+                    }
+                },
+                "ai_cpo_photonics": {
+                    "name": "矽光子與 CPO 光互聯",
+                    "clusters": {
+                        "silicon_photonics_cpo": {
+                            "name": "矽光子與 CPO 光互聯",
+                            "subtitle": "Silicon Photonics / CPO / Optical I/O / P/S 高成長",
+                            "logic_type": "ps_high_growth",
+                            "default_params": {
+                                "target_ps": 16.0,
+                                "g": 38
+                            },
+                            "symbols": [
+                                "COHR",
+                                "LITE",
+                                "AAOI",
+                                "AXTI",
+                                "CIEN",
+                                "APH"
+                            ],
+                            "insight_link": "/cpo-silicon-photonics",
+                            "tag": "orange"
                         }
                     }
                 },
