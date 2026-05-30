@@ -1,0 +1,9 @@
+# Local-only frontend file
+php.php
+
+# Other local files
+*.log
+/tmp/
+.DS_Store
+earnings_dates.json
+.env
