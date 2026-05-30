@@ -47,8 +47,7 @@
                                 "target_pe": 18.0
                             },
                             "symbols": [
-                                "INTC",
-                                "TXN"
+                                "INTC"
                             ],
                             "insight_link": "/mature-compute-platforms",
                             "tag": "blue"
@@ -297,7 +296,7 @@
                             "tag": "orange"
                         },
                         "power_chips": {
-                            "name": "成熟功率半導體與電氣化",
+                            "name": "功率半導體與電氣化",
                             "subtitle": "車用 SiC / 工業電氣化 / PEG 驅動",
                             "logic_type": "peg_growth",
                             "default_params": {
