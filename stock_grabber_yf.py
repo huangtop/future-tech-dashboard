@@ -186,6 +186,7 @@ for theme, theme_info in themes_config.items():
             print(f"\n📂 主題: {theme_display_name} | 板塊: {sector_name} | 群組: {cfg.get('name')}")
             
             for symbol in cfg.get('symbols', []):
+
                 print(f"  > 處理: {symbol}")
                 # init or reset structure for this symbol
                 if symbol not in master_data:
@@ -614,9 +615,97 @@ for theme, theme_info in themes_config.items():
                     'default_params': default_params,
                     'last_updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 })
+                # --- earnings: cache-aware per-symbol fetch (single attempt) ---
+                try:
+                    from earning_report import fetch_earnings_for_symbol, read_cache
+
+                    cache = read_cache()
+                    entry = cache.get(symbol)
+                    need_fetch = False
+
+                    today = datetime.utcnow().date()
+
+                    # decide whether we need to fetch:
+                    # - missing cache entry
+                    # - cached data missing
+                    # - cached next_earnings_date <= today (event passed or is today) -> fetch next
+                    if not entry or not entry.get('data'):
+                        need_fetch = True
+                    else:
+                        data = entry.get('data') or {}
+                        nd = data.get('next_earnings_date')
+                        if not nd:
+                            need_fetch = True
+                        else:
+                            try:
+                                nd_dt = datetime.strptime(nd[:10], '%Y-%m-%d').date()
+                                if nd_dt <= today:
+                                    need_fetch = True
+                            except Exception:
+                                # if parse fails, attempt fetch once
+                                need_fetch = True
+
+                    if need_fetch:
+                        # single attempt fetch; fetch_earnings_for_symbol already falls back to cache on failure
+                        res = fetch_earnings_for_symbol(symbol, force=False)
+                        if res and isinstance(res, dict) and res.get('next_earnings_date'):
+                            master_data[symbol]['next_earnings_date'] = res.get('next_earnings_date')
+                            master_data[symbol]['earnings_countdown'] = res.get('earnings_countdown')
+                        else:
+                            # fetch failed -> keep old cached data if available
+                            if entry and entry.get('data'):
+                                old = entry.get('data')
+                                if old.get('next_earnings_date'):
+                                    master_data[symbol]['next_earnings_date'] = old.get('next_earnings_date')
+                                    master_data[symbol]['earnings_countdown'] = old.get('earnings_countdown')
+                            # else nothing to do
+                    else:
+                        # cache is fresh and date is in future -> use cached value
+                        if entry and entry.get('data') and entry['data'].get('next_earnings_date'):
+                            cd = entry['data']
+                            master_data[symbol]['next_earnings_date'] = cd.get('next_earnings_date')
+                            master_data[symbol]['earnings_countdown'] = cd.get('earnings_countdown')
+
+                except Exception as e:
+                    # fail silently; earnings update is best-effort
+                    # do not retry here
+                    pass
 
 # write out
 with open(output_path, 'w', encoding='utf-8') as f:
     json.dump(master_data, f, ensure_ascii=False, indent=4)
 
 print(f"\n✅ 所有主題與板塊更新完成！輸出檔案：{output_path}")
+
+# --- Integrate earnings update: only run if explicitly enabled via env var
+EARNINGS_ENABLED = os.getenv('EARNINGS_ENABLED', '1')
+if EARNINGS_ENABLED == '1':
+    try:
+        import earning_report
+
+        # avoid duplicate fetch: if earnings_dates.json was just generated (within 1 hour), skip
+        earnings_cache = os.path.join(base_dir, 'earnings_dates.json')
+        do_fetch = True
+        if os.path.exists(earnings_cache):
+            try:
+                mtime = os.path.getmtime(earnings_cache)
+                age = time.time() - mtime
+                if age < 3600:  # less than 1 hour old
+                    print(f"ℹ earnings_dates.json is recent ({int(age)}s); skipping re-fetch.")
+                    do_fetch = False
+            except Exception:
+                do_fetch = True
+
+        if do_fetch:
+            print('\n🔁 開始更新 earnings dates (透過 earning_report.py) ...')
+            try:
+                earning_report.main()
+                print('🔁 earnings dates 更新完成並已合併至 research_report.json（如有）。')
+            except Exception as e:
+                print('⚠ earning_report.main() 執行失敗：', e)
+        else:
+            print('ℹ 跳過 earnings 更新。')
+    except Exception as e:
+        print('⚠ 無法載入 earning_report 模組：', e)
+else:
+    print('ℹ earnings integration disabled (set EARNINGS_ENABLED=1 to enable)')

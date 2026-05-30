@@ -35,9 +35,12 @@ jobs:
         run: |
           if [ -f requirements.txt ]; then python -m pip install --upgrade pip && pip install -r requirements.txt; else echo "no requirements.txt"; fi
 
-      - name: Run stock_grabber_yf.py
+      - name: Run stock grabber (with secret)
+        env:
+          ALPHA_VANTAGE_KEY: ${{ secrets.EarningDates }}
+          EARNINGS_ENABLED: '1'
         run: |
-          python "./stock_grabber_yf.py"
+          python ./stock_grabber_yf.py
 
       - name: Commit and push research_report.json if changed
         env:
