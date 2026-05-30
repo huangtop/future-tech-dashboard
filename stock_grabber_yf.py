@@ -129,7 +129,7 @@ def get_default_fields(symbol, theme, sector_id, cfg):
         'theme_display_name': cfg.get('theme_display_name', ''),
         'sector_id': sector_id,
         'sector_name': cfg.get('name', ''),
-        'calc_type': (cfg.get('logic_type', 'ps').split('_')[0] if isinstance(cfg.get('logic_type', 'ps'), str) else 'ps'),
+        'calc_type': (cfg.get('logic_type', 'ps') if isinstance(cfg.get('logic_type', 'ps'), str) else 'ps'),
         'insight_link': cfg.get('insight_link', f"/insight/{symbol.lower()}"),
         'tag': cfg.get('tag', 'grey'),
         'default_params': cfg.get('default_params', {}),
@@ -576,13 +576,12 @@ for theme, theme_info in themes_config.items():
                         implied_price = float(implied_ev - net_debt) / float(shares_outstanding)
                 except Exception:
                     implied_price = None
-            
                 master_data[symbol].update({
                     'theme': theme,
                     'theme_display_name': theme_display_name,
                     'sector_id': sector_id,
                     'sector_name': cfg.get('name'),
-                    'calc_type': (cfg.get('logic_type', 'ps').split('_')[0] if isinstance(cfg.get('logic_type', 'ps'), str) else 'ps'),
+                        'calc_type': (cfg.get('logic_type', 'ps') if isinstance(cfg.get('logic_type', 'ps'), str) else 'ps'),
                     'insight_link': cfg.get('insight_link', master_data[symbol].get('insight_link')),
                     'tag': cfg.get('tag', master_data[symbol].get('tag', 'grey')),
                     'market_consensus_eps_current': secure_round(eps_current, 4),
