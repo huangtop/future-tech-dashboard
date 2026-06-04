@@ -1,5 +1,5 @@
 {
-  "version": "2026.2.5",
+  "version": "2026.2.6",
   "lab_name": "AI & Frontier Tech Investment Lab",
   "themes": {
     "AI_TECH": {
@@ -54,7 +54,7 @@
           }
         },
         "ai_memory_storage": {
-          "name": "AI 記憶體與儲存",
+          "name": "AI記憶體與儲存",
           "clusters": {
             "hbm_memory": {
               "name": "HBM與高效能記憶體",
@@ -171,7 +171,7 @@
           }
         },
         "ai_interconnect": {
-          "name": "AI 互聯晶片與網路 ASIC",
+          "name": "AI高速互聯與網路ASIC",
           "clusters": {
             "ai_connectivity_semis": {
               "name": "AI 連接晶片、Retimer與高速互聯",
@@ -247,7 +247,7 @@
           }
         },
         "server_rack_thermal": {
-          "name": "伺服器、機櫃與散熱",
+          "name": "AI伺服器與資料中心基礎設施",
           "clusters": {
             "server_datacenter_infra": {
               "name": "AI伺服器與資料中心基礎設施",
@@ -269,7 +269,7 @@
           }
         },
         "ai_software_edge": {
-          "name": "AI 軟體與邊緣應用",
+          "name": "AI軟體與邊緣應用",
           "clusters": {
             "mature_ai_software": {
               "name": "成熟 AI 軟體平台",
@@ -327,7 +327,7 @@
           }
         },
         "power_semiconductors": {
-          "name": "AI 電力架構與功率半導體",
+          "name": "AI電力架構與功率半導體",
           "clusters": {
             "ai_power_architecture": {
               "name": "AI 電力架構與 GaN",
@@ -465,7 +465,7 @@
       "display_name": "AI基建與電力革命",
       "sectors": {
         "ai_power_infra": {
-          "name": "AI 電力基建",
+          "name": "AI電力基建",
           "clusters": {
             "power_infrastructure": {
               "name": "AI 電力基建",
