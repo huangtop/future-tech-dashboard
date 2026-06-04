@@ -223,7 +223,7 @@ for theme, theme_info in themes_config.items():
                                 eps_current = float(est.loc['0y', 'avg']) # 把今年當作基準
                             else:
                                 eps_current = float(est.loc['+1y', 'yearAgoEps'])
-                            growth_estimate = float(est.loc['+1y', 'growth'])
+                            growth_estimate = None
                     
                         # 2. 如果沒有 +1y，退而求其次用 0y (今年)
                         elif '0y' in est.index:
@@ -398,7 +398,13 @@ for theme, theme_info in themes_config.items():
                 current_price = clean_val(market.get('price') or info.get('currentPrice') or info.get('regularMarketPrice'))
                 # TTM revenue (for fallback usage)
                 revenue_ttm = clean_val(market.get('revenue_ttm') or info.get('totalRevenue') or info.get('revenue'))
-
+                # === P/S 股票優先使用營收成長率，而不是 EPS growth ===
+                try:
+                    logic_type = cfg.get('logic_type', '')
+                    if logic_type == 'ps' and revenue_estimate and revenue_ttm and revenue_ttm > 0:
+                        growth_estimate = (float(revenue_estimate) / float(revenue_ttm)) - 1.0
+                except Exception:
+                    pass
                 # Normalize revenue_ttm currency to match revenue_estimate when possible
                 try:
                     fin_currency = info.get('financialCurrency')
