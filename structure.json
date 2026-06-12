@@ -17,10 +17,22 @@
                 "target_ps": 8.0
               },
               "symbols": [
+                "TSM"
+              ],
+              "insight_link": "/xpu-market-share-2026",
+              "tag": "blue"
+            },
+            "core_compute_pe": {
+              "name": "核心計算 - PE 評價",
+              "subtitle": "大型核心計算股 / P/E 驅動",
+              "logic_type": "pe",
+              "default_params": {
+                "target_pe": 30.0
+              },
+              "symbols": [
                 "NVDA",
                 "AMD",
-                "ARM",
-                "TSM"
+                "ARM"
               ],
               "insight_link": "/xpu-market-share-2026",
               "tag": "blue"
