@@ -10,7 +10,7 @@
           "clusters": {
             "compute_engines": {
               "name": "核心計算引擎 (GPU/CPU/TPU)",
-              "subtitle": "AI 晶片與核心算力 / PEG 驅動",
+              "subtitle": "AI 晶片與核心算力",
               "logic_type": "peg_growth",
               "default_params": {
                 "g": 28,
@@ -23,8 +23,8 @@
               "tag": "blue"
             },
             "core_compute_pe": {
-              "name": "核心計算 - PE 評價",
-              "subtitle": "大型核心計算股 / P/E 驅動",
+              "name": "核心計算",
+              "subtitle": "大型核心計算股",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 30.0
@@ -39,7 +39,7 @@
             },
             "emerging_compute": {
               "name": "新興計算架構與 Inference Specialists",
-              "subtitle": "Alternative Compute / Milestone 驅動",
+              "subtitle": "Alternative Compute",
               "logic_type": "milestone",
               "default_params": {
                 "success_prob": 0.18
@@ -52,7 +52,7 @@
             },
             "mature_compute_platforms": {
               "name": "成熟運算平台與 IDM",
-              "subtitle": "成熟半導體 / P/E 驅動",
+              "subtitle": "成熟半導體",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 18.0
@@ -70,7 +70,7 @@
           "clusters": {
             "hbm_memory": {
               "name": "HBM與高效能記憶體",
-              "subtitle": "HBM / AI Memory / P/S 驅動",
+              "subtitle": "HBM / AI Memory",
               "logic_type": "ps",
               "default_params": {
                 "target_ps": 12.0,
@@ -86,7 +86,7 @@
             },
             "ai_storage": {
               "name": "AI儲存與企業級SSD",
-              "subtitle": "Enterprise SSD / AI Storage / P/S 驅動",
+              "subtitle": "Enterprise SSD / AI Storage",
               "logic_type": "ps",
               "default_params": {
                 "target_ps": 10.0,
@@ -107,7 +107,7 @@
           "clusters": {
             "semicap_equipment_test": {
               "name": "AI 半導體設備、材料與測試",
-              "subtitle": "Semicap Equipment / Materials / Test / P/E 驅動",
+              "subtitle": "Semicap Equipment / Materials / Test",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 22.0
@@ -131,7 +131,7 @@
           "clusters": {
             "eda_platforms": {
               "name": "EDA 與晶片設計平台",
-              "subtitle": "AI Chip Design / EDA / P/E 驅動",
+              "subtitle": "AI Chip Design / EDA",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 35.0
@@ -150,7 +150,7 @@
           "clusters": {
             "tier1_hyperscalers": {
               "name": "Tier-1 Hyperscalers",
-              "subtitle": "成熟雲端與 AI 平台 / P/E 驅動",
+              "subtitle": "成熟雲端與 AI 平台 ",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 30.0
@@ -167,7 +167,7 @@
             },
             "ai_cloud_platforms": {
               "name": "AI Cloud 與 GPU 雲端平台",
-              "subtitle": "GPU Cloud / AI Infra Platform / P/S 驅動",
+              "subtitle": "GPU Cloud / AI Infra Platform",
               "logic_type": "ps",
               "default_params": {
                 "target_ps": 10.0,
@@ -205,7 +205,7 @@
             },
             "ai_networking_switching": {
               "name": "AI 網路交換與資料中心網通",
-              "subtitle": "Ethernet Switching / AI Fabric / PEG 驅動",
+              "subtitle": "Ethernet Switching / AI Fabric",
               "logic_type": "peg_growth",
               "default_params": {
                 "g": 28,
@@ -219,7 +219,7 @@
             },
             "mature_telecom_fiber": {
               "name": "成熟通訊設備與光纖材料",
-              "subtitle": "Telecom / Fiber / Mature Infra / P/E 驅動",
+              "subtitle": "Telecom / Fiber / Mature Infra",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 16.0
@@ -263,7 +263,7 @@
           "clusters": {
             "server_datacenter_infra": {
               "name": "AI伺服器與資料中心基礎設施",
-              "subtitle": "AI Datacenter CAPEX / EV EBITDA 驅動",
+              "subtitle": "AI Datacenter CAPEX",
               "logic_type": "ev_ebitda",
               "default_params": {
                 "target_ev_ebitda": 18.0
@@ -285,7 +285,7 @@
           "clusters": {
             "mature_ai_software": {
               "name": "成熟 AI 軟體平台",
-              "subtitle": "成熟 AI Software / PEG 驅動",
+              "subtitle": "成熟 AI Software",
               "logic_type": "peg_growth",
               "default_params": {
                 "g": 18,
@@ -301,7 +301,7 @@
             },
             "ai_saas_data_platforms": {
               "name": "AI SaaS、資料與廣告平台",
-              "subtitle": "AI 軟體、資料與廣告平台 / P/S 驅動",
+              "subtitle": "AI 軟體、資料與廣告平台",
               "logic_type": "ps",
               "default_params": {
                 "target_ps": 18.0,
@@ -320,7 +320,7 @@
             },
             "edge_ai_devices": {
               "name": "邊緣 AI 與終端設備",
-              "subtitle": "AI Phone / AI PC / Edge Inference / P/E 驅動",
+              "subtitle": "AI Phone / AI PC / Edge Inference",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 24.0
@@ -343,7 +343,7 @@
           "clusters": {
             "ai_power_architecture": {
               "name": "AI 電力架構與 GaN",
-              "subtitle": "AI Data Center / 800V HVDC / P/S 驅動",
+              "subtitle": "AI Data Center / 800V HVDC",
               "logic_type": "ps",
               "default_params": {
                 "target_ps": 10.0,
@@ -360,7 +360,7 @@
             },
             "power_chips": {
               "name": "功率半導體與電氣化",
-              "subtitle": "車用 SiC / 工業電氣化 / PEG 驅動",
+              "subtitle": "車用 SiC / 工業電氣化",
               "logic_type": "peg_growth",
               "default_params": {
                 "g": 18,
@@ -377,7 +377,7 @@
             },
             "high_risk_power_chips": {
               "name": "高風險 SiC 轉機股",
-              "subtitle": "轉機與產能風險 / P/S 驅動",
+              "subtitle": "轉機與產能風險",
               "logic_type": "ps",
               "default_params": {
                 "target_ps": 4.0
@@ -400,7 +400,7 @@
           "clusters": {
             "quantum_computing": {
               "name": "量子計算",
-              "subtitle": "前沿科技 / 里程碑驅動",
+              "subtitle": "前沿科技",
               "logic_type": "milestone",
               "default_params": {
                 "success_prob": 0.3
@@ -416,28 +416,41 @@
           }
         },
         "space_economy": {
-          "name": "太空經濟與衛星",
+          "name": "太空基礎設施與發射服務",
           "clusters": {
             "space_systems": {
-              "name": "商業太空與衛星系統",
-              "subtitle": "太空基建 / 里程碑驅動",
+              "name": "太空基礎設施與發射服務",
+              "subtitle": "太空發射與基建",
               "logic_type": "milestone",
               "default_params": {
                 "success_prob": 0.2
               },
               "symbols": [
+                "SPCX",
                 "RKLB",
-                "ASTS",
-                "LUNR",
-                "RDW",
-                "PL"
+                "RDW"
               ],
               "insight_link": "/space-launch",
               "tag": "blue"
             },
+            "space_applications": {
+              "name": "衛星應用與月球經濟",
+              "subtitle": "衛星應用與月球經濟",
+              "logic_type": "milestone",
+              "default_params": {
+                "success_prob": 0.20
+              },
+              "symbols": [
+                "ASTS",
+                "LUNR",
+                "PL"
+              ],
+              "insight_link": "/satellite-operators",
+              "tag": "blue"
+            },
             "satellite_operators": {
               "name": "衛星通訊運營商",
-              "subtitle": "成熟衛星服務 / P/E 驅動",
+              "subtitle": "成熟衛星服務",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 14.0
@@ -457,7 +470,7 @@
           "clusters": {
             "solar_manufacturing": {
               "name": "太陽能製造商",
-              "subtitle": "景氣循環製造業 / EV EBITDA 驅動",
+              "subtitle": "景氣循環製造業",
               "logic_type": "ev_ebitda",
               "default_params": {
                 "target_ev_ebitda": 10.0
@@ -481,7 +494,7 @@
           "clusters": {
             "power_infrastructure": {
               "name": "AI 電力基建",
-              "subtitle": "電網與資料中心電力 / P/E 驅動",
+              "subtitle": "電網與資料中心電力",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 20.0
@@ -505,7 +518,7 @@
           "clusters": {
             "nuclear_breakthrough": {
               "name": "小型反應爐與突破技術",
-              "subtitle": "核能創新 / 里程碑驅動",
+              "subtitle": "核能創新",
               "logic_type": "milestone",
               "default_params": {
                 "success_prob": 0.25
@@ -520,7 +533,7 @@
             },
             "nuclear_operators": {
               "name": "核能運營與鈾資源",
-              "subtitle": "核電與燃料循環 / P/E 驅動",
+              "subtitle": "核電與燃料循環",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 15.0
@@ -540,7 +553,7 @@
           "clusters": {
             "storage_growth": {
               "name": "儲能與能源平台",
-              "subtitle": "高成長能源系統 / PEG 驅動",
+              "subtitle": "高成長能源系統",
               "logic_type": "peg_growth",
               "default_params": {
                 "g": 22,
@@ -554,7 +567,7 @@
             },
             "industrial_automation": {
               "name": "工業自動化",
-              "subtitle": "成熟工業科技 / P/E 驅動",
+              "subtitle": "成熟工業科技",
               "logic_type": "pe",
               "default_params": {
                 "target_pe": 18.0
@@ -578,7 +591,7 @@
           "clusters": {
             "av_platforms": {
               "name": "自動駕駛平台",
-              "subtitle": "Robotaxi 與 AI Mobility / PEG 驅動",
+              "subtitle": "Robotaxi 與 AI Mobility",
               "logic_type": "peg_growth",
               "default_params": {
                 "g": 30,
