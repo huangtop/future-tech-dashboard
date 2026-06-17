@@ -1,6 +1,7 @@
 import requests
 import json
 import numpy as np
+import pandas as pd
 from datetime import datetime
 import time
 import os
@@ -198,7 +199,17 @@ for theme, theme_info in themes_config.items():
                     master_data[symbol]['editor_note'] = note
 
                 # fetch market/financial data (IEX primary, yfinance fallback)
-                market = fetch_stock_data(symbol)
+                # protect against hangs: set socket timeout earlier and time each symbol
+                import socket as _socket, time as _time
+                try:
+                    _t0 = _time.time()
+                    market = fetch_stock_data(symbol)
+                    _dur = _time.time() - _t0
+                    if _dur > 5.0:
+                        print(f"  ⚠ slow fetch for {symbol}: {_dur:.1f}s")
+                except Exception as e:
+                    print(f"  ⚠ fetch_stock_data failed for {symbol}: {e}")
+                    market = get_error_stock_data(symbol)
 
                 # also use yfinance ticker for earnings estimates and shares/book
                 try:
@@ -218,12 +229,19 @@ for theme, theme_info in themes_config.items():
                         # 1. 優先抓取 +1y (明年) 的平均預估，這才是分析師目標價的基準
                         if '+1y' in est.index:
                             eps_forward = float(est.loc['+1y', 'avg'])
-                            # 同時抓取明年相對於今年的成長率
+                            # 同時抓取明年相對於今年的成長率 (若提供 growth 欄位則使用)
                             if '0y' in est.index:
                                 eps_current = float(est.loc['0y', 'avg']) # 把今年當作基準
                             else:
                                 eps_current = float(est.loc['+1y', 'yearAgoEps'])
-                            growth_estimate = None
+                            # prefer explicit growth column if present
+                            try:
+                                if 'growth' in est.columns and not pd.isna(est.loc['+1y', 'growth']):
+                                    growth_estimate = float(est.loc['+1y', 'growth'])
+                                else:
+                                    growth_estimate = None
+                            except Exception:
+                                growth_estimate = None
                     
                         # 2. 如果沒有 +1y，退而求其次用 0y (今年)
                         elif '0y' in est.index:
