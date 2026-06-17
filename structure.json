@@ -148,8 +148,8 @@
         "hyperscalers": {
           "name": "雲端巨頭與 AI Cloud",
           "clusters": {
-            "tier1_hyperscalers": {
-              "name": "Tier-1 Hyperscalers",
+            "雲端巨頭": {
+              "name": "雲端巨頭",
               "subtitle": "成熟雲端與 AI 平台 ",
               "logic_type": "pe",
               "default_params": {
@@ -162,7 +162,7 @@
                 "META",
                 "ORCL"
               ],
-              "insight_link": "/tier1-hyperscalers",
+              "insight_link": "/hyperscalers",
               "tag": "purple"
             },
             "ai_cloud_platforms": {
@@ -591,16 +591,28 @@
           "clusters": {
             "av_platforms": {
               "name": "自動駕駛平台",
-              "subtitle": "Robotaxi 與 AI Mobility",
+              "subtitle": "自動駕駛平台",
               "logic_type": "peg_growth",
               "default_params": {
                 "g": 30,
                 "target_ps": 7.0
               },
               "symbols": [
-                "TSLA",
                 "UBER",
                 "MBLY"
+              ],
+              "insight_link": "/robotaxi-economics",
+              "tag": "purple"
+            },
+            "av_tesla_ps": {
+              "name": "特斯拉",
+              "subtitle": "電動車與自動駕駛",
+              "logic_type": "ps",
+              "default_params": {
+                "target_ps": 15.0
+              },
+              "symbols": [
+                "TSLA"
               ],
               "insight_link": "/robotaxi-economics",
               "tag": "purple"
