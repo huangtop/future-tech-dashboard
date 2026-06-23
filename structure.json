@@ -127,7 +127,7 @@
             "specialty_foundry": {
               "name": "特色製程與成熟晶圓代工",
               "subtitle": "Analog / RF / Power Foundry",
-              "logic_type": "pe",
+              "logic_type": "ps",
               "default_params": {
                 "target_pe": 18.0
               },
