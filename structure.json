@@ -123,6 +123,19 @@
               ],
               "insight_link": "/ai-semiconductor-equipment-test",
               "tag": "blue"
+            },
+            "specialty_foundry": {
+              "name": "特色製程與成熟晶圓代工",
+              "subtitle": "Analog / RF / Power Foundry",
+              "logic_type": "pe",
+              "default_params": {
+                "target_pe": 18.0
+              },
+              "symbols": [
+                "TSEM",
+                "UMC"
+              ],
+              "tag": "blue"
             }
           }
         },
@@ -264,7 +277,7 @@
             "server_datacenter_infra": {
               "name": "AI伺服器與資料中心基礎設施",
               "subtitle": "AI Datacenter CAPEX",
-              "logic_type": "ev_ebitda",
+              "logic_type": "pe",
               "default_params": {
                 "target_ev_ebitda": 18.0
               },
