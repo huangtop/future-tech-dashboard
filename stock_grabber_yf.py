@@ -161,9 +161,11 @@ try:
     with open(config_path, 'r', encoding='utf-8') as f:
         structure = json.load(f)
         themes_config = structure.get('themes', {})
+        aliases_map = structure.get('aliases', {})
 except Exception as e:
     print(f"❌ 無法讀取 structure.json: {e}")
     themes_config = {}
+    aliases_map = {}
 
 # load existing master data if present
 try:
@@ -197,6 +199,16 @@ for theme, theme_info in themes_config.items():
                     note = master_data[symbol].get('editor_note', '請填入個人觀點...')
                     master_data[symbol] = get_default_fields(symbol, theme, sector_id, cfg)
                     master_data[symbol]['editor_note'] = note
+
+                # ensure company_name from aliases or fallback to symbol
+                alias_entry = aliases_map.get(symbol)
+                if isinstance(alias_entry, dict):
+                    company_name = alias_entry.get('company_name') or symbol
+                elif isinstance(alias_entry, str):
+                    company_name = alias_entry
+                else:
+                    company_name = symbol
+                master_data[symbol]['company_name'] = company_name
 
                 # fetch market/financial data (IEX primary, yfinance fallback)
                 # protect against hangs: set socket timeout earlier and time each symbol
