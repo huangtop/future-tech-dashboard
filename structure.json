@@ -3,6 +3,7 @@
   "lab_name": "AI & Frontier Tech Investment Lab",
   "aliases": {
     "000660.KS": "SK Hynix",
+    "SKHYV": "SK Hynix",
     "AAOI": "Applied Optoelectronics",
     "AAPL": "Apple",
     "ADBE": "Adobe",
@@ -192,6 +193,7 @@
               "symbols": [
                 "MU",
                 "000660.KS",
+                "SKHYV",
                 "SSNLF"
               ],
               "insight_link": "/hbm-market-analysis",
